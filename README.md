@@ -1,4 +1,4 @@
-# project-lib-typescript
+# template-typescript-lib
 
 ![trunk](https://github.com/prisma-labs/project-lib-typescript/workflows/trunk/badge.svg)
 
