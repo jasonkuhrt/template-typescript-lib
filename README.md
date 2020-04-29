@@ -25,3 +25,4 @@ Project template for TypeScript libraries
 1. If your repo does not have GitHub discussions beta feature then adjust the question issue template to not mention them.
 1. Update the package.json repo field
 1. Update your GitHub org's label-sync repo to include config for your new repo, assuming your org has such a thing. For example for Prisma Labs: [prisma-labs/label-sync](https://github.com/prisma-labs/prisma-labs-labelsync).
+1. Uncomment the trunk publishing in `.github/workflows/trunk.yml`
