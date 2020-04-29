@@ -23,9 +23,9 @@ Project template for TypeScript libraries
 
 #### After starting a new project with this template
 
-1. Setup the repo with an npm token repo secret called `NPM_TOKEN` for CI package publishing.
+1. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` for CI package publishing containing an npm token.
 1. If your repo does not have GitHub discussions beta feature then adjust the question issue template to not mention them.
-1. Update the package.json repo field
-1. Update your GitHub org's label-sync repo to include config for your new repo, assuming your org has such a thing. For example for Prisma Labs: [prisma-labs/label-sync](https://github.com/prisma-labs/prisma-labs-labelsync).
+1. Update the package.json `repo` URL
+1. Update your GitHub org's label-sync repo to include config for your new repo, assuming your org has such a thing. For example for Prisma Labs: [prisma-labs/label-sync](https://github.com/prisma-labs/prisma-labs-labelsync/blob/master/labelsync.ts).
 1. Uncomment the trunk publishing in `.github/workflows/trunk.yml`
 1. Update status badge URL in this readme to point to your org/repo.
