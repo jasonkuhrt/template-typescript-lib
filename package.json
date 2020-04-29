@@ -1,0 +1,41 @@
+{
+  "name": "project-lib-typescript",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "repository": "git@github.com:prisma-labs/project-lib-typescript.git",
+  "author": "Prisma Labs Team",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "dev": "tsc --build --watch",
+    "build": "tsc",
+    "test": "jest",
+    "clean": "rm -rf dist",
+    "release:stable": "dripip stable",
+    "release:preview": "dripip preview",
+    "release:pr": "dripip pr",
+    "prepublishOnly": "yarn -s build"
+  },
+  "devDependencies": {
+    "@prisma-labs/prettier-config": "^0.1.0",
+    "@types/jest": "^25.2.1",
+    "dripip": "^0.9.0",
+    "jest": "^25.5.0",
+    "jest-watch-typeahead": "^0.5.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  },
+  "prettier": "@prisma-labs/prettier-config"
+}
