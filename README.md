@@ -1,5 +1,7 @@
 # project-lib-typescript
 
+![trunk](https://github.com/prisma-labs/project-lib-typescript/workflows/trunk/badge.svg)
+
 Project template for TypeScript libraries
 
 #### Features
@@ -26,3 +28,4 @@ Project template for TypeScript libraries
 1. Update the package.json repo field
 1. Update your GitHub org's label-sync repo to include config for your new repo, assuming your org has such a thing. For example for Prisma Labs: [prisma-labs/label-sync](https://github.com/prisma-labs/prisma-labs-labelsync).
 1. Uncomment the trunk publishing in `.github/workflows/trunk.yml`
+1. Update status badge URL in this readme to point to your org/repo.
