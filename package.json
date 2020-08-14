@@ -21,12 +21,12 @@
   },
   "devDependencies": {
     "@prisma-labs/prettier-config": "0.1.0",
-    "@types/jest": "25.2.3",
+    "@types/jest": "26.0.9",
     "dripip": "0.10.0",
-    "jest": "25.5.4",
+    "jest": "26.4.0",
     "jest-watch-typeahead": "0.6.0",
     "prettier": "2.0.5",
-    "ts-jest": "25.5.1",
+    "ts-jest": "26.2.0",
     "typescript": "3.9.7"
   },
   "jest": {
