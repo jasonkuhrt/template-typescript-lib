@@ -35,6 +35,7 @@ Project template for TypeScript libraries
    1. OS Matrix
 1. [Renovate](https://github.com/renovatebot/renovate) configuration
    1. JSON Schema setup for optimal intellisense
+1. [Yarn 1](https://classic.yarnpkg.com/lang/en/) for package management (mostly for great script runner behaviour)
 
 #### After starting a new project with this template
 
