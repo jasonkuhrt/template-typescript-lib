@@ -1,6 +1,6 @@
 # template-typescript-lib
 
-![trunk](https://github.com/jasonkuhrt/project-lib-typescript/workflows/trunk/badge.svg)
+[![trunk](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yml/badge.svg)](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yml)
 
 Project template for TypeScript libraries
 
