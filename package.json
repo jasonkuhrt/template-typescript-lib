@@ -11,31 +11,24 @@
   "scripts": {
     "format": "prettier --write .",
     "dev": "tsc --build --watch",
-    "build": "tsc",
+    "build": "yarn clean && tsc",
     "test": "jest",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist && rm -rf node_modules/.cache",
     "release:stable": "dripip stable",
     "release:preview": "dripip preview",
     "release:pr": "dripip pr",
-    "prepublishOnly": "yarn -s build"
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@prisma-labs/prettier-config": "0.1.0",
-    "@types/jest": "26.0.9",
+    "@types/jest": "26.0.20",
     "dripip": "0.10.0",
-    "jest": "26.4.0",
-    "jest-watch-typeahead": "0.6.0",
-    "prettier": "2.0.5",
-    "ts-jest": "26.2.0",
-    "typescript": "4.0.2"
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "watchPlugins": [
-      "jest-watch-typeahead/filename",
-      "jest-watch-typeahead/testname"
-    ]
+    "jest": "26.6.3",
+    "jest-watch-typeahead": "0.6.1",
+    "prettier": "2.2.1",
+    "ts-jest": "26.5.1",
+    "ts-node": "^9.1.1",
+    "typescript": "4.1.5"
   },
   "prettier": "@prisma-labs/prettier-config"
 }

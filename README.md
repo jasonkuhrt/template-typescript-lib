@@ -8,10 +8,14 @@ Project template for TypeScript libraries
 
 1. [TypeScript](https://www.typescriptlang.org/)
    1. Strict mode
-   1. Target es2018 which Node as low as version 10 has good support for ([kangax compat table](https://node.green/#ES2018))
-   1. cache setup
-   1. test/src config split
-1. [`jest`](https://jestjs.io) setup with `ts-jest` and handy watch plugins for testing
+   1. All strict flags not included in strict mode
+   1. Target ES 2018 which Node as low as version 10 has good support for ([kangax compat table](https://node.green/#ES2018))
+   1. `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
+   1. Separate `tsconfig.json` for `tests` and `src` respectively
+1. [`jest`](https://jestjs.io) for testing
+   1. Setup with `ts-jest`
+   1. Handy watch mode plugin [`jest-watch-typeahead`](https://github.com/jest-community/jest-watch-typeahead)
+   1. `jest.config.ts` for type safe & intellisense configuration!
 1. [`dripip`](https://github.com/prisma-labs/dripip) for release management
 1. GitHub actions for:
    1. Automated trunk and PR testing across matrix of mac/linux/windows OSes and Node 10/12/14
@@ -20,6 +24,9 @@ Project template for TypeScript libraries
 1. Five issue templates: feature, bug, docs, question, other
 1. [Renovate](https://github.com/renovatebot/renovate) configuration
 1. npm scripts for development lifecycle
+   1. `clean` to remove cache files and dist
+   1. `build` that runs `clean` beforehand 
+   1. `prepublishOnly` that runs `build` beforehand
 
 #### After starting a new project with this template
 
