@@ -17,27 +17,27 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn --frozen-lockfile
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
       - run: yarn -s build
       - run: yarn -s test
-  #
+  
   # todo uncomment me
-  # publish:
+  #
+  # release-canary:
   #   needs: [test]
   #   runs-on: ubuntu-latest
   #   steps:
   #     - uses: actions/checkout@v2
-  #     - name: Get all git commits and tags
-  #       run: git fetch --prune --unshallow --tags
+  #       with:
+  #         fetch-depth: 0
   #     - uses: actions/setup-node@v1
-  #     - name: Install deps
+  #     - name: Install Dependencies
   #       run: yarn --frozen-lockfile
-  #     - name: Make release
-  #       id: release
+  #     - name: Release Canary
   #       env:
   #         NPM_TOKEN: ${{secrets.NPM_TOKEN}}
   #         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   #       run: |
   #         yarn -s dripip preview --json > result.json
-  #         echo '==> Publish Result'
   #         jq '.' < result.json
