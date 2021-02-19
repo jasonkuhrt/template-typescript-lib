@@ -1,8 +1,8 @@
 ---
-name: Docs
-about: Feedback or ideas about the documentation
+name: 🤷‍♂️ Something Else
+about: You have something to say that doesn't obviously fit another category here
 title: ''
-labels: type/docs
+labels: ''
 assignees: ''
 ---
 

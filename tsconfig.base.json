@@ -23,7 +23,7 @@
     // DX
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
-    "noErrorTruncation": true,
+    "noErrorTruncation": true
 
     // Other
     //   Only enable this for applications.

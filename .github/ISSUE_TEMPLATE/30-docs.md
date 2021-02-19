@@ -1,8 +1,8 @@
 ---
-name: Feature
-about: You have an idea for a new capability or a refinement to an existing one
+name: 📗 Docs
+about: You have feedback or ideas about the documentation
 title: ''
-labels: type/feat
+labels: type/docs
 assignees: ''
 ---
 
