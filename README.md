@@ -43,6 +43,7 @@ Project template for TypeScript libraries
 1. Adjust `.github/ISSUE_TEMPLATE/config.yml` to point to your repo discussions URL (or whever else you want!)
 1. Uncomment the trunk publishing in `.github/workflows/trunk.yml`
 1. Search-replace all instances of `jasonkuhrt/project-lib-typescript` to `<your org>/<your repo>`
+1. Update `<YOUR NAME>` in `LICENSE` file
 
 #### Tips
 
