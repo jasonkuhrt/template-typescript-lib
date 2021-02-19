@@ -1,6 +1,6 @@
 {
   "name": "project-lib-typescript",
-  "version": "0.0.0",
+  "version": "0.0.0-dripip",
   "main": "dist/index.js",
   "repository": "git@github.com:jasonkuhrt/project-lib-typescript.git",
   "author": "Jason Kuhrt",
