@@ -11,6 +11,7 @@
     // Output
     "target": "ES2018",
     "module": "commonjs",
+    "moduleResolution": "Node",
     "importHelpers": true,
     "declaration": true,
     "declarationMap": true,

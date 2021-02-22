@@ -4,7 +4,6 @@
     "composite": true,
     "outDir": "dist-esm",
     "module": "ES2015",
-    "moduleResolution": "Node",
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo.esm"
   }
 }
