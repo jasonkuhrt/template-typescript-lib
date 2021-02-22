@@ -40,6 +40,9 @@ Project template for TypeScript libraries
    1. Use `exports` field to give support to both modern `import` and legacy `require` consumers using Node 12.x and up. For details about the `exports` field refer to the [Official Node.js Docs](https://nodejs.org/api/packages.html#packages_package_entry_points) about it.
    1. Use `main` field for legacy versions of Node (before `12.x`) requiring the CJS build.
    1. Use `module` field for legacy bundlers importing the ESM build.
+1. VSCode Settings
+   1. Optimize project search by ignoring `dist`/`dist-esm` directories.
+   1. Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.
 
 #### After starting a new project with this template
 
