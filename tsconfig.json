@@ -18,7 +18,6 @@
 
     // Project layout
     "rootDir": "src",
-    "outDir": "dist",
 
     // DX
     "incremental": true,
@@ -36,4 +35,5 @@
     {
       "name": "typescript-snapshots-plugin"
     }
+  ]
 }
