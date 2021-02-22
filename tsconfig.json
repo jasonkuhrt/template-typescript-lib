@@ -31,5 +31,9 @@
     // "esModuleInterop": true,
   },
   "include": ["src"],
-  "exclude": ["./**/*.spec.ts", "tests"]
+  "exclude": ["./**/*.spec.ts", "tests"],
+  "plugins": [
+    {
+      "name": "typescript-snapshots-plugin"
+    }
 }
