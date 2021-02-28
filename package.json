@@ -18,7 +18,7 @@
   "module": "./dist-esm/index.js",
   "scripts": {
     "format": "prettier --write .",
-    "dev": "tsc --build --watch",
+    "dev": "yarn clean && tsc --build --watch",
     "build": "yarn clean && yarn build:cjs && yarn build:esm",
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:esm": "tsc --project tsconfig.esm.json",
