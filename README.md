@@ -24,16 +24,20 @@ Project template for TypeScript libraries
    1. Config to display discussions link right in new issue type listing UI
 1. [Prettier](https://prettier.io/) for code formating
    1. Prisma Labs config preset, 110 line width
+   1. Setup as a CI check
 1. npm scripts for development lifecycle
    1. `clean` to remove cache files and dist
    1. `build` that runs `clean` beforehand
    1. `prepublishOnly` that runs `build` beforehand
    1. `format` to quickly run prttier over whole codebase
 1. CI with GitHub Actions
-   1. Separate trunk and pull-request workflows.
-   1. Automated trunk and PR testing across matrix of mac/linux/windows OSes and Node 12/14
-   1. Automated preview releases on trunk commits
-   1. OS Matrix
+   1. Separate trunk and pull-request (PR) workflows.
+   1. On PR:
+      1. Prettier Check
+      1. Tests across matrix of mac/linux/windows for Node 12/14
+   1. On trunk:
+      1. Tests across matrix of mac/linux/windows for Node 12/14
+      1. Automated canary release
 1. [Renovate](https://github.com/renovatebot/renovate) configuration
    1. JSON Schema setup for optimal intellisense
 1. [Yarn 1](https://classic.yarnpkg.com/lang/en/) for package management (mostly for great script runner behaviour)
