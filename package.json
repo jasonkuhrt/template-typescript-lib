@@ -19,6 +19,8 @@
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "lint:check": "eslint . --ext .ts,.tsx --max-warnings 0",
     "dev": "yarn clean && tsc --build --watch",
     "build": "yarn clean && yarn build:cjs && yarn build:esm",
     "build:cjs": "tsc --project tsconfig.cjs.json",
@@ -33,7 +35,12 @@
   "devDependencies": {
     "@prisma-labs/prettier-config": "0.1.0",
     "@types/jest": "26.0.20",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
     "dripip": "0.10.0",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-only-warn": "^1.0.2",
     "jest": "26.6.3",
     "jest-watch-typeahead": "0.6.1",
     "prettier": "2.2.1",
