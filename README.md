@@ -31,11 +31,11 @@ Project template for TypeScript libraries
 1. [Prettier](https://prettier.io/) for code formating
    1. Prisma Labs config preset, 110 line width
    1. Setup as a CI check for PRs
-   1. VSCode extension in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
+   1. [VSCode extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
    1. npm script
 1. [`format-imports`](https://github.com/daidodo/format-imports)
    1. Setup as a CI check for PRs
-   1. VSCode extension in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
+   1. [VSCode extension](https://marketplace.visualstudio.com/items?itemName=dozerg.tsimportsorter) in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
    1. npm script
    1. [Config in package.json](https://github.com/daidodo/format-imports#configuration-resolution) to disable [empty lines between groups](https://github.com/daidodo/format-imports/blob/main/docs/interfaces/configuration.md#emptylinesbetweengroups).
 1. npm scripts for development lifecycle
