@@ -32,16 +32,22 @@ Project template for TypeScript libraries
    1. Prisma Labs config preset, 110 line width
    1. Setup as a CI check for PRs
    1. VSCode extension in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
+   1. npm script
+1. [`format-imports`](https://github.com/daidodo/format-imports)
+   1. Setup as a CI check for PRs
+   1. VSCode extension in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
+   1. npm script
 1. npm scripts for development lifecycle
    1. `clean` to remove cache files and dist
    1. `build` that runs `clean` beforehand
    1. `prepublishOnly` that runs `build` beforehand
-   1. `format` to quickly run `prttier` over whole codebase
+   1. `format` to quickly run `prttier` and `format-imports` over whole codebase
    1. `lint` to quickly run `eslint` over whole codebase
 1. CI with GitHub Actions
    1. Separate trunk and pull-request (PR) workflows.
    1. On PR:
       1. Prettier Check
+      1. Format Imports Check
       1. Lint Check
       1. Tests across matrix of mac/linux/windows for Node 12/14
    1. On trunk:

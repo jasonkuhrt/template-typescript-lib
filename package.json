@@ -17,12 +17,14 @@
   "main": "dist/index.js",
   "module": "./dist-esm/index.js",
   "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format": "prettier --write . && format-imports src && format-imports tests",
+    "format:imports:check": "format-imports --check src tests",
+    "format:prettier:check": "prettier --check .",
+    "format:check": "yarn -s format:imports:check && yarn -s format:prettier:check",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "lint:check": "eslint . --ext .ts,.tsx --max-warnings 0",
-    "dev": "yarn clean && tsc --build --watch",
-    "build": "yarn clean && yarn build:cjs && yarn build:esm",
+    "dev": "yarn -s clean && tsc --build --watch",
+    "build": "yarn -s clean && yarn build:cjs && yarn build:esm",
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:esm": "tsc --project tsconfig.esm.json",
     "test": "jest",
@@ -30,7 +32,7 @@
     "release:pr": "dripip pr",
     "release:canary": "dripip preview",
     "release:stable": "dripip stable",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn -s build"
   },
   "devDependencies": {
     "@prisma-labs/prettier-config": "0.1.0",
@@ -41,6 +43,7 @@
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-only-warn": "^1.0.2",
+    "format-imports": "^2.2.1",
     "jest": "26.6.3",
     "jest-watch-typeahead": "0.6.1",
     "prettier": "2.2.1",
