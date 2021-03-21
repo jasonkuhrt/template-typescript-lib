@@ -31,6 +31,7 @@ Project template for TypeScript libraries
 1. [Prettier](https://prettier.io/) for code formating
    1. Prisma Labs config preset, 110 line width
    1. Setup as a CI check for PRs
+   1. VSCode extension in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
 1. npm scripts for development lifecycle
    1. `clean` to remove cache files and dist
    1. `build` that runs `clean` beforehand
