@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@prisma-labs/prettier-config": "0.1.0",
-    "@types/jest": "26.0.20",
+    "@types/jest": "26.0.22",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "dripip": "0.10.0",
