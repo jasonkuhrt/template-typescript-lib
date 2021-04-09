@@ -7,11 +7,12 @@ Project template for TypeScript libraries
 #### Features
 
 1. [TypeScript](https://www.typescriptlang.org/)
-   1. Strict mode
+   1. [`strict`](https://www.typescriptlang.org/tsconfig#strict) enabled
    1. All strict flags not included in strict mode
    1. Target ES 2018 which Node as low as version 10 has good support for ([kangax compat table](https://node.green/#ES2018))
    1. `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
    1. Separate `tsconfig.json` for `tests` and `src` respectively
+   1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size
 1. [ESLint](https://eslint.org/)
    1. TypeScript integration
    1. TS type-checker powered eslint checks enabled

@@ -55,5 +55,8 @@
   "prettier": "@prisma-labs/prettier-config",
   "importSorter": {
     "emptyLinesBetweenGroups": false
+  },
+  "dependencies": {
+    "tslib": "^2.2.0"
   }
 }
