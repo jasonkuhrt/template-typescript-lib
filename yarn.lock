@@ -323,12 +323,12 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@homer0/prettier-plugin-jsdoc@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@homer0/prettier-plugin-jsdoc/-/prettier-plugin-jsdoc-3.0.1.tgz#3d4cc3abf7299d48ce2849498937a093c7dcd781"
-  integrity sha512-J8Ng7aChH39Q0Lkk4nhvoaRaIHqZDxH+xC62+/teGMjDf3Z7fmEE88uHn5BLmCFXQ1Y7SmN/KLwzpJjL4G59Tg==
+"@homer0/prettier-plugin-jsdoc@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@homer0/prettier-plugin-jsdoc/-/prettier-plugin-jsdoc-4.0.0.tgz#c281093c1a48e5bb3e33f562484bcfe0379fbecf"
+  integrity sha512-5n7gVRwTenY6w62EMV3RNWl4UNhNFL2Tm/ZML9TowbWQs59/RygCqNLLWZ1MAkSY64xgp8yW1zJd1WHBqxxxuQ==
   dependencies:
-    comment-parser "1.1.1"
+    comment-parser "^1.1.4"
     prettier "^2.2.1"
     ramda "0.27.1"
 
@@ -1459,10 +1459,10 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-comment-parser@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/comment-parser/-/comment-parser-1.1.1.tgz#c0581d520677e2cfab1a568e94ea0400df9fe4bd"
-  integrity sha512-vue7cRi1ZO5/72FJ+wZ5+siTSBlUv3ZksTk8bWD2IkaA6obitzMZP3yI65azTJLckwmi8lxfPP5Sd9oGuZ8e2g==
+comment-parser@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/comment-parser/-/comment-parser-1.1.4.tgz#38ba3fb9293e29fa613a287f1fe184241dbd3755"
+  integrity sha512-MrWw1IrmmeCMLJKA8SvMw0tImTd4BHBFQ4WCNxzZoNeWaDL7OAXugF3BIKY042wNsNzGqD5liCgpQS99cuY1qA==
 
 common-tags@^1.8.0:
   version "1.8.0"
