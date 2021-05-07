@@ -37,7 +37,7 @@
   "devDependencies": {
     "@homer0/prettier-plugin-jsdoc": "^3.0.1",
     "@prisma-labs/prettier-config": "0.1.0",
-    "@types/jest": "26.0.22",
+    "@types/jest": "26.0.23",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "dripip": "0.10.0",
