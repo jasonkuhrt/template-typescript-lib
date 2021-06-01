@@ -7,20 +7,26 @@ Project template for TypeScript libraries
 #### Features
 
 1. [TypeScript](https://www.typescriptlang.org/)
-   1. [`strict`](https://www.typescriptlang.org/tsconfig#strict) enabled
-   1. All lint flags
-      - [`noImplicitReturns`](https://www.typescriptlang.org/tsconfig#noImplicitReturns)
-      - [`noFallthroughCasesInSwitch`](https://www.typescriptlang.org/tsconfig#noFallthroughCasesInSwitch)
-      - [`noUncheckedIndexedAccess`](https://www.typescriptlang.org/tsconfig#noUncheckedIndexedAccess)
-      - [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature)
-      - [`noImplicitOverride`](https://www.typescriptlang.org/tsconfig#noImplicitOverride)
-   1. Target ES 2018 which Node as low as version 10 has good support for ([kangax compat table](https://node.green/#ES2018))
+
+   1. Optimal settings for the safety of your implementation
+      1. [`strict`](https://www.typescriptlang.org/tsconfig#strict) mode enabled.
+      1. All lint flags enabled:
+         - [`noImplicitReturns`](https://www.typescriptlang.org/tsconfig#noImplicitReturns)
+         - [`noFallthroughCasesInSwitch`](https://www.typescriptlang.org/tsconfig#noFallthroughCasesInSwitch)
+         - [`noUncheckedIndexedAccess`](https://www.typescriptlang.org/tsconfig#noUncheckedIndexedAccess)
+         - [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature)
+         - [`noImplicitOverride`](https://www.typescriptlang.org/tsconfig#noImplicitOverride)
+   1. Optimal output setup for your users
+      1. Target ES 2018 which Node as low as version 10 has good support for ([kangax compat table](https://node.green/#ES2018))
+      1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
+      1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
+      1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
+      1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size.
    1. `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
    1. Separate `tsconfig.json` for `tests` and `src` respectively
-   1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size.
-   1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
-   1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
-   1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
+   1. [`ttypescript`](https://github.com/cevek/ttypescript) setup for enhanced language features:
+      1. [`ts-nameof`](https://github.com/dsherret/ts-nameof) for pulling the names of identifier down into your runtime!
+
 1. [ESLint](https://eslint.org/)
    1. TypeScript integration
    1. TS type-checker powered eslint checks enabled
