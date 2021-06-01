@@ -46,6 +46,7 @@
     "eslint-plugin-only-warn": "^1.0.2",
     "format-imports": "^2.4.0",
     "jest": "27.0.3",
+    "jest-watch-suspend": "^1.1.2",
     "jest-watch-typeahead": "0.6.4",
     "prettier": "2.3.0",
     "ts-jest": "27.0.2",
