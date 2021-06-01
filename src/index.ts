@@ -1,5 +1,5 @@
 /**
- * Does the foobar thing.
+ * Does the todo thing.
  *
  * @example
  *
@@ -9,6 +9,8 @@
  *   })
  *
  */
-export function foobar(): string {
-  return 'todo'
+export function todo(): void {
+  console.log(nameof(todo))
 }
+
+todo()

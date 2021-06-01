@@ -5,5 +5,15 @@
     "outDir": "dist-esm",
     "module": "ES2015",
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo.esm"
-  }
+  },
+  "plugins": [
+    {
+      "name": "typescript-snapshots-plugin"
+    },
+    // https://github.com/dsherret/ts-nameof
+    {
+      "transform": "ts-nameof",
+      "type": "raw"
+    }
+  ]
 }

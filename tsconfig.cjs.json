@@ -5,5 +5,15 @@
     "outDir": "dist",
     "module": "commonjs",
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo.cjs"
-  }
+  },
+  "plugins": [
+    {
+      "name": "typescript-snapshots-plugin"
+    },
+    // https://github.com/dsherret/ts-nameof
+    {
+      "transform": "ts-nameof",
+      "type": "raw"
+    }
+  ]
 }
