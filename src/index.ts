@@ -9,4 +9,6 @@
  *   })
  *
  */
-export function foobar(): void {}
+export function foobar(): string {
+  return 'todo'
+}
