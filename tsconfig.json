@@ -14,7 +14,7 @@
     // "noUnusedParameters": false,
 
     // Output
-    "target": "ES2018",
+    "target": "ES2019",
     "module": "commonjs",
     "moduleResolution": "Node",
     "importHelpers": true,
