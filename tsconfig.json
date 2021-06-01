@@ -28,23 +28,24 @@
     // DX
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
 
     // Other
-    //   Only enable this for applications.
-    //   Packages doing this force their consumers to.
+    // Only enable this for applications.
+    // Packages doing this force their consumers to.
     // "esModuleInterop": true,
+
+    // Transformer Plugins made possible by https://github.com/cevek/ttypescript
+    "plugins": [
+      // https://github.com/dsherret/ts-nameof
+      { "transform": "ts-nameof", "type": "raw" }
+    ]
   },
   "include": ["src"],
   "exclude": ["./**/*.spec.ts", "tests"],
   "plugins": [
     {
       "name": "typescript-snapshots-plugin"
-    },
-    // https://github.com/dsherret/ts-nameof
-    {
-      "transform": "ts-nameof",
-      "type": "raw"
     }
   ]
 }
