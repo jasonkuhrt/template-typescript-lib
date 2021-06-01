@@ -23,10 +23,10 @@
     "format:check": "yarn -s format:imports:check && yarn -s format:prettier:check",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "lint:check": "eslint . --ext .ts,.tsx --max-warnings 0",
-    "dev": "yarn -s clean && tsc --build --watch",
+    "dev": "yarn -s clean && ttsc --build --watch",
     "build": "yarn -s clean && yarn build:cjs && yarn build:esm",
-    "build:cjs": "tsc --project tsconfig.cjs.json",
-    "build:esm": "tsc --project tsconfig.esm.json",
+    "build:cjs": "ttsc --project tsconfig.cjs.json",
+    "build:esm": "ttsc --project tsconfig.esm.json",
     "test": "jest",
     "clean": "rm -rf dist && rm -rf node_modules/.cache",
     "release:pr": "dripip pr",
@@ -34,10 +34,14 @@
     "release:stable": "dripip stable",
     "prepublishOnly": "yarn -s build"
   },
+  "dependencies": {
+    "tslib": "^2.2.0"
+  },
   "devDependencies": {
     "@homer0/prettier-plugin-jsdoc": "^4.0.0",
     "@prisma-labs/prettier-config": "0.1.0",
     "@types/jest": "26.0.23",
+    "@types/ts-nameof": "^4.2.1",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
     "dripip": "0.10.0",
@@ -50,15 +54,14 @@
     "jest-watch-typeahead": "0.6.4",
     "prettier": "2.3.0",
     "ts-jest": "27.0.2",
+    "ts-nameof": "^5.0.0",
     "ts-node": "^10.0.0",
+    "ttypescript": "^1.5.12",
     "typescript": "4.3.2",
     "typescript-snapshots-plugin": "^1.7.0"
   },
   "prettier": "@prisma-labs/prettier-config",
   "importSorter": {
     "emptyLinesBetweenGroups": false
-  },
-  "dependencies": {
-    "tslib": "^2.2.0"
   }
 }

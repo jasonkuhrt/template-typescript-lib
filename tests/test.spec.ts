@@ -1,3 +1,3 @@
 it('works', () => {
-  expect(true).toEqual(true)
+  expect(nameof(it)).toEqual('it')
 })
