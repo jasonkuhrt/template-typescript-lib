@@ -26,6 +26,7 @@ Project template for TypeScript libraries
    1. Separate `tsconfig.json` for `tests` and `src` respectively
    1. [`ttypescript`](https://github.com/cevek/ttypescript) setup for enhanced language features:
       1. [`ts-nameof`](https://github.com/dsherret/ts-nameof) for pulling the names of identifier down into your runtime!
+      1. [`typescript-transform-paths`](https://github.com/LeDDGroup/typescript-transform-paths) for a **_working_** [tsconfig `paths` config](https://www.typescriptlang.org/tsconfig#paths)!
 
 1. [ESLint](https://eslint.org/)
    1. TypeScript integration

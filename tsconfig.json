@@ -22,13 +22,14 @@
     "declarationMap": true,
     "sourceMap": true,
 
-    // Project layout
-    "rootDir": "src",
-
     // DX
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
     "noErrorTruncation": true,
+    "baseUrl": "./",
+    "paths": {
+      "#*": ["./src/lib/*"]
+    },
 
     // Other
     // Only enable this for applications.
@@ -38,11 +39,12 @@
     // Transformer Plugins made possible by https://github.com/cevek/ttypescript
     "plugins": [
       // https://github.com/dsherret/ts-nameof
-      { "transform": "ts-nameof", "type": "raw" }
+      { "transform": "ts-nameof", "type": "raw" },
+      // https://github.com/LeDDGroup/typescript-transform-paths
+      { "transform": "typescript-transform-paths" }
     ]
   },
-  "include": ["src"],
-  "exclude": ["./**/*.spec.ts", "tests"],
+  "include": ["src", "tests"],
   "plugins": [
     {
       "name": "typescript-snapshots-plugin"

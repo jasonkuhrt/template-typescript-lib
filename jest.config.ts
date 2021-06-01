@@ -16,7 +16,6 @@ const config: InitialOptionsTsJest = {
   globals: {
     'ts-jest': {
       diagnostics: Boolean(process.env.CI),
-      tsconfig: '<rootDir>/tests/tsconfig.json',
       compiler: 'ttypescript',
     },
   },
