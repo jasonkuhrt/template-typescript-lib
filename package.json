@@ -34,6 +34,9 @@
     "release:stable": "dripip stable",
     "prepublishOnly": "yarn -s build"
   },
+  "dependencies": {
+    "tslib": "^2.2.0"
+  },
   "devDependencies": {
     "@homer0/prettier-plugin-jsdoc": "^4.0.0",
     "@prisma-labs/prettier-config": "0.1.0",
@@ -60,11 +63,5 @@
   "prettier": "@prisma-labs/prettier-config",
   "importSorter": {
     "emptyLinesBetweenGroups": false
-  },
-  "dependencies": {
-    "tslib": "^2.2.0"
-  },
-  "ts-node": {
-    "compiler": "ttypescript"
   }
 }
