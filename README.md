@@ -8,11 +8,16 @@ Project template for TypeScript libraries
 
 1. [TypeScript](https://www.typescriptlang.org/)
    1. [`strict`](https://www.typescriptlang.org/tsconfig#strict) enabled
-   1. All strict flags not included in strict mode
+   1. All lint flags
+      - [`noImplicitReturns`](https://www.typescriptlang.org/tsconfig#noImplicitReturns)
+      - [`noFallthroughCasesInSwitch`](https://www.typescriptlang.org/tsconfig#noFallthroughCasesInSwitch)
+      - [`noUncheckedIndexedAccess`](https://www.typescriptlang.org/tsconfig#noUncheckedIndexedAccess)
+      - [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature)
+      - [`noImplicitOverride`](https://www.typescriptlang.org/tsconfig#noImplicitOverride)
    1. Target ES 2018 which Node as low as version 10 has good support for ([kangax compat table](https://node.green/#ES2018))
    1. `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
    1. Separate `tsconfig.json` for `tests` and `src` respectively
-   1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size
+   1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size.
 1. [ESLint](https://eslint.org/)
    1. TypeScript integration
    1. TS type-checker powered eslint checks enabled
@@ -43,7 +48,7 @@ Project template for TypeScript libraries
    1. `clean` to remove cache files and dist
    1. `build` that runs `clean` beforehand
    1. `prepublishOnly` that runs `build` beforehand
-   1. `format` to quickly run `prttier` and `format-imports` over whole codebase
+   1. `format` to quickly run `prettier` and `format-imports` over whole codebase
    1. `lint` to quickly run `eslint` over whole codebase
 1. CI with GitHub Actions
    1. Separate trunk and pull-request (PR) workflows.
