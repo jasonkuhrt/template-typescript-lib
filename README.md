@@ -68,9 +68,9 @@ Project template for TypeScript libraries
       1. Prettier Check
       1. Format Imports Check
       1. Lint Check
-      1. Tests across matrix of mac/linux/windows for Node 12/14
+      1. Tests across matrix of mac/linux/windows for Node 14/16
    1. On trunk:
-      1. Tests across matrix of mac/linux/windows for Node 12/14
+      1. Tests across matrix of mac/linux/windows for Node 14/16
       1. Automated canary release
 1. [Renovate](https://github.com/renovatebot/renovate) configuration
    1. JSON Schema setup for optimal intellisense
