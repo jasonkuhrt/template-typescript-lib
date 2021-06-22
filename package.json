@@ -5,16 +5,16 @@
   "author": "Jason Kuhrt",
   "license": "MIT",
   "files": [
-    "dist",
+    "dist-cjs",
     "dist-esm"
   ],
   "exports": {
     ".": {
-      "require": "./dist/index.js",
+      "require": "./dist-cjs/index.js",
       "import": "./dist-esm/index.js"
     }
   },
-  "main": "dist/index.js",
+  "main": "./dist-cjs/index.js",
   "module": "./dist-esm/index.js",
   "scripts": {
     "format": "prettier --write . && format-imports src && format-imports tests",
@@ -28,7 +28,7 @@
     "build:cjs": "ttsc --project tsconfig.cjs.json",
     "build:esm": "ttsc --project tsconfig.esm.json",
     "test": "jest",
-    "clean": "rm -rf dist && rm -rf node_modules/.cache",
+    "clean": "rm -rf dist-cjs dist-esm && rm -rf node_modules/.cache",
     "release:pr": "dripip pr",
     "release:canary": "dripip preview",
     "release:stable": "dripip stable",

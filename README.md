@@ -57,7 +57,7 @@ Project template for TypeScript libraries
    1. npm script
    1. [Config in package.json](https://github.com/daidodo/format-imports#configuration-resolution) to disable [empty lines between groups](https://github.com/daidodo/format-imports/blob/main/docs/interfaces/configuration.md#emptylinesbetweengroups).
 1. npm scripts for development lifecycle
-   1. `clean` to remove cache files and dist
+   1. `clean` to remove cache and dist files
    1. `build` that runs `clean` beforehand
    1. `prepublishOnly` that runs `build` beforehand
    1. `format` to quickly run `prettier` and `format-imports` over whole codebase
@@ -80,7 +80,7 @@ Project template for TypeScript libraries
    1. Use `main` field for legacy versions of Node (before `12.x`) requiring the CJS build.
    1. Use `module` field for legacy bundlers importing the ESM build.
 1. VSCode Settings
-   1. Optimize project search by ignoring `dist`/`dist-esm` directories.
+   1. Optimize project search by ignoring `dist-cjs`/`dist-esm` directories.
    1. Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.
 
 #### After starting a new project with this template

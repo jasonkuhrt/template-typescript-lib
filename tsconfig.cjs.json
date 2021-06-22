@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "composite": true,
-    "outDir": "dist",
+    "outDir": "dist-cjs",
     "module": "commonjs",
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo.cjs",
     "rootDir": "src"
