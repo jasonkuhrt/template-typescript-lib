@@ -35,31 +35,31 @@
     "prepublishOnly": "yarn -s build"
   },
   "dependencies": {
-    "tslib": "^2.2.0"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@homer0/prettier-plugin-jsdoc": "^4.0.0",
     "@prisma-labs/prettier-config": "0.1.0",
     "@types/jest": "26.0.23",
     "@types/ts-nameof": "^4.2.1",
-    "@typescript-eslint/eslint-plugin": "^4.26.0",
-    "@typescript-eslint/parser": "^4.26.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
     "dripip": "0.10.0",
-    "eslint": "^7.27.0",
+    "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-only-warn": "^1.0.2",
     "format-imports": "^2.4.0",
-    "jest": "27.0.3",
+    "jest": "27.0.4",
     "jest-watch-suspend": "^1.1.2",
     "jest-watch-typeahead": "0.6.4",
-    "prettier": "2.3.0",
-    "ts-jest": "27.0.2",
+    "prettier": "2.3.1",
+    "ts-jest": "27.0.3",
     "ts-nameof": "^5.0.0",
     "ts-node": "^10.0.0",
     "ttypescript": "^1.5.12",
-    "typescript": "4.3.2",
+    "typescript": "4.3.4",
     "typescript-snapshots-plugin": "^1.7.0",
-    "typescript-transform-paths": "^2.2.4"
+    "typescript-transform-paths": "^3.0.0"
   },
   "prettier": "@prisma-labs/prettier-config",
   "importSorter": {
