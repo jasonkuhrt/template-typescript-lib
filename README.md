@@ -74,6 +74,10 @@ Project template for TypeScript libraries
       1. Automated canary release
 1. [Renovate](https://github.com/renovatebot/renovate) configuration
    1. JSON Schema setup for optimal intellisense
+   1. Group all non-major devDependency updates into single PR (wich "chore" conventional commit type)
+   1. Group all major devDependency updates into single PR (with "chore" conventional commit type)
+   1. Group all non-major dependency updates into single PR (with "deps" conventional commit type)
+   1. Each major dependency update in own PR (with "deps" conventional commit type)
 1. [Yarn 1](https://classic.yarnpkg.com/lang/en/) for package management (mostly for great script runner behaviour)
 1. Hybrid package build CJS+ESM (see [Dr. Axel's article about this](https://2ality.com/2019/10/hybrid-npm-packages.html))
    1. Use `exports` field to give support to both modern `import` and legacy `require` consumers using Node 12.x and up. For details about the `exports` field refer to the [Official Node.js Docs](https://nodejs.org/api/packages.html#packages_package_entry_points) about it.
