@@ -1,7 +1,8 @@
 {
   "search.exclude": {
     "**/dist-cjs": true,
-    "**/dist-esm": true
+    "**/dist-esm": true,
+    "yarn.lock": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
