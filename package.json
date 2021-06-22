@@ -63,8 +63,8 @@
     "typescript-snapshots-plugin": "^1.7.0",
     "typescript-transform-paths": "^3.0.0"
   },
-  "prettier": "@prisma-labs/prettier-config",
   "importSorter": {
-    "emptyLinesBetweenGroups": false
+    "emptyLinesBetweenGroups": false,
+    "wrappingStyle": "prettier"
   }
 }

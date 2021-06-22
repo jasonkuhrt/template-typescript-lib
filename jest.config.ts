@@ -9,16 +9,16 @@ const config: InitialOptionsTsJest = {
     [
       'jest-watch-suspend',
       {
-        'suspend-on-start': true,
-      },
-    ],
+        'suspend-on-start': true
+      }
+    ]
   ],
   globals: {
     'ts-jest': {
       diagnostics: Boolean(process.env.CI),
-      compiler: 'ttypescript',
-    },
-  },
+      compiler: 'ttypescript'
+    }
+  }
 }
 
 export default config
