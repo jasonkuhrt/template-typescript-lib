@@ -2,6 +2,7 @@
   "search.exclude": {
     "**/dist-cjs": true,
     "**/dist-esm": true,
+    "**/__snapshots__": true,
     "yarn.lock": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",
