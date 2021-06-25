@@ -8,9 +8,6 @@ const config: InitialOptionsTsJest = {
     'jest-watch-typeahead/testname',
     [
       'jest-watch-suspend',
-      {
-        'suspend-on-start': true,
-      },
     ],
   ],
   globals: {
