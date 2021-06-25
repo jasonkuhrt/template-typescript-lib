@@ -39,6 +39,7 @@ Project template for TypeScript libraries
    1. Handy watch mode plugins
       1. [`jest-watch-typeahead`](https://github.com/jest-community/jest-watch-typeahead)
       1. [`jest-watch-suspend`](https://github.com/unional/jest-watch-suspend)
+      1. [`jest-watch-select-projects`](https://github.com/jest-community/jest-watch-select-projects)
    1. `jest.config.ts` for type safe & intellisense configuration!
    1. [`typescript-snapshots-plugin`](https://github.com/asvetliakov/typescript-snapshots-plugin) for viewing snapshots on hover of `.toMatchSnapshot` method!
 1. [`dripip`](https://github.com/prisma-labs/dripip) for release management

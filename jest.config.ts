@@ -6,9 +6,8 @@ const config: InitialOptionsTsJest = {
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
-    [
-      'jest-watch-suspend',
-    ],
+    'jest-watch-select-projects',
+    'jest-watch-suspend',
   ],
   globals: {
     'ts-jest': {
