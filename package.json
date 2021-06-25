@@ -64,7 +64,8 @@
     "typescript-transform-paths": "3.0.0"
   },
   "importSorter": {
-    "emptyLinesBetweenGroups": false,
-    "wrappingStyle": "prettier"
+    "emptyLinesBetweenGroups": 0,
+    "wrappingStyle": "prettier",
+    "trailingComma": "multiLine"
   }
 }
