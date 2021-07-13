@@ -17,6 +17,7 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-esm/index.js",
   "scripts": {
+    "ts-node": "ts-node --project tsconfig.ts-node.json",
     "format": "yarn format:prettier && yarn format:imports",
     "format:prettier": "prettier --write .",
     "format:imports": "format-imports src && format-imports tests",

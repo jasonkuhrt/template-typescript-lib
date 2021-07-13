@@ -1,0 +1,26 @@
+// This file exists to satisfy path configuration when using ts-node.
+// The key is using rootDirs option and having there the outDir that ts-node uses.
+// Solution not fully understand. Comes from https://github.com/LeDDGroup/typescript-transform-paths/issues/103.
+{
+  "extends": "./tsconfig.json",
+  "ts-node": {
+    "compiler": "ttypescript",
+    // This is required. If enabled, compiler plugins will not be run.
+    // https://github.com/cevek/ttypescript/issues/123
+    "transpileOnly": false,
+    // In lieu of not being able to use `transpileOnly` use `logError` which allows ts-node to complete
+    // in the face of errors like `transpileOnly`. However, it is not fast(er) like `transpileOnly` becuase
+    // type-checking still takes place.
+    "logError": true
+  },
+  "compilerOptions": {
+    "rootDirs": ["src", "./.ts-node"],
+    "module": "commonjs",
+    "plugins": [
+      // https://github.com/dsherret/ts-nameof
+      { "transform": "ts-nameof", "type": "raw" },
+      // https://github.com/LeDDGroup/typescript-transform-paths
+      { "transform": "typescript-transform-paths", "useRootDirs": true }
+    ]
+  }
+}
