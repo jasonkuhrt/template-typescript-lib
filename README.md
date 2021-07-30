@@ -92,7 +92,9 @@ Project template for TypeScript libraries
 #### After starting a new project with this template
 
 1. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
-1. Find-replace `jasonkuhrt/project-lib-typescript` with `<your org>/<your repo>`
+1. Find-replace:
+   - `jasonkuhrt/template-typescript-lib` with `<your org>/<your repo>`
+   - `template-typescript-lib` with `<your package name>`
 1. Uncomment trunk publishing in `.github/workflows/trunk.yml`
 1. Update `<YOUR NAME>` in `LICENSE` file
 
