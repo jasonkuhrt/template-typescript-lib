@@ -2,4 +2,4 @@ blank_issues_enabled: false
 contact_links:
   - name: ✋ Question
     about: You have a question about something you're not sure about
-    url: https://github.com/jasonkuhrt/project-lib-typescript/discussions/new
+    url: https://github.com/jasonkuhrt/template-typescript-lib/discussions/new
