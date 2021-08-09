@@ -4,14 +4,7 @@
 {
   "extends": "./tsconfig.json",
   "ts-node": {
-    "compiler": "ttypescript",
-    // This is required. If enabled, compiler plugins will not be run.
-    // https://github.com/cevek/ttypescript/issues/123
-    "transpileOnly": false,
-    // In lieu of not being able to use `transpileOnly` use `logError` which allows ts-node to complete
-    // in the face of errors like `transpileOnly`. However, it is not fast(er) like `transpileOnly` becuase
-    // type-checking still takes place.
-    "logError": true
+    "compiler": "ttypescript"
   },
   "compilerOptions": {
     "rootDirs": ["src", "./.ts-node"],
