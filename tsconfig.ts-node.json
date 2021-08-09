@@ -4,7 +4,9 @@
 {
   "extends": "./tsconfig.json",
   "ts-node": {
-    "compiler": "ttypescript"
+    "compiler": "ttypescript",
+    "transpileOnly": true,
+    "require": ["./scripts/register-typescript-transform-paths.ts"]
   },
   "compilerOptions": {
     "rootDirs": ["src", "./.ts-node"],
