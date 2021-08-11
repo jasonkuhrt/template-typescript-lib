@@ -71,6 +71,6 @@
     "wrappingStyle": "prettier"
   },
   "resolutions": {
-    "comment-parser": "1.1.5"
+    "comment-parser": "1.2.3"
   }
 }
