@@ -38,17 +38,16 @@
     "prepublishOnly": "yarn -s build"
   },
   "dependencies": {
-    "comment-parser": "1.2.3",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@homer0/prettier-plugin-jsdoc": "4.0.4",
     "@prisma-labs/prettier-config": "0.1.0",
-    "@types/jest": "26.0.24",
+    "@types/jest": "27.0.0",
     "@types/node": "16.4.13",
     "@types/ts-nameof": "4.2.1",
-    "@typescript-eslint/eslint-plugin": "4.29.0",
-    "@typescript-eslint/parser": "4.29.0",
+    "@typescript-eslint/eslint-plugin": "4.29.1",
+    "@typescript-eslint/parser": "4.29.1",
     "dripip": "0.10.0",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
