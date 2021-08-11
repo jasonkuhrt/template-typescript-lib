@@ -17,7 +17,6 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-esm/index.js",
   "scripts": {
-    "ts-node": "ts-node --project tsconfig.ts-node.json",
     "format": "yarn format:prettier && yarn format:imports",
     "format:prettier": "prettier --write .",
     "format:imports": "format-imports src && format-imports tests",
@@ -64,7 +63,7 @@
     "ttypescript": "1.5.12",
     "typescript": "4.3.5",
     "typescript-snapshots-plugin": "1.7.0",
-    "typescript-transform-paths": "3.2.1"
+    "typescript-transform-paths": "3.3.0"
   },
   "importSorter": {
     "emptyLinesBetweenGroups": 0,
