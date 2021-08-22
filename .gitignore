@@ -103,6 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+# macOS
+.DS_Store
+
 # This library
 dist-esm
 dist-cjs
