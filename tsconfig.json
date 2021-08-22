@@ -19,9 +19,6 @@
     "module": "commonjs",
     "moduleResolution": "Node",
     "importHelpers": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
 
     // DX
     "incremental": true,

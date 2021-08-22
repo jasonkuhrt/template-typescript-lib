@@ -16,18 +16,19 @@ Project template for TypeScript libraries
          - [`noUncheckedIndexedAccess`](https://www.typescriptlang.org/tsconfig#noUncheckedIndexedAccess)
          - [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature)
          - [`noImplicitOverride`](https://www.typescriptlang.org/tsconfig#noImplicitOverride)
-   1. Optimal output setup for your users
-      1. Target ES2019 which Node as low as version 12 has good support for ([kangax compat table](https://node.green/#ES2019)).
-      1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
-      1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
-      1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
-      1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size.
    1. `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
    1. Base `tsconfig.json` shared across `tests`, `src`, and `ts-node`.
    1. [`ttypescript`](https://github.com/cevek/ttypescript) setup for enhanced language features:
       1. [`ts-nameof`](https://github.com/dsherret/ts-nameof) for pulling the names of identifier down into your runtime!
       1. [`typescript-transform-paths`](https://github.com/LeDDGroup/typescript-transform-paths) for a **_working_** [tsconfig `paths` config](https://www.typescriptlang.org/tsconfig#paths)!
       1. Tricky `ts-node` configuration taken care of.
+   1. Optimal output setup for your users
+      1. Target ES2019 which Node as low as version 12 has good support for ([kangax compat table](https://node.green/#ES2019)).
+      1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
+      1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
+      1. `package.json` [`typeVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions) used to emit only **one** set of declaration files shared by both CJS and ESM builds.
+      1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
+      1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size.
 
 1. [ESLint](https://eslint.org/)
    1. TypeScript integration
