@@ -4,6 +4,20 @@
 
 Project template for TypeScript libraries
 
+#### Quickstart
+
+1. Clone this repo
+1. Run the bootstrapper script:
+
+   ```
+   yarn bootstrap \
+      --repoOrg '<your org>/<your repo>' \
+      --developerName '<your full name>' \
+      --packageName '<your package name>'
+   ```
+
+1. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
+
 #### Features
 
 1. [TypeScript](https://www.typescriptlang.org/)
@@ -89,15 +103,6 @@ Project template for TypeScript libraries
 1. VSCode Settings
    1. Optimize project search by ignoring `dist-cjs`/`dist-esm` directories.
    1. Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.
-
-#### After starting a new project with this template
-
-1. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
-1. Find-replace:
-   - `jasonkuhrt/template-typescript-lib` with `<your org>/<your repo>`
-   - `template-typescript-lib` with `<your package name>`
-1. Uncomment trunk publishing in `.github/workflows/trunk.yml`
-1. Update `<YOUR NAME>` in `LICENSE` file
 
 #### Tips
 
