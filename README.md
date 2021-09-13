@@ -101,6 +101,7 @@ yarn bootstrap \
    1. `lint` to quickly run `eslint` over whole codebase
 1. CI with GitHub Actions
    1. Separate trunk and pull-request (PR) workflows.
+   1. [Dependency install cache](https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-dependencies) enabled.
    1. On PR:
       1. Prettier Check
       1. Format Imports Check
