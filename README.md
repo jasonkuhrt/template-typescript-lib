@@ -6,7 +6,7 @@ Project template for TypeScript libraries
 
 #### Quickstart
 
-1. Clone this repo
+1. Setup a clone of this repo:
 
    ```
    gh repo clone jasonkuhrt/template-typescript-lib <your package name> && cd <your package name> && yarn
