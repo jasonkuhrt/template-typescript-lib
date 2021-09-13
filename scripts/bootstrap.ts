@@ -50,7 +50,7 @@ function main() {
 
   log.info(`Creating initial commit`)
   Execa.commandSync(`git add -A`)
-  Execa.commandSync(`git commit -m 'feat: initial commit'`)
+  Execa.commandSync(`git commit -m 'chore: initial commit'`)
 
   if (args['--createGithubRepo']) {
     log.info('Creating repo on GitHub (you will need the gh CLI setup for this to work)')
