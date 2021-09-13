@@ -47,16 +47,24 @@ function main() {
   Execa.commandSync(`git init`)
 
   log.info(`Creating initial commit`)
-  Execa.commandSync(`git add --all`)
-  Execa.commandSync(`git commit --message="chore: initial commit"`)
+  Execa.sync(`git`, [`add`, `--all`])
+  Execa.sync(`git`, [`commit`, `--message="chore: initial commit"`])
 
   if (args['--createGithubRepo']) {
     log.info('Creating repo on GitHub (you will need the gh CLI setup for this to work)')
-    Execa.commandSync(`gh repo create --confirm --enable-wiki=false --public ${args['--repoOrg']}`)
+    Execa.sync(`gh`, [
+      `repo`,
+      `create`,
+      `--confirm`,
+      `--enable-wiki=false`,
+      `--public`,
+      `${args['--repoOrg']}`,
+    ])
 
     log.info('Pushing main branch and commit to GitHub')
-    Execa.commandSync(`git remote add origin https://github.com/${args['--repoOrg']}.git && git branch -M main
-  && git push -u origin main`)
+    Execa.sync(`git`, [`remote`, `add`, `origin`, `https://github.com/${args['--repoOrg']}.git`])
+    Execa.sync(`git`, [`branch`, `-M`, `main`])
+    Execa.sync(`git`, [`push`, `-u`, `origin`, `main`])
   }
 }
 
