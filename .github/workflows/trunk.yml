@@ -22,10 +22,28 @@ jobs:
       - run: yarn -s build
       - run: yarn -s test
 
-  release-canary:
-    needs: [test]
+  # https://github.community/t/how-can-i-test-if-secrets-are-available-in-an-action/17911/10?u=jasonkuhrt
+  checkNpmTokenSet:
+    name: Check if NPM_TOKEN secret is set
     runs-on: ubuntu-latest
-    if: secrets.NPM_TOKEN
+    outputs:
+      is_NPM_TOKEN_set: ${{ steps.checkNpmTokenSet.outputs.is_MY_SECRET_set }}
+    steps:
+      - name: Check if NPM_TOKEN secret is set
+        id: checkNpmTokenSet
+        env:
+            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+            echo "is_NPM_TOKEN_set: ${{ env.NPM_TOKEN != '' }}"
+            echo "::set-output name=is_NPM_TOKEN_set::${{ env.NPM_TOKEN != '' }}"
+
+  release-canary:
+    needs: [test, checkNpmTokenSet]
+    if: needs.checkNpmTokenSet.outputs.is_NPM_TOKEN_set == 'true'
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -36,9 +54,6 @@ jobs:
       - name: Install Dependencies
         run: yarn --frozen-lockfile
       - name: Release Canary
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           yarn -s dripip preview --json > result.json
           jq '.' < result.json
