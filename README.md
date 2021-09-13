@@ -27,15 +27,14 @@ Project template for TypeScript libraries
 Example:
 
 ```
-gh repo clone jasonkuhrt/template-typescript-lib foobar && cd foobar && yarn
-```
-
-```
-yarn -s bootstrap \
-   --repoOrg 'jasonkuhrt/foobar' \
-   --developerName 'Jason Kuhrt' \
-   --packageName 'foobar' \
-   --createGithubRepo
+gh repo clone jasonkuhrt/template-typescript-lib foobar \
+   && cd foobar \
+   && yarn \
+   && yarn -s bootstrap \
+      --repoOrg 'jasonkuhrt/foobar' \
+      --developerName 'Jason Kuhrt' \
+      --packageName 'foobar' \
+      --createGithubRepo
 ```
 
 #### Features
