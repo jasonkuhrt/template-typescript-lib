@@ -28,8 +28,6 @@ function main() {
   // Do this after the above, as package name is subset of repo name
   replaceInFile('package.json', /template-typescript-lib/g, args['--packageName'])
   replaceInFile('README.md', /template-typescript-lib/g, args['--packageName'])
-  // https://regex101.com/r/qHIbHt/1
-  replaceInFile(`.github/workflows/trunk.yml`, /# |^\s*#$|^\s*# todo uncomment me$/gm, '')
   replaceInFile(`LICENSE`, /<YOUR NAME>/, args['--developerName'])
 
   log.info(`Uninstalling bootstrap deps`)
