@@ -36,10 +36,10 @@ function main() {
   log.info(`Removing bootstrap command`)
   replaceInFile('package.json', /\s+"bootstrap":.+\n/g, '')
 
-  log.info(`Removing bootstrap file`)
+  log.info(`Removing bootstrap script`)
   Fs.remove('scripts')
 
-  log.info(`Run formatting`)
+  log.info(`Running formatter`)
   Execa.commandSync(`yarn format`)
 
   log.info(`Creating a new git project`)
@@ -48,7 +48,7 @@ function main() {
 
   log.info(`Creating initial commit`)
   Execa.commandSync(`git add -A`)
-  Execa.commandSync(`git commit -m 'chore: initial commit'`)
+  Execa.commandSync(`git commit -m "chore: initial commit"`)
 
   if (args['--createGithubRepo']) {
     log.info('Creating repo on GitHub (you will need the gh CLI setup for this to work)')
