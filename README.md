@@ -7,16 +7,36 @@ Project template for TypeScript libraries
 #### Quickstart
 
 1. Clone this repo
+
+   ```
+   gh repo clone jasonkuhrt/template-typescript-lib <your package name> && cd <your package name>
+   ```
+
 1. Run the bootstrapper script:
 
    ```
    yarn bootstrap \
       --repoOrg '<your org>/<your repo>' \
       --developerName '<your full name>' \
-      --packageName '<your package name>'
+      --packageName '<your package name>' \
+      --createGithubRepo
    ```
 
 1. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
+
+Example:
+
+```
+gh repo clone jasonkuhrt/template-typescript-lib foobar && cd foobar
+```
+
+```
+yarn bootstrap \
+   --repoOrg 'jasonkuhrt/foobar' \
+   --developerName 'Jason Kuhrt' \
+   --packageName 'foobar' \
+   --createGithubRepo
+```
 
 #### Features
 

@@ -7,7 +7,7 @@ main()
 
 function main() {
   const args = arg({
-    '--createRepo': Boolean,
+    '--createGithubRepo': Boolean,
     '--repoOrg': String,
     '--developerName': String,
     '--packageName': String,
@@ -52,7 +52,7 @@ function main() {
   Execa.commandSync(`git add -A`)
   Execa.commandSync(`git commit -m 'feat: initial commit'`)
 
-  if (args['--createRepo']) {
+  if (args['--createGithubRepo']) {
     log.info('Creating repo on GitHub (you will need the gh CLI setup for this to work)')
     Execa.commandSync(`gh repo create --confirm --enable-wiki=false --public ${args['--repoOrg']}`)
 

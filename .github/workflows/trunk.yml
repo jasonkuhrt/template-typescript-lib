@@ -22,24 +22,23 @@ jobs:
       - run: yarn -s build
       - run: yarn -s test
 
-  # todo uncomment me
-  #
-  # release-canary:
-  #   needs: [test]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #       with:
-  #         fetch-depth: 0
-  #     - uses: actions/setup-node@v2
-  #       with:
-  #         node-version: 16.x
-  #     - name: Install Dependencies
-  #       run: yarn --frozen-lockfile
-  #     - name: Release Canary
-  #       env:
-  #         NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-  #         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-  #       run: |
-  #         yarn -s dripip preview --json > result.json
-  #         jq '.' < result.json
+  release-canary:
+    needs: [test]
+    runs-on: ubuntu-latest
+    if: secrets.NPM_TOKEN
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+      - name: Release Canary
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: |
+          yarn -s dripip preview --json > result.json
+          jq '.' < result.json
