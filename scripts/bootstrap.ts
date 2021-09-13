@@ -35,7 +35,7 @@ function main() {
   log.info(`Uninstalling bootstrap deps`)
   Execa.commandSync(`yarn remove execa arg fs-jetpack floggy`)
 
-  console.log(`Removing bootstrap command`)
+  log.info(`Removing bootstrap command`)
   replaceInFile('package.json', /\s+"bootstrap":.+\n/g, '')
 
   log.info(`Removing bootstrap file`)
