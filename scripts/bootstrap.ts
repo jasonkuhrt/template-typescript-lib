@@ -1,11 +1,13 @@
 import * as arg from 'arg'
 import * as Execa from 'execa'
+import { log } from 'floggy'
 import * as Fs from 'fs-jetpack'
 
 main()
 
 function main() {
   const args = arg({
+    '--createRepo': Boolean,
     '--repoOrg': String,
     '--developerName': String,
     '--packageName': String,
@@ -15,7 +17,7 @@ function main() {
     throw new Error(`Missing required flag.`)
   }
 
-  console.log(`Replacing file fields with new values`)
+  log.info(`Replacing file fields with new values`)
 
   replaceInFile('README.md', /jasonkuhrt\/template-typescript-lib/g, args['--repoOrg'])
   replaceInFile(
@@ -30,25 +32,34 @@ function main() {
   replaceInFile(`.github/workflows/trunk.yml`, /# |^\s*#$|^\s*# todo uncomment me$/gm, '')
   replaceInFile(`LICENSE`, /<YOUR NAME>/, args['--developerName'])
 
-  console.log(`Uninstalling bootstrap deps`)
-  Execa.commandSync(`yarn remove execa arg fs-jetpack`)
+  log.info(`Uninstalling bootstrap deps`)
+  Execa.commandSync(`yarn remove execa arg fs-jetpack floggy`)
 
   console.log(`Removing bootstrap command`)
   replaceInFile('package.json', /\s+"bootstrap":.+\n/g, '')
 
-  console.log(`Removing bootstrap file`)
+  log.info(`Removing bootstrap file`)
   Fs.remove('scripts')
 
-  console.log(`Run formatting`)
+  log.info(`Run formatting`)
   Execa.commandSync(`yarn format`)
 
-  console.log(`Creating a new git project`)
+  log.info(`Creating a new git project`)
   Fs.remove('.git')
   Execa.commandSync(`git init`)
 
-  console.log(`Creating initial commit`)
+  log.info(`Creating initial commit`)
   Execa.commandSync(`git add -A`)
   Execa.commandSync(`git commit -m 'feat: initial commit'`)
+
+  if (args['--createRepo']) {
+    log.info('Creating repo on GitHub (you will need the gh CLI setup for this to work)')
+    Execa.commandSync(`gh repo create --confirm --enable-wiki=false --public ${args['--repoOrg']}`)
+
+    log.info('Pushing main branch and commit to GitHub')
+    Execa.commandSync(`git remote add origin https://github.com/${args['--repoOrg']}.git && git branch -M main
+  && git push -u origin main`)
+  }
 }
 
 function replaceInFile(filePath: string, pattern: RegExp, replaceWith: string): void {
