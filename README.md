@@ -9,13 +9,13 @@ Project template for TypeScript libraries
 1. Clone this repo
 
    ```
-   gh repo clone jasonkuhrt/template-typescript-lib <your package name> && cd <your package name>
+   gh repo clone jasonkuhrt/template-typescript-lib <your package name> && cd <your package name> && yarn
    ```
 
 1. Run the bootstrapper script:
 
    ```
-   yarn bootstrap \
+   yarn -s bootstrap \
       --repoOrg '<your org>/<your repo>' \
       --developerName '<your full name>' \
       --packageName '<your package name>' \
@@ -27,11 +27,11 @@ Project template for TypeScript libraries
 Example:
 
 ```
-gh repo clone jasonkuhrt/template-typescript-lib foobar && cd foobar
+gh repo clone jasonkuhrt/template-typescript-lib foobar && cd foobar && yarn
 ```
 
 ```
-yarn bootstrap \
+yarn -s bootstrap \
    --repoOrg 'jasonkuhrt/foobar' \
    --developerName 'Jason Kuhrt' \
    --packageName 'foobar' \
