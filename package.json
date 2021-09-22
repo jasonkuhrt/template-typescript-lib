@@ -33,16 +33,17 @@
     "format:check:prettier": "prettier --check .",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "lint:check": "eslint . --ext .ts,.tsx --max-warnings 0",
-    "dev": "yarn -s clean && ttsc --build --watch tsconfig.cjs.json tsconfig.esm.json",
+    "dev": "yarn -s clean && tsc --build --watch tsconfig.cjs.json tsconfig.esm.json",
     "build": "yarn -s clean && yarn build:cjs && yarn build:esm",
-    "build:cjs": "ttsc --project tsconfig.cjs.json",
-    "build:esm": "ttsc --project tsconfig.esm.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:esm": "tsc --project tsconfig.esm.json",
     "test": "jest",
     "clean": "rm -rf dist-cjs dist-esm node_modules/.cache",
     "release:pr": "dripip pr",
     "release:canary": "dripip preview",
     "release:stable": "dripip stable",
-    "prepublishOnly": "yarn -s build"
+    "prepublishOnly": "yarn -s build",
+    "prepare": "ts-patch install -s"
   },
   "dependencies": {
     "tslib": "^2.3.1"
@@ -72,7 +73,7 @@
     "ts-jest": "27.0.5",
     "ts-nameof": "5.0.0",
     "ts-node": "10.2.1",
-    "ttypescript": "1.5.12",
+    "ts-patch": "^1.4.4",
     "typescript": "4.4.3",
     "typescript-snapshots-plugin": "1.7.0",
     "typescript-transform-paths": "3.3.1"
