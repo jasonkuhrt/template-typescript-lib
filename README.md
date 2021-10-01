@@ -54,7 +54,8 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
    1. [`ts-patch`](https://github.com/nonara/ts-patch) setup for enhanced language features:
       1. [`ts-nameof`](https://github.com/dsherret/ts-nameof) for pulling the names of identifier down into your runtime!
       1. [`typescript-transform-paths`](https://github.com/LeDDGroup/typescript-transform-paths) for a **_working_** [tsconfig `paths` config](https://www.typescriptlang.org/tsconfig#paths)!
-      1. Tricky `ts-node` configuration taken care of.
+         1. Jest configuration taken care of.
+      1. `ts-node` configuration taken care of.
       1. Intentional avoidance of [`ttypescript`](https://github.com/microsoft/TypeScript/issues/38365#issuecomment-921889655)
    1. Optimal output setup for your users
       1. Target ES2019 which Node as low as version 12 has good support for ([kangax compat table](https://node.green/#ES2019)).
