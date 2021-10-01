@@ -125,7 +125,3 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 1. VSCode Settings
    1. Optimize project search by ignoring `dist-cjs`/`dist-esm` directories.
    1. Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.
-
-#### Tips
-
-1. Update your GitHub org's label-sync repo to include config for your new repo, assuming your org has such a thing. For example for Prisma Labs: [prisma-labs/label-sync](https://github.com/prisma-labs/prisma-labs-labelsync/blob/master/labelsync.ts).
