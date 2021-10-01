@@ -33,10 +33,10 @@ jobs:
       - name: Check if NPM_TOKEN secret is set
         id: checkNpmTokenSet
         env:
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-            echo "is_NPM_TOKEN_set: ${{ env.NPM_TOKEN != '' }}"
-            echo "::set-output name=is_NPM_TOKEN_set::${{ env.NPM_TOKEN != '' }}"
+          echo "is_NPM_TOKEN_set: ${{ env.NPM_TOKEN != '' }}"
+          echo "::set-output name=is_NPM_TOKEN_set::${{ env.NPM_TOKEN != '' }}"
 
   release-canary:
     needs: [test, checkNpmTokenSet]
