@@ -1,7 +1,11 @@
 {
   "ts-node": {
     "transpileOnly": true,
-    "require": ["typescript-transform-paths/register"]
+    "require": ["typescript-transform-paths/register"],
+    "compilerOptions": {
+      // Sometimes projects (e.g. Nextjs) will want code to emit ESM but ts-node will not work with that.
+      "module": "CommonJS"
+    }
   },
   "compilerOptions": {
     // Make the compiler stricter, catch more errors
