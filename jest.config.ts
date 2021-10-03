@@ -1,17 +1,7 @@
-import * as Fs from 'fs'
 import type { InitialOptionsTsJest } from 'ts-jest/dist/types'
-import { pathsToModuleNameMapper } from 'ts-jest/utils'
-import * as TypeScript from 'typescript'
-
-const tsconfig = TypeScript.readConfigFile('tsconfig.json', (path) =>
-  Fs.readFileSync(path, { encoding: 'utf-8' })
-).config
 
 const config: InitialOptionsTsJest = {
   preset: 'ts-jest',
-  moduleNameMapper: pathsToModuleNameMapper(tsconfig.compilerOptions.paths, {
-    prefix: '<rootDir>',
-  }),
   watchPlugins: [
     'jest-watch-typeahead/filename',
     'jest-watch-typeahead/testname',
