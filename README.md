@@ -15,7 +15,7 @@ Project template for TypeScript libraries
 1. Run the bootstrapper script:
 
    ```
-   yarn -s bootstrap \
+   yarn bootstrap \
       --repoOrg '<your org>/<your repo>' \
       --developerName '<your full name>' \
       --packageName '<your package name>' \
@@ -30,7 +30,7 @@ Example:
 gh repo clone jasonkuhrt/template-typescript-lib foobar \
    && cd foobar \
    && yarn \
-   && yarn -s bootstrap \
+   && yarn bootstrap \
       --repoOrg 'jasonkuhrt/foobar' \
       --developerName 'Jason Kuhrt' \
       --packageName 'foobar' \
@@ -117,7 +117,12 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
    1. Group all major devDependency updates into single PR (with "chore" conventional commit type)
    1. Group all non-major dependency updates into single PR (with "deps" conventional commit type)
    1. Each major dependency update in own PR (with "deps" conventional commit type)
-1. [Yarn 1](https://classic.yarnpkg.com/lang/en/) for package management (mostly for great script runner behaviour)
+1. [Yarn 2](https://classic.yarnpkg.com/lang/en/) for package management
+   1. Painless/familiar workflow via `node_modules` for `nodeLinker`
+   1. Plugins:
+      1. [`plugin-outdated`](https://github.com/mskelton/yarn-plugin-outdated) Bring back `outdated` command from Yarn 1.
+      1. [`plugin-typescript`](https://github.com/yarnpkg/berry/tree/master/packages/plugin-typescript) for painless `@types` consumptions (e.g. You probably forget how to pull down `@types` packages for already-scoped npm packages, doesn't matter now).
+      1. [`plugin-interactive-tools`](https://github.com/yarnpkg/berry/tree/master/packages/plugin-interactive-tools) for some slick in-terminal project maintenance.
 1. Hybrid package build CJS+ESM (see [Dr. Axel's article about this](https://2ality.com/2019/10/hybrid-npm-packages.html))
    1. Use `exports` field to give support to both modern `import` and legacy `require` consumers using Node 12.x and up. For details about the `exports` field refer to the [Official Node.js Docs](https://nodejs.org/api/packages.html#packages_package_entry_points) about it.
    1. Use `main` field for legacy versions of Node (before `12.x`) requiring the CJS build.

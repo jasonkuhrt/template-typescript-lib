@@ -1,4 +1,4 @@
-import * as Lib from '~/index'
+import * as Lib from '../src/index'
 
 it('works', () => {
   expect(nameof(it)).toEqual('it')
