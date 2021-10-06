@@ -11,6 +11,9 @@ const config: InitialOptionsTsJest = {
   globals: {
     'ts-jest': {
       diagnostics: Boolean(process.env.CI),
+      astTransformers: {
+        before: ['ts-jest/dist/transformers/path-mapping'],
+      },
     },
   },
 }
