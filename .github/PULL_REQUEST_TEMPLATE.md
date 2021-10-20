@@ -1,6 +1,7 @@
 closes #...
 
-#### TODO
+#### TASKS
 
-- [ ] docs
+- [ ] docs external
+- [ ] docs jsdoc
 - [ ] tests
