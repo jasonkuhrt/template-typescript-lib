@@ -1,4 +1,4 @@
-import * as Lib from '../src/index'
+import * as Lib from '~/index'
 
 // TODO bring back
 // it('works', () => {
