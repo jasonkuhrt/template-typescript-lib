@@ -6338,7 +6338,7 @@ fsevents@^2.3.2:
     ts-jest: 27.0.7
     ts-nameof: 5.0.0
     ts-node: 10.3.1
-    ts-patch: ^1.4.4
+    ts-patch: 2.0.1
     tslib: ^2.3.1
     typescript: 4.4.4
     typescript-snapshots-plugin: 1.7.0
@@ -6549,9 +6549,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"ts-patch@npm:^1.4.4":
-  version: 1.4.4
-  resolution: "ts-patch@npm:1.4.4"
+"ts-patch@npm:2.0.1":
+  version: 2.0.1
+  resolution: "ts-patch@npm:2.0.1"
   dependencies:
     chalk: ^4.1.0
     glob: ^7.1.7
@@ -6561,10 +6561,10 @@ fsevents@^2.3.2:
     shelljs: ^0.8.4
     strip-ansi: ^6.0.0
   peerDependencies:
-    typescript: ">2.7.0"
+    typescript: ">=4.0.0"
   bin:
     ts-patch: bin/cli.js
-  checksum: 527c30b891594c83466f7dc200912f816b4dc71a10dba2fbd964ce98287e52f580460d0962e4fa8751e0b8ec2b45b019eb52a4e4c31b05c988f2447d790eb07f
+  checksum: 0460cf3b79655ebac6909383af85675769dd8031464782b02b71900409f75a09df929abdfe903f1fd0c6f89afc8dfacea1cf80dfb5a527f53a7ad4c16d3ad790
   languageName: node
   linkType: hard
 
