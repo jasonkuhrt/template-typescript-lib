@@ -178,3 +178,5 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 #### Readme Table of Contents
 
 1. Using [`markdown-toc`](https://github.com/jonschlinkert/markdown-toc)
+
+![Alt](https://repobeats.axiom.co/api/embed/3c932f1cb76da4ad21328bfdd0ad1c6fbbe76a0b.svg "Repobeats analytics image")
