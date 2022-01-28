@@ -1,6 +1,6 @@
 import * as Fs from 'fs'
 import type { InitialOptionsTsJest } from 'ts-jest/dist/types'
-import { pathsToModuleNameMapper } from 'ts-jest/utils'
+import { pathsToModuleNameMapper } from 'ts-jest'
 import * as TypeScript from 'typescript'
 
 const tsconfig = TypeScript.readConfigFile('tsconfig.json', (path) =>
