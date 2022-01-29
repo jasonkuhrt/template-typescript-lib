@@ -713,17 +713,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@homer0/prettier-plugin-jsdoc@npm:4.0.6":
-  version: 4.0.6
-  resolution: "@homer0/prettier-plugin-jsdoc@npm:4.0.6"
-  dependencies:
-    comment-parser: ^1.2.4
-    prettier: ^2.4.1
-    ramda: 0.27.1
-  checksum: 52258d51a8bde6d7f1457f41e9a936beb3a1d64e4f1e3149bd19b41e910c4bb604cc4f59db896aadad5c4052bc83b459d899f59e5b1220538dc1d12b8da51a67
-  languageName: node
-  linkType: hard
-
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -1036,6 +1025,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@microsoft/tsdoc-config@npm:0.15.2":
+  version: 0.15.2
+  resolution: "@microsoft/tsdoc-config@npm:0.15.2"
+  dependencies:
+    "@microsoft/tsdoc": 0.13.2
+    ajv: ~6.12.6
+    jju: ~1.4.0
+    resolve: ~1.19.0
+  checksum: 85eb7808d4e4541199437f39e6aed235aaece0a6d0fd05c0b923067d494d20baca483fc6871880d09630f6d4e62b8bb99af0fde503eb2b2ded1b7ae5f74dfaf3
+  languageName: node
+  linkType: hard
+
+"@microsoft/tsdoc@npm:0.13.2":
+  version: 0.13.2
+  resolution: "@microsoft/tsdoc@npm:0.13.2"
+  checksum: 70948c5647495ef99752ff500e0f612c1fcf3476ea663ace19937e4d2f86fd78f0ad92ea5876d67e06b421f347d571b3d9e49c444935dc267768d5afd15581f8
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -1294,7 +1302,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma-labs/prettier-config@npm:0.1.0":
+"@prisma-labs/prettier-config@npm:^0.1.0":
   version: 0.1.0
   resolution: "@prisma-labs/prettier-config@npm:0.1.0"
   checksum: ec560221e3e8da051423eeaee1c8a552549bbedc10244cc6a4700e881adfa383dc61a3f21b11dd58b83b586d25f5145b5263fba4bfe796bf5af929d19c2be32b
@@ -1787,7 +1795,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:^6.10.0, ajv@npm:^6.12.3, ajv@npm:^6.12.4":
+"ajv@npm:^6.10.0, ajv@npm:^6.12.3, ajv@npm:^6.12.4, ajv@npm:~6.12.6":
   version: 6.12.6
   resolution: "ajv@npm:6.12.6"
   dependencies:
@@ -2462,13 +2470,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"comment-parser@npm:^1.2.4":
-  version: 1.2.4
-  resolution: "comment-parser@npm:1.2.4"
-  checksum: 36ac280bce4c472fac22b3ec4d8aebb4d3d7c22c6808c70174f4deabee3b82144db66f8bd61eca9c514a6d0f12f6087ddab99e7d531e660d0da793b4730fd445
-  languageName: node
-  linkType: hard
-
 "common-tags@npm:^1.8.0":
   version: 1.8.0
   resolution: "common-tags@npm:1.8.0"
@@ -2963,6 +2964,16 @@ __metadata:
   peerDependencies:
     eslint: ">=5.0.0"
   checksum: 6aacb7179c213cd2081950630368d1f3b1dcb4f5674d8b989fe7839e7b317ee521d74761676e8b1a7cab49f20405dbcc9aac05358ae804e6bcba6cbf1daccb3d
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-tsdoc@npm:^0.2.14":
+  version: 0.2.14
+  resolution: "eslint-plugin-tsdoc@npm:0.2.14"
+  dependencies:
+    "@microsoft/tsdoc": 0.13.2
+    "@microsoft/tsdoc-config": 0.15.2
+  checksum: cb00835ac74de031a01415b2595dd055808de65fcfbd2582ab52cba191e63d41f0d19f83f767b842e437c54204e063f9d9044409bd66a2c58a333873352a0d14
   languageName: node
   linkType: hard
 
@@ -3995,6 +4006,15 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
+"is-core-module@npm:^2.1.0":
+  version: 2.8.1
+  resolution: "is-core-module@npm:2.8.1"
+  dependencies:
+    has: ^1.0.3
+  checksum: 418b7bc10768a73c41c7ef497e293719604007f88934a6ffc5f7c78702791b8528102fb4c9e56d006d69361549b3d9519440214a74aefc7e0b79e5e4411d377f
+  languageName: node
+  linkType: hard
+
 "is-core-module@npm:^2.2.0":
   version: 2.6.0
   resolution: "is-core-module@npm:2.6.0"
@@ -4874,6 +4894,13 @@ fsevents@^2.3.2:
   bin:
     jest: bin/jest.js
   checksum: 28ce948b30c074907393f37553acac4422d0f60190776e62b3403e4c742d33dd6012e3a20748254a43e38b5b4ce52d813b13a3a5be1d43d6d12429bd08ce1a23
+  languageName: node
+  linkType: hard
+
+"jju@npm:~1.4.0":
+  version: 1.4.0
+  resolution: "jju@npm:1.4.0"
+  checksum: 3790481bd2b7827dd6336e6e3dc2dcc6d425679ba7ebde7b679f61dceb4457ea0cda330972494de608571f4973c6dfb5f70fab6f3c5037dbab19ac449a60424f
   languageName: node
   linkType: hard
 
@@ -5839,15 +5866,6 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.4.1":
-  version: 2.4.1
-  resolution: "prettier@npm:2.4.1"
-  bin:
-    prettier: bin-prettier.js
-  checksum: cc6830588b401b0d742862fe9c46bc9118204fb307c3abe0e49e95b35ed23629573807ffdf9cdd65289c252a0bb51fc0171437f6626ee36378dea80f0ee80b91
-  languageName: node
-  linkType: hard
-
 "pretty-format@npm:^27.0.0, pretty-format@npm:^27.1.1":
   version: 27.1.1
   resolution: "pretty-format@npm:27.1.1"
@@ -5946,13 +5964,6 @@ fsevents@^2.3.2:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: b676f8c040cdc5b12723ad2f91414d267605b26419d5c821ff03befa817ddd10e238d22b25d604920340fd73efd8ba795465a0377c4adf45a4a41e4234e42dc4
-  languageName: node
-  linkType: hard
-
-"ramda@npm:0.27.1":
-  version: 0.27.1
-  resolution: "ramda@npm:0.27.1"
-  checksum: 31a0c0ef739b2525d7615f84cbb5d3cb89ee0c795469b711f729ea1d8df0dccc3cd75d3717a1e9742d42315ce86435680b7c87743eb7618111c60c144a5b8059
   languageName: node
   linkType: hard
 
@@ -6131,6 +6142,26 @@ fsevents@^2.3.2:
     is-core-module: ^2.2.0
     path-parse: ^1.0.6
   checksum: bed00be983cd20a8af0e7840664f655c4b269786dbd9595c5f156cd9d8a0050e65cdbbbdafc30ee9b6245b230c78a2c8ab6447a52545b582f476c29adb188cc5
+  languageName: node
+  linkType: hard
+
+"resolve@patch:resolve@~1.19.0#~builtin<compat/resolve>":
+  version: 1.19.0
+  resolution: "resolve@patch:resolve@npm%3A1.19.0#~builtin<compat/resolve>::version=1.19.0&hash=00b1ff"
+  dependencies:
+    is-core-module: ^2.1.0
+    path-parse: ^1.0.6
+  checksum: 4714fbea90c3a4b9c14af343f255193ab16bce50782309318e01c3e4113e89df69a2a9fb1f1d9f7791c9c5a52a56f10568ce82df92dbbe184557d309a96808e5
+  languageName: node
+  linkType: hard
+
+resolve@~1.19.0:
+  version: 1.19.0
+  resolution: "resolve@npm:1.19.0"
+  dependencies:
+    is-core-module: ^2.1.0
+    path-parse: ^1.0.6
+  checksum: a05b356e47b85ad3613d9e2a39a824f3c27f4fcad9c9ff6c7cc71a2e314c5904a90ab37481ad0069d03cab9eaaac6eb68aca1bc3355fdb05f1045cd50e2aacea
   languageName: node
   linkType: hard
 
@@ -6703,8 +6734,7 @@ fsevents@^2.3.2:
   version: 0.0.0-use.local
   resolution: "template-typescript-lib@workspace:."
   dependencies:
-    "@homer0/prettier-plugin-jsdoc": 4.0.6
-    "@prisma-labs/prettier-config": 0.1.0
+    "@prisma-labs/prettier-config": ^0.1.0
     "@types/jest": 27.4.0
     "@types/node": 17.0.13
     "@types/ts-nameof": 4.2.1
@@ -6717,6 +6747,7 @@ fsevents@^2.3.2:
     eslint-plugin-only-warn: 1.0.3
     eslint-plugin-prefer-arrow: ^1.2.3
     eslint-plugin-simple-import-sort: ^7.0.0
+    eslint-plugin-tsdoc: ^0.2.14
     floggy: ^0.3.1
     format-imports: 2.4.7
     jest: 27.4.7
