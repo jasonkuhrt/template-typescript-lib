@@ -28,7 +28,7 @@
     "build": "yarn clean && yarn build:cjs && yarn build:esm",
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:esm": "tsc --project tsconfig.esm.json",
-    "test": "jest",
+    "test": "ava",
     "clean": "rm -rf dist-cjs dist-esm node_modules/.cache",
     "release:pr": "dripip pr",
     "release:canary": "dripip preview",
@@ -37,16 +37,16 @@
     "prepare": "ts-patch install -s"
   },
   "dependencies": {
+    "execa": "5",
     "floggy": "^0.3.1",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@prisma-labs/prettier-config": "^0.1.0",
-    "@types/jest": "27.4.0",
     "@types/node": "17.0.13",
-    "@types/ts-nameof": "4.2.1",
     "@typescript-eslint/eslint-plugin": "5.10.1",
     "@typescript-eslint/parser": "5.10.1",
+    "ava": "^4.0.1",
     "dripip": "0.10.0",
     "eslint": "8.8.0",
     "eslint-config-prettier": "8.3.0",
@@ -56,18 +56,20 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-tsdoc": "^0.2.14",
     "format-imports": "2.4.7",
-    "jest": "27.4.7",
-    "jest-watch-select-projects": "2.0.0",
-    "jest-watch-suspend": "1.1.2",
-    "jest-watch-typeahead": "1.0.0",
     "markdown-toc": "^1.2.0",
     "prettier": "2.5.1",
-    "ts-jest": "27.1.3",
-    "ts-nameof": "5.0.0",
     "ts-node": "10.4.0",
     "ts-patch": "^2.0.1",
     "typescript": "4.5.5",
     "typescript-snapshots-plugin": "1.7.0",
     "typescript-transform-paths": "3.3.1"
+  },
+  "ava": {
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
   }
 }

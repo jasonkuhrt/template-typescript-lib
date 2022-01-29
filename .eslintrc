@@ -39,9 +39,13 @@
   "overrides": [],
   "rules": {
     "tsdoc/syntax": "warn",
-    "simple-import-sort/imports": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": []
+      }
+    ],
     "simple-import-sort/exports": "warn",
-
     "deprecation/deprecation": "warn",
     "prefer-arrow/prefer-arrow-functions": "warn",
     // TypeScript makes these safe & effective

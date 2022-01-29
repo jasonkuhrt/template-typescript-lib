@@ -4,13 +4,13 @@
  * @example
  *
  * ```ts
- *   const a = foobar({
+ *   const a = todo({
  *     a: 1,
  *     b: 2,
  *   })
  * ```
  *
  */
-export const todo = (): void => {
-  console.log(nameof(todo))
+export const todo = (): string => {
+  return 'todo'
 }

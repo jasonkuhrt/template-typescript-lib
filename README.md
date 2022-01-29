@@ -8,8 +8,8 @@
 - [Features](#features)
   - [TypeScript](#typescript)
   - [ESLint](#eslint)
-  - [`jest`](#jest)
-  - [`dripip`](#dripip)
+  - [Ava](#ava)
+  - [Dripip](#dripip)
   - [Simple succinct friendly low-barrier issue templates](#simple-succinct-friendly-low-barrier-issue-templates)
   - [Prettier](#prettier)
   - [`format-imports`](#format-imports)
@@ -71,13 +71,15 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
        - [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature)
        - [`noImplicitOverride`](https://www.typescriptlang.org/tsconfig#noImplicitOverride)
 1.  `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
+
 1.  Base `tsconfig.json` shared across `tests`, `src`, and `ts-node`.
+
 1.  [`ts-patch`](https://github.com/nonara/ts-patch) setup for enhanced language features:
-    1. [`ts-nameof`](https://github.com/dsherret/ts-nameof) for pulling the names of identifier down into your runtime!
+
     1. [`typescript-transform-paths`](https://github.com/LeDDGroup/typescript-transform-paths) for a **_working_** [tsconfig `paths` config](https://www.typescriptlang.org/tsconfig#paths)!
-       1. Jest configuration taken care of.
     1. `ts-node` configuration taken care of.
     1. Intentional avoidance of [`ttypescript`](https://github.com/microsoft/TypeScript/issues/38365#issuecomment-921889655)
+
 1.  Optimal output setup for your users
 
     1. Target ES2019 which Node as low as version 12 has good support for ([kangax compat table](https://node.green/#ES2019)).
@@ -94,18 +96,11 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 1.  Prettier integration using just [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier). [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier) is _not_ used to avoid lint noise and slower run time. Prettier is expected to be run by your IDE and your CI and if really neeeded _you manually_ via `yarn format`.
 1.  Setup as a CI check for PRs
 1.  Always display as warning to keep IDE error feedback for TypeScript (CI enforces warnings).
+1.  Auto-fixable import sorting
 
-#### [`jest`](https://jestjs.io) for Testing
+#### [Ava](https://github.com/avajs/ava) for Testing
 
-1.  Setup with `ts-jest`
-1.  Handy watch mode plugins
-1.  [`jest-watch-typeahead`](https://github.com/jest-community/jest-watch-typeahead)
-1.  [`jest-watch-suspend`](https://github.com/unional/jest-watch-suspend)
-1.  [`jest-watch-select-projects`](https://github.com/jest-community/jest-watch-select-projects)
-1.  `jest.config.ts` for type safe & intellisense configuration!
-1.  [`typescript-snapshots-plugin`](https://github.com/asvetliakov/typescript-snapshots-plugin) for viewing snapshots on hover of `.toMatchSnapshot` method!
-
-#### [`dripip`](https://github.com/prisma-labs/dripip) for Releasing
+#### [Dripip](https://github.com/prisma-labs/dripip) for Releasing
 
 #### Simple succinct friendly low-barrier issue templates
 
