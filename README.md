@@ -4,7 +4,7 @@
 
 <!-- toc -->
 
-- [Quickstart](#quickstart)
+- [Quick Start](#quick-start)
 - [Features](#features)
   - [TypeScript](#typescript)
   - [ESLint](#eslint)
@@ -12,7 +12,6 @@
   - [Dripip](#dripip)
   - [Simple succinct friendly low-barrier issue templates](#simple-succinct-friendly-low-barrier-issue-templates)
   - [Prettier](#prettier)
-  - [`format-imports`](#format-imports)
   - [npm scripts for development lifecycle](#npm-scripts-for-development-lifecycle)
   - [CI with GitHub Actions](#ci-with-github-actions)
   - [Renovate](#renovate)
@@ -25,7 +24,7 @@
 
 Project template for TypeScript libraries
 
-### Quickstart
+### Quick Start
 
 1. Setup a clone of this repo:
 
@@ -33,7 +32,7 @@ Project template for TypeScript libraries
    gh repo clone jasonkuhrt/template-typescript-lib <your package name> && cd <your package name> && yarn
    ```
 
-1. Run the bootstrapper script:
+1. Run the bootstrap script:
 
    ```
    yarn bootstrap \
@@ -82,7 +81,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 
 1.  Optimal output setup for your users
 
-    1. Target ES2019 which Node as low as version 12 has good support for ([kangax compat table](https://node.green/#ES2019)).
+    1. Target ES2019 which Node as low as version 12 has good support for ([Kangax compatibility table](https://node.green/#ES2019)).
     1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
     1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
     1. `package.json` [`typeVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions) used to emit only **one** set of declaration files shared by both CJS and ESM builds.
@@ -93,7 +92,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 
 1.  TypeScript integration
 1.  TS type-checker powered eslint checks enabled
-1.  Prettier integration using just [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier). [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier) is _not_ used to avoid lint noise and slower run time. Prettier is expected to be run by your IDE and your CI and if really neeeded _you manually_ via `yarn format`.
+1.  Prettier integration using just [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier). [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier) is _not_ used to avoid lint noise and slower run time. Prettier is expected to be run by your IDE and your CI and if really needed _you manually_ via `yarn format`.
 1.  Setup as a CI check for PRs
 1.  Always display as warning to keep IDE error feedback for TypeScript (CI enforces warnings).
 1.  Auto-fixable import sorting
@@ -108,19 +107,12 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 1.  Feature / bug / docs / something-else
 1.  Config to display discussions link right in new issue type listing UI
 
-#### [Prettier](https://prettier.io/) for code formating
+#### [Prettier](https://prettier.io/) for code formatting
 
 1.  Prisma Labs config preset, 110 line width
 1.  Setup as a CI check for PRs
 1.  [VSCode extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
 1.  npm script
-
-#### [`format-imports`](https://github.com/daidodo/format-imports)
-
-1.  Setup as a CI check for PRs
-1.  [VSCode extension](https://marketplace.visualstudio.com/items?itemName=dozerg.tsimportsorter) in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
-1.  npm script
-1.  [Config in package.json](https://github.com/daidodo/format-imports#configuration-resolution) to disable [empty lines between groups](https://github.com/daidodo/format-imports/blob/main/docs/interfaces/configuration.md#emptylinesbetweengroups).
 
 #### npm scripts for development lifecycle
 
@@ -136,7 +128,6 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 1.  [Dependency install cache](https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-dependencies) enabled.
 1.  On PR:
     1.  Prettier Check
-    1.  Format Imports Check
     1.  Lint Check
     1.  Tests across matrix of mac/linux/windows for Node 14/16
 1.  On trunk:
@@ -146,7 +137,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 #### [Renovate](https://github.com/renovatebot/renovate) configuration
 
 1.  JSON Schema setup for optimal intellisense
-1.  Group all non-major devDependency updates into single PR (wich "chore" conventional commit type)
+1.  Group all non-major devDependency updates into single PR (which "chore" conventional commit type)
 1.  Group all major devDependency updates into single PR (with "chore" conventional commit type)
 1.  Group all non-major dependency updates into single PR (with "deps" conventional commit type)
 1.  Each major dependency update in own PR (with "deps" conventional commit type)
