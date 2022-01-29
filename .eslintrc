@@ -6,6 +6,7 @@
   },
   "plugins": [
     // This enables using new lint rules powered by the TypeScript compiler API.
+    // https://github.com/typescript-eslint/typescript-eslint
     "@typescript-eslint",
     // This makes it so the IDE reports lint rejections as warnings only. This is
     // better than errors because most lint rejections are not runtime errors. This
