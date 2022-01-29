@@ -19,7 +19,10 @@
     // possible to wrap a function declaration with Open Telemetry instrumentation but it is
     // possible to wrap an arrow function since its an expression.
     // https://github.com/TristonJ/eslint-plugin-prefer-arrow
-    "prefer-arrow"
+    "prefer-arrow",
+    // This enables the use of a lint rule to reject use of @deprecated functions.
+    // https://github.com/gund/eslint-plugin-deprecation
+    "deprecation"
   ],
   "extends": [
     "eslint:recommended",
@@ -30,6 +33,7 @@
   ],
   "overrides": [],
   "rules": {
+    "deprecation/deprecation": "warn",
     "prefer-arrow/prefer-arrow-functions": "warn",
     // TypeScript makes these safe & effective
     "no-case-declarations": "off",
