@@ -13,6 +13,10 @@
     // reflective of real runtime errors.
     // https://github.com/bfanger/eslint-plugin-only-warn
     "only-warn",
+    // This enables the use of a lint rule to reject function declarations. This is
+    // preferable as a way to encourage higher order function usage. For example it is not
+    // possible to wrap a function declaration with Open Telemetry instrumentation but it is
+    // possible to wrap an arrow function since its an expression.
     // https://github.com/TristonJ/eslint-plugin-prefer-arrow
     "prefer-arrow"
   ],
