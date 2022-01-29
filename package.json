@@ -54,6 +54,7 @@
     "eslint": "8.8.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-only-warn": "1.0.3",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
     "format-imports": "2.4.7",
     "jest": "27.4.7",
     "jest-watch-select-projects": "2.0.0",

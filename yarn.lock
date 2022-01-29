@@ -2923,6 +2923,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-prefer-arrow@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "eslint-plugin-prefer-arrow@npm:1.2.3"
+  peerDependencies:
+    eslint: ">=2.0.0"
+  checksum: 3cdae574121c4a683d77e329ee193103b2bf418d7a8c85831b274000ae4aba64cb4d302fe69a44ae4d729b90f5130c968e4a9e43852a5de940d00283e61f92fc
+  languageName: node
+  linkType: hard
+
 "eslint-scope@npm:^5.1.1":
   version: 5.1.1
   resolution: "eslint-scope@npm:5.1.1"
@@ -6671,6 +6680,7 @@ fsevents@^2.3.2:
     eslint: 8.8.0
     eslint-config-prettier: 8.3.0
     eslint-plugin-only-warn: 1.0.3
+    eslint-plugin-prefer-arrow: ^1.2.3
     floggy: ^0.3.1
     format-imports: 2.4.7
     jest: 27.4.7

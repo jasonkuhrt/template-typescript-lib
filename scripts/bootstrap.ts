@@ -3,9 +3,7 @@ import * as Execa from 'execa'
 import { log } from 'floggy'
 import * as Fs from 'fs-jetpack'
 
-main()
-
-function main() {
+const main = () => {
   const args = arg({
     '--createGithubRepo': Boolean,
     '--repoOrg': String,
@@ -67,7 +65,7 @@ function main() {
   }
 }
 
-function replaceInFile(filePath: string, pattern: RegExp, replaceWith: string): void {
+const replaceInFile = (filePath: string, pattern: RegExp, replaceWith: string): void => {
   const file = Fs.read(filePath)
   if (!file) {
     throw new Error(`Could not find file: ${filePath}`)
@@ -75,3 +73,5 @@ function replaceInFile(filePath: string, pattern: RegExp, replaceWith: string): 
   const fileUpdated = file.replace(pattern, replaceWith)
   Fs.write(filePath, fileUpdated)
 }
+
+main()

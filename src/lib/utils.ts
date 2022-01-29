@@ -9,6 +9,6 @@
  *   })
  *
  */
-export function todo(): void {
+export const todo = (): void => {
   console.log(nameof(todo))
 }

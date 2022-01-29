@@ -4,7 +4,18 @@
   "parserOptions": {
     "project": ["tsconfig.json"]
   },
-  "plugins": ["@typescript-eslint", "only-warn"],
+  "plugins": [
+    // This enables using new lint rules powered by the TypeScript compiler API.
+    "@typescript-eslint",
+    // This makes it so the IDE reports lint rejections as warnings only. This is
+    // better than errors because most lint rejections are not runtime errors. This
+    // allows IDE errors to be exclusive for e.g. static type errors which often are
+    // reflective of real runtime errors.
+    // https://github.com/bfanger/eslint-plugin-only-warn
+    "only-warn",
+    // https://github.com/TristonJ/eslint-plugin-prefer-arrow
+    "prefer-arrow"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -14,6 +25,7 @@
   ],
   "overrides": [],
   "rules": {
+    "prefer-arrow/prefer-arrow-functions": "warn",
     // TypeScript makes these safe & effective
     "no-case-declarations": "off",
     // This rule marks nameof as a warning which is annoying if
