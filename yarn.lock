@@ -425,7 +425,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma-labs/prettier-config@npm:^0.1.0":
+"@prisma-labs/prettier-config@npm:0.1.0":
   version: 0.1.0
   resolution: "@prisma-labs/prettier-config@npm:0.1.0"
   checksum: ec560221e3e8da051423eeaee1c8a552549bbedc10244cc6a4700e881adfa383dc61a3f21b11dd58b83b586d25f5145b5263fba4bfe796bf5af929d19c2be32b
@@ -990,7 +990,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ava@npm:^4.0.1":
+"ava@npm:4.0.1":
   version: 4.0.1
   resolution: "ava@npm:4.0.1"
   dependencies:
@@ -1808,7 +1808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-deprecation@npm:^1.3.2":
+"eslint-plugin-deprecation@npm:1.3.2":
   version: 1.3.2
   resolution: "eslint-plugin-deprecation@npm:1.3.2"
   dependencies:
@@ -1829,7 +1829,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prefer-arrow@npm:^1.2.3":
+"eslint-plugin-prefer-arrow@npm:1.2.3":
   version: 1.2.3
   resolution: "eslint-plugin-prefer-arrow@npm:1.2.3"
   peerDependencies:
@@ -1838,7 +1838,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-simple-import-sort@npm:^7.0.0":
+"eslint-plugin-simple-import-sort@npm:7.0.0":
   version: 7.0.0
   resolution: "eslint-plugin-simple-import-sort@npm:7.0.0"
   peerDependencies:
@@ -1847,7 +1847,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-tsdoc@npm:^0.2.14":
+"eslint-plugin-tsdoc@npm:0.2.14":
   version: 0.2.14
   resolution: "eslint-plugin-tsdoc@npm:0.2.14"
   dependencies:
@@ -3420,7 +3420,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"markdown-toc@npm:^1.2.0":
+"markdown-toc@npm:1.2.0":
   version: 1.2.0
   resolution: "markdown-toc@npm:1.2.0"
   dependencies:
@@ -4821,26 +4821,26 @@ resolve@~1.19.0:
   version: 0.0.0-use.local
   resolution: "template-typescript-lib@workspace:."
   dependencies:
-    "@prisma-labs/prettier-config": ^0.1.0
+    "@prisma-labs/prettier-config": 0.1.0
     "@types/node": 17.0.13
     "@typescript-eslint/eslint-plugin": 5.10.1
     "@typescript-eslint/parser": 5.10.1
-    ava: ^4.0.1
+    ava: 4.0.1
     dripip: 0.10.0
     eslint: 8.8.0
     eslint-config-prettier: 8.3.0
-    eslint-plugin-deprecation: ^1.3.2
+    eslint-plugin-deprecation: 1.3.2
     eslint-plugin-only-warn: 1.0.3
-    eslint-plugin-prefer-arrow: ^1.2.3
-    eslint-plugin-simple-import-sort: ^7.0.0
-    eslint-plugin-tsdoc: ^0.2.14
+    eslint-plugin-prefer-arrow: 1.2.3
+    eslint-plugin-simple-import-sort: 7.0.0
+    eslint-plugin-tsdoc: 0.2.14
     execa: 5
     floggy: ^0.3.1
     format-imports: 2.4.7
-    markdown-toc: ^1.2.0
+    markdown-toc: 1.2.0
     prettier: 2.5.1
     ts-node: 10.4.0
-    ts-patch: ^2.0.1
+    ts-patch: 2.0.1
     tslib: ^2.3.1
     typescript: 4.5.5
     typescript-snapshots-plugin: 1.7.0
@@ -4952,7 +4952,7 @@ resolve@~1.19.0:
   languageName: node
   linkType: hard
 
-"ts-patch@npm:^2.0.1":
+"ts-patch@npm:2.0.1":
   version: 2.0.1
   resolution: "ts-patch@npm:2.0.1"
   dependencies:
