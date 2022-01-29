@@ -35,7 +35,7 @@ Project template for TypeScript libraries
 1. Run the bootstrap script:
 
    ```
-   yarn bootstrap \
+   yarn ts-node scripts/bootstrap \
       --repoOrg '<your org>/<your repo>' \
       --developerName '<your full name>' \
       --packageName '<your package name>' \
