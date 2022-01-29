@@ -4,18 +4,6 @@ on:
   - pull_request
 
 jobs:
-  format-imports:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-          cache: yarn
-      - name: Install Dependencies
-        run: yarn --frozen-lockfile
-      - run: yarn format:check:imports
-
   prettier:
     runs-on: ubuntu-latest
     steps:

@@ -22,7 +22,10 @@
     "prefer-arrow",
     // This enables the use of a lint rule to reject use of @deprecated functions.
     // https://github.com/gund/eslint-plugin-deprecation
-    "deprecation"
+    "deprecation",
+    // Import sorting integrated into ESLint.
+    // https://github.com/lydell/eslint-plugin-simple-import-sort
+    "simple-import-sort"
   ],
   "extends": [
     "eslint:recommended",
@@ -33,6 +36,9 @@
   ],
   "overrides": [],
   "rules": {
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+
     "deprecation/deprecation": "warn",
     "prefer-arrow/prefer-arrow-functions": "warn",
     // TypeScript makes these safe & effective
