@@ -56,11 +56,11 @@ const main = () => {
       `--confirm`,
       `--enable-wiki=false`,
       `--public`,
-      `${args['--repoOrg']}`,
+      `${args['--orgAndRepo']}`,
     ])
 
     log.info('Pushing main branch and commit to GitHub')
-    Execa.sync(`git`, [`remote`, `add`, `origin`, `https://github.com/${args['--repoOrg']}.git`])
+    Execa.sync(`git`, [`remote`, `add`, `origin`, `https://github.com/${args['--orgAndRepo']}.git`])
     Execa.sync(`git`, [`branch`, `-M`, `main`])
     Execa.sync(`git`, [`push`, `-u`, `origin`, `main`])
   }
