@@ -36,7 +36,7 @@ Project template for TypeScript libraries
 
    ```
    yarn ts-node scripts/bootstrap \
-      --repoOrg '<your org>/<your repo>' \
+      --orgAndRepo '<your org>/<your repo>' \
       --developerName '<your full name>' \
       --packageName '<your package name>' \
       --createGithubRepo
@@ -51,7 +51,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
    && cd foobar \
    && yarn \
    && yarn bootstrap \
-      --repoOrg 'jasonkuhrt/foobar' \
+      --orgAndRepo 'jasonkuhrt/foobar' \
       --developerName 'Jason Kuhrt' \
       --packageName 'foobar' \
       --createGithubRepo

@@ -6,22 +6,22 @@ import * as Fs from 'fs-jetpack'
 const main = () => {
   const args = arg({
     '--createGithubRepo': Boolean,
-    '--repoOrg': String,
+    '--orgAndRepo': String,
     '--developerName': String,
     '--packageName': String,
   })
 
-  if (!args['--repoOrg'] || !args['--developerName'] || !args['--packageName']) {
+  if (!args['--orgAndRepo'] || !args['--developerName'] || !args['--packageName']) {
     throw new Error(`Missing required flag.`)
   }
 
   log.info(`Replacing file fields with new values`)
 
-  replaceInFile('README.md', /jasonkuhrt\/template-typescript-lib/g, args['--repoOrg'])
+  replaceInFile('README.md', /jasonkuhrt\/template-typescript-lib/g, args['--orgAndRepo'])
   replaceInFile(
     '.github/ISSUE_TEMPLATE/config.yml',
     /jasonkuhrt\/template-typescript-lib/g,
-    args['--repoOrg']
+    args['--orgAndRepo']
   )
   // Do this after the above, as package name is subset of repo name
   replaceInFile('package.json', /template-typescript-lib/g, args['--packageName'])
@@ -60,12 +60,7 @@ const main = () => {
     ])
 
     log.info('Pushing main branch and commit to GitHub')
-    Execa.sync(`git`, [
-      `remote`,
-      `add`,
-      `origin`,
-      `https://github.com/${args['--repoOrg']}/${args['--packageName']}.git`,
-    ])
+    Execa.sync(`git`, [`remote`, `add`, `origin`, `https://github.com/${args['--repoOrg']}.git`])
     Execa.sync(`git`, [`branch`, `-M`, `main`])
     Execa.sync(`git`, [`push`, `-u`, `origin`, `main`])
   }
