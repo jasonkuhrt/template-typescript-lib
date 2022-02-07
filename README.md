@@ -16,7 +16,7 @@
   - [CI with GitHub Actions](#ci-with-github-actions)
   - [Renovate](#renovate)
   - [Yarn 2](#yarn-2)
-  - [CJS+ESM Hybrid package build (see [Dr. Axel's article about this](https://2ality.com/2019/10/hybrid-npm-packages.html))](#cjsesm-hybrid-package-build-see-dr-axels-article-about-thishttps2alitycom201910hybrid-npm-packageshtml)
+  - [CJS+ESM Hybrid package build](#cjsesm-hybrid-package-build)
   - [VSCode Settings](#vscode-settings)
   - [Readme Table of Contents](#readme-table-of-contents)
 
@@ -150,7 +150,9 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
     1.  [`plugin-typescript`](https://github.com/yarnpkg/berry/tree/master/packages/plugin-typescript) for painless `@types` consumptions (e.g. You probably forget how to pull down `@types` packages for already-scoped npm packages, doesn't matter now).
     1.  [`plugin-interactive-tools`](https://github.com/yarnpkg/berry/tree/master/packages/plugin-interactive-tools) for some slick in-terminal project maintenance.
 
-#### CJS+ESM Hybrid package build (see [Dr. Axel's article about this](https://2ality.com/2019/10/hybrid-npm-packages.html))
+#### CJS+ESM Hybrid package build
+
+See [Dr. Axel's article about this](https://2ality.com/2019/10/hybrid-npm-packages.html))
 
 1.  Use `exports` field to give support to both modern `import` and legacy `require` consumers using Node 12.x and up. For details about the `exports` field refer to the [Official Node.js Docs](https://nodejs.org/api/packages.html#packages_package_entry_points) about it.
 1.  Use `main` field for legacy versions of Node (before `12.x`) requiring the CJS build.
