@@ -37,8 +37,6 @@
     "prepare": "ts-patch install -s"
   },
   "dependencies": {
-    "execa": "5",
-    "floggy": "^0.3.1",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
@@ -46,6 +44,7 @@
     "@types/node": "17.0.13",
     "@typescript-eslint/eslint-plugin": "5.11.0",
     "@typescript-eslint/parser": "5.11.0",
+    "arg": "^5.0.1",
     "ava": "4.0.1",
     "dripip": "0.10.0",
     "eslint": "8.8.0",
@@ -55,6 +54,8 @@
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "eslint-plugin-tsdoc": "0.2.14",
+    "execa": "5",
+    "floggy": "^0.3.1",
     "format-imports": "2.4.11",
     "fs-jetpack": "^4.3.1",
     "markdown-toc": "1.2.0",
