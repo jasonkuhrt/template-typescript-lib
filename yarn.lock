@@ -2463,6 +2463,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-jetpack@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "fs-jetpack@npm:4.3.1"
+  dependencies:
+    minimatch: ^3.0.2
+    rimraf: ^2.6.3
+  checksum: ffe90946ec250c6042569faa2ec7753594779ca0e8a72eea0b76b82574542c50d580974f54c5d6885f44f5719ece173be778cf82dc50ad90f43dab043f4061c9
+  languageName: node
+  linkType: hard
+
 "fs-minipass@npm:^2.0.0":
   version: 2.1.0
   resolution: "fs-minipass@npm:2.1.0"
@@ -4898,6 +4908,7 @@ resolve@~1.19.0:
     execa: 5
     floggy: ^0.3.1
     format-imports: 2.4.11
+    fs-jetpack: ^4.3.1
     markdown-toc: 1.2.0
     prettier: 2.5.1
     ts-node: 10.5.0
