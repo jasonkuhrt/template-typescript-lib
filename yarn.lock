@@ -1262,7 +1262,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^4.0.0, chalk@npm:^4.1.0, chalk@npm:^4.1.2":
+"chalk@npm:^4.0.0, chalk@npm:^4.1.0":
   version: 4.1.2
   resolution: "chalk@npm:4.1.2"
   dependencies:
@@ -2360,15 +2360,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"floggy@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "floggy@npm:0.3.1"
+"floggy@npm:0.3.2":
+  version: 0.3.2
+  resolution: "floggy@npm:0.3.2"
   dependencies:
-    chalk: ^4.1.2
     fp-ts: ^2.11.3
+    kleur: ^4.1.4
     lodash: ^4.17.21
     strip-ansi: 6
-  checksum: aa846b887357368fa32be84f5f83f4baba61708957b62a7eb93555ae9beba0b1b51e8a7241ee039281d6e2e1e0c1629772eb06cbe2108ccf5a89ed63dfd96fa1
+    tslib: ^2.3.1
+  checksum: d3e150b05875bd4ac96ef54e96de03bc137b65476be970e88668d7416ced9d9f32f6d40ba69ee7e298746b6c616a46ab5d2da650be66fbe06da36cdd5f669256
   languageName: node
   linkType: hard
 
@@ -3326,6 +3327,13 @@ fsevents@~2.3.2:
   version: 6.0.3
   resolution: "kind-of@npm:6.0.3"
   checksum: 3ab01e7b1d440b22fe4c31f23d8d38b4d9b91d9f291df683476576493d5dfd2e03848a8b05813dd0c3f0e835bc63f433007ddeceb71f05cb25c45ae1b19c6d3b
+  languageName: node
+  linkType: hard
+
+"kleur@npm:^4.1.4":
+  version: 4.1.4
+  resolution: "kleur@npm:4.1.4"
+  checksum: 7f6db36e378045dec14acd3cbf0b1e59130c09e984ee8b8ce56dd2d2257cfff90389c1e8f8b19bd09dd5d241080566a814b4ccd99fdcef91f59ef93ec33c8a44
   languageName: node
   linkType: hard
 
@@ -4914,7 +4922,7 @@ resolve@~1.19.0:
     eslint-plugin-simple-import-sort: 7.0.0
     eslint-plugin-tsdoc: 0.2.14
     execa: 5
-    floggy: ^0.3.1
+    floggy: 0.3.2
     format-imports: 2.4.11
     fs-jetpack: ^4.3.1
     markdown-toc: 1.2.0

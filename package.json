@@ -55,7 +55,7 @@
     "eslint-plugin-simple-import-sort": "7.0.0",
     "eslint-plugin-tsdoc": "0.2.14",
     "execa": "5",
-    "floggy": "^0.3.1",
+    "floggy": "0.3.2",
     "format-imports": "2.4.11",
     "fs-jetpack": "^4.3.1",
     "markdown-toc": "1.2.0",
