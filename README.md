@@ -119,7 +119,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 1.  `clean` to remove cache and dist files
 1.  `build` that runs `clean` beforehand
 1.  `prepublishOnly` that runs `build` beforehand
-1.  `format` to quickly run `prettier` and `format-imports` over whole codebase
+1.  `format` to quickly run `prettier` over whole codebase
 1.  `lint` to quickly run `eslint` over whole codebase
 
 #### CI with GitHub Actions
