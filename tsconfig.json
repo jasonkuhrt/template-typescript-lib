@@ -1,5 +1,6 @@
 {
   "ts-node": {
+    "swc": true,
     "transpileOnly": true,
     "require": ["typescript-transform-paths/register"],
     "compilerOptions": {

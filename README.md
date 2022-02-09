@@ -88,6 +88,10 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
     1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
     1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size.
 
+1.  `ts-node` for running TypeScript scripts/modules.
+
+    1. [Setup to use SWC](https://typestrong.org/ts-node/docs/transpilers/#swc)
+
 #### [ESLint](https://eslint.org/) For Linting
 
 1.  TypeScript integration

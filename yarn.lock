@@ -363,6 +363,152 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@swc/core-android-arm-eabi@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-android-arm-eabi@npm:1.2.138"
+  checksum: 6a48dba1c817d18cc1b0580d2d425cd5b9fc1d46342a4d21fa17b37fb82152d2928559707386166fcd8d7fdb9090bec8a3f17796c0e3319a8bf6cee8c88811c1
+  languageName: node
+  linkType: hard
+
+"@swc/core-android-arm64@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-android-arm64@npm:1.2.138"
+  checksum: aeb04a59cab07b90eb612f4ccbcbfd714975849d9ac37306ea4ecc3b788f24fd58ff8b56c0eb05ccf9dfdcaf743883e04cf23d5fafba1501c6ed343e4327ea30
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-arm64@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-darwin-arm64@npm:1.2.138"
+  checksum: 9cdb39b20c33ac37f2dbb117616ccc9055cce00756448158239f7fb4342318f8f40f99cfb0caf4fcf13da16eecc83b8daf1a069f9fd53a07fdc108a5ff2f109e
+  languageName: node
+  linkType: hard
+
+"@swc/core-darwin-x64@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-darwin-x64@npm:1.2.138"
+  checksum: 8e51c8eeafb6591ab8ed0efcbd03898920bbf5338b26310a34db19a524b6a6a1b0a5b61a0a55747801c49277200f118464c2dcd3817f3cf484cf25cb7813180c
+  languageName: node
+  linkType: hard
+
+"@swc/core-freebsd-x64@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-freebsd-x64@npm:1.2.138"
+  checksum: 962af1cf9ba69825a078ff0b1ebfd9b61ba4b11279907a0a5e81a48b38387193507e28cccc42f88f8a7cf46faf2d4e0fc6d31d871cd852bc75d549ba3e1b0e34
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm-gnueabihf@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.2.138"
+  checksum: 1d58e1b2b01bf2287f10c29af324d818c1acdcd0366d0cb42ebde54154f3fc5b24f2613535dcb5c09377ab5df32974cc8344bc654170c18553ace87078f38772
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-gnu@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.2.138"
+  checksum: 297faa65887763e4f6be1bf1c6a8d88c1d19f394a5f0e8e88aebcf3707479d6d707f532a7c4c854c53863991a3c3a6bbee5de607b75d370c06027233c49b975e
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-arm64-musl@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-linux-arm64-musl@npm:1.2.138"
+  checksum: e03720f328aa04f4772a9e194ece717c1805805f9a241df7d036fc19b3969e3d0a926b922937cf9878d9c51b9673ca958ba19f541e4fd6e76912f3a802743f3d
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-gnu@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-linux-x64-gnu@npm:1.2.138"
+  checksum: 74b205bddc263656f2ba35475ee721506b2810c2e1e925ebd56374ce49bd530040a96327f8d8a6d39a6e1d0774196b7cb71d96e966806e106118a82cb4fbabee
+  languageName: node
+  linkType: hard
+
+"@swc/core-linux-x64-musl@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-linux-x64-musl@npm:1.2.138"
+  checksum: 0d0c5d8ba8d8c63148808599f6851409950a7ab149bb64164c16bde2e6c633de78b46893b5dab0c3882de974ceea58b14e4823f26961ef1a30bcf6f1b6c70ec8
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-arm64-msvc@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.2.138"
+  checksum: 17db4f776a1c2f26dbb67f65dc49f2792d81f4e06e3ecd887f532f227a6d53853fbb2343010f5267f34408b9c332b1f8c9a53e949c1330ab36dac756d2d6b39c
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-ia32-msvc@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.2.138"
+  checksum: 2433e5d659a017507a3e4bd568e981fb83f8808814d7562c8b12f14a6e51ff6786932afad16db922bcdb5f79493ef4a07e09c8eeee7190a51b804feb91853cb5
+  languageName: node
+  linkType: hard
+
+"@swc/core-win32-x64-msvc@npm:1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core-win32-x64-msvc@npm:1.2.138"
+  checksum: d32558e603fc52fbabd4017b0423519866ad078e2a8a3fee72e96350fcda995cc3ed5495a756c27d06c8211509b10910a31f9ef720456bba0b9bc603f52bd070
+  languageName: node
+  linkType: hard
+
+"@swc/core@npm:^1.2.138":
+  version: 1.2.138
+  resolution: "@swc/core@npm:1.2.138"
+  dependencies:
+    "@swc/core-android-arm-eabi": 1.2.138
+    "@swc/core-android-arm64": 1.2.138
+    "@swc/core-darwin-arm64": 1.2.138
+    "@swc/core-darwin-x64": 1.2.138
+    "@swc/core-freebsd-x64": 1.2.138
+    "@swc/core-linux-arm-gnueabihf": 1.2.138
+    "@swc/core-linux-arm64-gnu": 1.2.138
+    "@swc/core-linux-arm64-musl": 1.2.138
+    "@swc/core-linux-x64-gnu": 1.2.138
+    "@swc/core-linux-x64-musl": 1.2.138
+    "@swc/core-win32-arm64-msvc": 1.2.138
+    "@swc/core-win32-ia32-msvc": 1.2.138
+    "@swc/core-win32-x64-msvc": 1.2.138
+  dependenciesMeta:
+    "@swc/core-android-arm-eabi":
+      optional: true
+    "@swc/core-android-arm64":
+      optional: true
+    "@swc/core-darwin-arm64":
+      optional: true
+    "@swc/core-darwin-x64":
+      optional: true
+    "@swc/core-freebsd-x64":
+      optional: true
+    "@swc/core-linux-arm-gnueabihf":
+      optional: true
+    "@swc/core-linux-arm64-gnu":
+      optional: true
+    "@swc/core-linux-arm64-musl":
+      optional: true
+    "@swc/core-linux-x64-gnu":
+      optional: true
+    "@swc/core-linux-x64-musl":
+      optional: true
+    "@swc/core-win32-arm64-msvc":
+      optional: true
+    "@swc/core-win32-ia32-msvc":
+      optional: true
+    "@swc/core-win32-x64-msvc":
+      optional: true
+  checksum: 151ded0768b3bbd7fc02d992086d676f5f6d89ac7a42e0ba2a5a13ef89514707f2984f15827d1e1271c54e5d4a9002832dfa659b506406ba266ac90560f60e82
+  languageName: node
+  linkType: hard
+
+"@swc/helpers@npm:^0.3.2":
+  version: 0.3.2
+  resolution: "@swc/helpers@npm:0.3.2"
+  checksum: ab0ed08c234eaae108ba241e3c73212062cc0533e4f6e5e37e17343fbf3da13b60a63109bcd052dd937072e6f290cda76fb74ccb7bfd632e3f85a51b0acea7fd
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:1":
   version: 1.1.2
   resolution: "@tootallnate/once@npm:1.1.2"
@@ -4518,6 +4664,8 @@ resolve@~1.19.0:
   resolution: "template-typescript-lib@workspace:."
   dependencies:
     "@prisma-labs/prettier-config": 0.1.0
+    "@swc/core": ^1.2.138
+    "@swc/helpers": ^0.3.2
     "@types/node": 17.0.13
     "@typescript-eslint/eslint-plugin": 5.11.0
     "@typescript-eslint/parser": 5.11.0
