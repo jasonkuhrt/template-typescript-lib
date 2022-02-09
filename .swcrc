@@ -1,5 +1,7 @@
+// https://swc.rs/docs/configuration
 {
   "jsc": {
+    "baseUrl": "./",
     "paths": {
       "~*": ["./src/*"]
     }
