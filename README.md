@@ -62,6 +62,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 #### [TypeScript](https://www.typescriptlang.org/) for Type Safety & Productivity
 
 1.  Optimal settings for the safety of your implementation
+
     1. [`strict`](https://www.typescriptlang.org/tsconfig#strict) mode enabled.
     1. All lint flags enabled:
        - [`noImplicitReturns`](https://www.typescriptlang.org/tsconfig#noImplicitReturns)
@@ -69,19 +70,21 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
        - [`noUncheckedIndexedAccess`](https://www.typescriptlang.org/tsconfig#noUncheckedIndexedAccess)
        - [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature)
        - [`noImplicitOverride`](https://www.typescriptlang.org/tsconfig#noImplicitOverride)
+
 1.  `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
+
+1.  Inherit settings from [`@tsconfig/recommended` (Node 14 flavour)](https://github.com/tsconfig/bases#node-16-tsconfigjson)
 
 1.  Base `tsconfig.json` shared across `tests`, `src`, and `ts-node`.
 
 1.  [`ts-patch`](https://github.com/nonara/ts-patch) setup for enhanced language features:
 
     1. [`typescript-transform-paths`](https://github.com/LeDDGroup/typescript-transform-paths) for a **_working_** [tsconfig `paths` config](https://www.typescriptlang.org/tsconfig#paths)!
-    1. `ts-node` configuration taken care of.
     1. Intentional avoidance of [`ttypescript`](https://github.com/microsoft/TypeScript/issues/38365#issuecomment-921889655)
 
 1.  Optimal output setup for your users
 
-    1. Target ES2019 which Node as low as version 12 has good support for ([Kangax compatibility table](https://node.green/#ES2019)).
+    1. Target ES2020 which Node as low as version 14 has good support for ([Kangax compatibility table](https://node.green/#ES2019)).
     1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
     1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
     1. `package.json` [`typeVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions) used to emit only **one** set of declaration files shared by both CJS and ESM builds.
@@ -90,7 +93,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 
 1.  `ts-node` for running TypeScript scripts/modules.
 
-    1. [Setup to use SWC](https://typestrong.org/ts-node/docs/transpilers/#swc)
+    1. [Setup to use SWC](https://typestrong.org/ts-node/docs/transpilers/#swc) for maximum speed.
 
 #### [ESLint](https://eslint.org/) For Linting
 
