@@ -1,4 +1,5 @@
 {
+  "extends": "@tsconfig/node16/tsconfig.json",
   "ts-node": {
     "swc": true,
     "require": ["tsconfig-paths/register"],
@@ -9,20 +10,15 @@
   },
   "compilerOptions": {
     // Make the compiler stricter, catch more errors
-    "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    "forceConsistentCasingInFileNames": true,
     // We handle these with ESLint:
     // "noUnusedLocals": false,
     // "noUnusedParameters": false,
 
     // Output
-    "target": "ES2019",
-    "module": "commonjs",
-    "moduleResolution": "Node",
     "importHelpers": true,
 
     // DX
@@ -33,11 +29,6 @@
     "paths": {
       "~*": ["./src/*"]
     },
-
-    // Other
-    // Only enable this for applications.
-    // Packages doing this force their consumers to.
-    // "esModuleInterop": true,
 
     // Transformer Plugins made possible by https://github.com/nonara/ts-patch
     "plugins": [
