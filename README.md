@@ -90,6 +90,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
     1. `package.json` [`typeVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions) used to emit only **one** set of declaration files shared by both CJS and ESM builds.
     1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
     1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size.
+    1. Publish `src` with dist files so that jump-to-definition tools work optimally for users.
 
 1.  `ts-node` for running TypeScript scripts/modules.
 

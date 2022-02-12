@@ -5,6 +5,7 @@
   "author": "Jason Kuhrt",
   "license": "MIT",
   "files": [
+    "src",
     "dist-cjs",
     "dist-esm"
   ],
