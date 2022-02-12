@@ -1,4 +1,4 @@
-import * as arg from 'arg'
+import arg from 'arg'
 import * as Execa from 'execa'
 import { log } from 'floggy'
 import * as Fs from 'fs-jetpack'
