@@ -11,6 +11,6 @@
  * ```
  *
  */
-export const todo = (): string => {
-  return 'todo'
+export const todo = (task?: string): string => {
+  return task ?? 'nothing'
 }
