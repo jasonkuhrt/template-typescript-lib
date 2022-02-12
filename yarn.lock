@@ -454,7 +454,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core@npm:^1.2.138":
+"@swc/core@npm:1.2.138":
   version: 1.2.138
   resolution: "@swc/core@npm:1.2.138"
   dependencies:
@@ -502,7 +502,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/helpers@npm:^0.3.2":
+"@swc/helpers@npm:0.3.2":
   version: 0.3.2
   resolution: "@swc/helpers@npm:0.3.2"
   checksum: ab0ed08c234eaae108ba241e3c73212062cc0533e4f6e5e37e17343fbf3da13b60a63109bcd052dd937072e6f290cda76fb74ccb7bfd632e3f85a51b0acea7fd
@@ -544,7 +544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/recommended@npm:^1.0.1":
+"@tsconfig/recommended@npm:1.0.1":
   version: 1.0.1
   resolution: "@tsconfig/recommended@npm:1.0.1"
   checksum: 5f781e6a26277ee86dd0f1d575d18133627908ddf7c78acdcab0e40d0b7f21f4e1462eb8f98b74cda1d05d15fb3629ceea4c622ee031d62e31e7a99281c49294
@@ -4696,9 +4696,9 @@ resolve@~1.19.0:
   resolution: "template-typescript-lib@workspace:."
   dependencies:
     "@prisma-labs/prettier-config": 0.1.0
-    "@swc/core": ^1.2.138
-    "@swc/helpers": ^0.3.2
-    "@tsconfig/recommended": ^1.0.1
+    "@swc/core": 1.2.138
+    "@swc/helpers": 0.3.2
+    "@tsconfig/recommended": 1.0.1
     "@types/node": 17.0.13
     "@typescript-eslint/eslint-plugin": 5.11.0
     "@typescript-eslint/parser": 5.11.0
@@ -4719,7 +4719,7 @@ resolve@~1.19.0:
     prettier: 2.5.1
     ts-node: 10.5.0
     ts-patch: 2.0.1
-    tsconfig-paths: ^3.12.0
+    tsconfig-paths: 3.12.0
     tslib: ^2.3.1
     typescript: 4.5.5
     typescript-snapshots-plugin: 1.7.0
@@ -4842,7 +4842,7 @@ resolve@~1.19.0:
   languageName: node
   linkType: hard
 
-"tsconfig-paths@npm:^3.12.0":
+"tsconfig-paths@npm:3.12.0":
   version: 3.12.0
   resolution: "tsconfig-paths@npm:3.12.0"
   dependencies:
