@@ -1,7 +1,7 @@
 {
   "ts-node": {
-    "transpileOnly": true,
-    "require": ["typescript-transform-paths/register"],
+    "swc": true,
+    "require": ["tsconfig-paths/register"],
     "compilerOptions": {
       // Sometimes projects (e.g. Nextjs) will want code to emit ESM but ts-node will not work with that.
       "module": "CommonJS"
@@ -41,8 +41,6 @@
 
     // Transformer Plugins made possible by https://github.com/nonara/ts-patch
     "plugins": [
-      // https://github.com/dsherret/ts-nameof
-      { "transform": "ts-nameof", "type": "raw" },
       // https://github.com/LeDDGroup/typescript-transform-paths
       { "transform": "typescript-transform-paths" },
       { "transform": "typescript-transform-paths", "afterDeclarations": true }
