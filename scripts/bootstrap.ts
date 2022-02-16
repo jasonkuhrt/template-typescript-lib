@@ -60,7 +60,7 @@ const main = () => {
     ])
 
     log.info('Pushing main branch and commit to GitHub')
-    Execa.sync(`git`, [`remote`, `add`, `origin`, `https://github.com/${args['--orgAndRepo']}.git`])
+    Execa.sync(`git`, [`remote`, `add`, `origin`, `git@github.com:${args['--orgAndRepo']}.git`])
     Execa.sync(`git`, [`branch`, `-M`, `main`])
     Execa.sync(`git`, [`push`, `-u`, `origin`, `main`])
   }
