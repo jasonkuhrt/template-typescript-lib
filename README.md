@@ -105,7 +105,16 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 1.  Always display as warning to keep IDE error feedback for TypeScript (CI enforces warnings).
 1.  Auto-fixable import sorting
 
-#### [Ava](https://github.com/avajs/ava) for Testing
+#### [Jest](https://jestjs.io/) for Testing
+
+1. Transpile TypeScript tests with [`@swc/jest`](https://github.com/swc-project/jest)
+1. Useful watch mode plugins
+   1. [`jest-watch-typeahead`](https://github.com/jest-community/jest-watch-typeahead)
+   1. [`jest-watch-suspend`](https://github.com/unional/jest-watch-suspend)
+   1. [`jest-watch-select-projects`](https://github.com/jest-community/jest-watch-select-projects)
+1. `jest.config.ts` (TypeScript file) for type safe & intellisense configuration.
+1. [`typescript-snapshots-plugin`](https://github.com/asvetliakov/typescript-snapshots-plugin) for viewing snapshots on hover of `.toMatchSnapshot` method.
+1. [`konn`](https://github.com/prisma-labs/konn) for type safe test context creation.
 
 #### [Dripip](https://github.com/prisma-labs/dripip) for Releasing
 

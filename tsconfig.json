@@ -25,9 +25,9 @@
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
     "noErrorTruncation": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "~*": ["./src/*"]
+      "~/*": ["./src/*"]
     },
 
     // Transformer Plugins made possible by https://github.com/nonara/ts-patch
