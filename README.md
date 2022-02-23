@@ -187,3 +187,9 @@ See [Dr. Axel's article about this](https://2ality.com/2019/10/hybrid-npm-packag
 1. Using [`markdown-toc`](https://github.com/jonschlinkert/markdown-toc)
 
 ![Alt](https://repobeats.axiom.co/api/embed/3c932f1cb76da4ad21328bfdd0ad1c6fbbe76a0b.svg 'Repobeats analytics image')
+
+#### Useful TypeScript Libraries
+
+These are some TypeScript libraries you might want to use for your new project.
+
+https://github.com/stars/jasonkuhrt/lists/typescript
