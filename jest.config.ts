@@ -2,15 +2,16 @@ import * as Fs from 'fs'
 import { pathsToModuleNameMapper } from 'ts-jest'
 import * as TypeScript from 'typescript'
 
-const tsconfig = TypeScript.readConfigFile('tsconfig.json', (path) =>
-  Fs.readFileSync(path, { encoding: 'utf-8' })
-)
+const tsconfig: {
+  config?: { compilerOptions?: { paths?: Record<string, string[]> } }
+  error?: TypeScript.Diagnostic
+} = TypeScript.readConfigFile('tsconfig.json', (path) => Fs.readFileSync(path, { encoding: 'utf-8' }))
 
 const config = {
   transform: {
     '^.+\\.ts$': '@swc/jest',
   },
-  moduleNameMapper: pathsToModuleNameMapper(tsconfig.config.compilerOptions.paths, {
+  moduleNameMapper: pathsToModuleNameMapper(tsconfig.config?.compilerOptions?.paths ?? {}, {
     prefix: '<rootDir>',
   }),
   watchPlugins: [
