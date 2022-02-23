@@ -8,7 +8,7 @@
 - [Features](#features)
   - [TypeScript](#typescript)
   - [ESLint](#eslint)
-  - [Ava](#ava)
+  - [Jest](#jest)
   - [Dripip](#dripip)
   - [Simple succinct friendly low-barrier issue templates](#simple-succinct-friendly-low-barrier-issue-templates)
   - [Prettier](#prettier)
@@ -19,6 +19,7 @@
   - [CJS+ESM Hybrid package build](#cjsesm-hybrid-package-build)
   - [VSCode Settings](#vscode-settings)
   - [Readme Table of Contents](#readme-table-of-contents)
+  - [Useful TypeScript Libraries](#useful-typescript-libraries)
 
 <!-- tocstop -->
 
