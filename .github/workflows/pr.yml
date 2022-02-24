@@ -38,7 +38,7 @@ jobs:
           node-version: 16.x
           cache: yarn
       - run: yarn --frozen-lockfile
-      - run: yarn tsc --noEmit
+      - run: yarn type-check
 
   test:
     strategy:
