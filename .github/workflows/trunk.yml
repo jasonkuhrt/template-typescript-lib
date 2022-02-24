@@ -19,7 +19,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: yarn
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: yarn install --immutable
       - run: yarn build
       - run: yarn test
 
@@ -54,7 +54,7 @@ jobs:
           node-version: 16.x
           cache: yarn
       - name: Install Dependencies
-        run: yarn --frozen-lockfile
+        run: yarn install --immutable
       - name: Release Canary
         run: |
           yarn dripip preview --json > result.json
