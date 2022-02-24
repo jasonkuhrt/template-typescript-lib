@@ -35,7 +35,7 @@
     "release:pr": "dripip pr",
     "release:canary": "dripip preview",
     "release:stable": "dripip stable",
-    "prepublishOnly": "yarn build",
+    "prepack": "yarn build",
     "prepare": "ts-patch install -s"
   },
   "dependencies": {
