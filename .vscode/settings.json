@@ -3,6 +3,7 @@
     "**/dist-cjs": true,
     "**/dist-esm": true,
     "**/__snapshots__": true,
+    "**/.yarn": true,
     "yarn.lock": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",

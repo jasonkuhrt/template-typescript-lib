@@ -178,7 +178,7 @@ See [Dr. Axel's article about this](https://2ality.com/2019/10/hybrid-npm-packag
 
 #### VSCode Settings
 
-1.  Optimize project search by ignoring `dist-cjs`/`dist-esm` directories.
+1.  Optimize project search by ignoring `dist-*/`, `.yarn/`, snapshots, lock files, and more.
 1.  On-Save actions for optimal editing experience (e.g. ESLint auto-fix to [organize imports automatically](https://github.com/lydell/eslint-plugin-simple-import-sort#can-i-use-this-without-autofix))
 1.  List of VSCode extensions that users who open the project will be prompted to install if they don't already.
 1.  Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.
