@@ -52,6 +52,7 @@
     "@typescript-eslint/eslint-plugin": "5.12.1",
     "@typescript-eslint/parser": "5.12.1",
     "arg": "5.0.1",
+    "dprint": "^0.22.2",
     "dripip": "0.10.0",
     "eslint": "8.9.0",
     "eslint-config-prettier": "8.4.0",

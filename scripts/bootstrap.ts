@@ -21,7 +21,7 @@ const main = () => {
   replaceInFile(
     '.github/ISSUE_TEMPLATE/config.yml',
     /jasonkuhrt\/template-typescript-lib/g,
-    args['--orgAndRepo']
+    args['--orgAndRepo'],
   )
   // Do this after the above, as package name is subset of repo name
   replaceInFile('package.json', /template-typescript-lib/g, args['--packageName'])
