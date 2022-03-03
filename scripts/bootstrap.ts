@@ -24,6 +24,7 @@ const main = () => {
     args['--orgAndRepo']
   )
   // Do this after the above, as package name is subset of repo name
+  replaceInFile('package.json', /jasonkuhrt\/template-typescript-lib/g, args['--orgAndRepo'])
   replaceInFile('package.json', /template-typescript-lib/g, args['--packageName'])
   replaceInFile('README.md', /template-typescript-lib/g, args['--packageName'])
   replaceInFile(`LICENSE`, /<YOUR NAME>/, args['--developerName'])
