@@ -2629,6 +2629,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dprint@npm:^0.22.2":
+  version: 0.22.2
+  resolution: "dprint@npm:0.22.2"
+  bin:
+    dprint: bin.js
+  checksum: f783614b2c9a52e16aa53bec6ee81da54339ec449c95ca4a97def404fbfd3a187a2d48b747aab13043b8c114b273ded587217888262af2e365befc5631596087
+  languageName: node
+  linkType: hard
+
 "dripip@npm:0.10.0":
   version: 0.10.0
   resolution: "dripip@npm:0.10.0"
@@ -6549,6 +6558,7 @@ resolve@~1.19.0:
     "@typescript-eslint/eslint-plugin": 5.12.1
     "@typescript-eslint/parser": 5.12.1
     arg: 5.0.1
+    dprint: ^0.22.2
     dripip: 0.10.0
     eslint: 8.9.0
     eslint-config-prettier: 8.4.0
