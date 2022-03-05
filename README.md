@@ -27,10 +27,13 @@ Project template for TypeScript libraries
 
 ### Quick Start
 
-1. Setup a clone of this repo:
+1. Setup a clone of this repo, enable [Corepack](https://nodejs.org/api/corepack.html#enabling-the-feature), and install dependencies:
 
    ```
-   gh repo clone jasonkuhrt/template-typescript-lib <your package name> && cd <your package name> && yarn
+   gh repo clone jasonkuhrt/template-typescript-lib <your package name> && \
+   cd <your package name> && \
+   corepack enable && \
+   yarn
    ```
 
 1. Run the bootstrap script:
@@ -163,6 +166,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 #### [Yarn 2](https://classic.yarnpkg.com/lang/en/) for package management
 
 1.  Painless/familiar workflow via `node_modules` for `nodeLinker`
+1.  Using [Corepack](https://nodejs.org/api/corepack.html#enabling-the-feature). This means the Yarn specified in `package.json` will be used. And note this is a Yarn binary shipped with Node now. In a future version of Node you will not need to even opt-in into Corepack. Make sure you've done `corepack enable` at least once.
 1.  Plugins:
     1.  [`plugin-outdated`](https://github.com/mskelton/yarn-plugin-outdated) Bring back `outdated` command from Yarn 1.
     1.  [`plugin-typescript`](https://github.com/yarnpkg/berry/tree/master/packages/plugin-typescript) for painless `@types` consumptions (e.g. You probably forget how to pull down `@types` packages for already-scoped npm packages, doesn't matter now).
