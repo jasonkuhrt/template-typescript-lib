@@ -119,6 +119,7 @@ gh repo clone jasonkuhrt/template-typescript-lib foobar \
 1. `jest.config.ts` (TypeScript file) for type safe & intellisense configuration.
 1. [`typescript-snapshots-plugin`](https://github.com/asvetliakov/typescript-snapshots-plugin) for viewing snapshots on hover of `.toMatchSnapshot` method.
 1. [`konn`](https://github.com/prisma-labs/konn) for type safe test context creation.
+1. Strongly typed Jest configuration via use of `@jest/types`
 
 #### [Dripip](https://github.com/prisma-labs/dripip) for Releasing
 

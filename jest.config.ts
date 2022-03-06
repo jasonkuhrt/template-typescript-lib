@@ -1,3 +1,4 @@
+import { Config } from '@jest/types'
 import * as Fs from 'fs'
 import { pathsToModuleNameMapper } from 'ts-jest'
 import * as TypeScript from 'typescript'
@@ -7,7 +8,7 @@ const tsconfig: {
   error?: TypeScript.Diagnostic
 } = TypeScript.readConfigFile(`tsconfig.json`, (path) => Fs.readFileSync(path, { encoding: `utf-8` }))
 
-const config = {
+const config: Config.InitialOptions = {
   transform: {
     '^.+\\.ts$': `@swc/jest`,
   },
