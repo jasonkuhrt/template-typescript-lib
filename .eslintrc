@@ -38,6 +38,7 @@
   ],
   "overrides": [],
   "rules": {
+    "quotes": ["warn", "backtick"],
     "tsdoc/syntax": "warn",
     "simple-import-sort/imports": [
       "warn",
