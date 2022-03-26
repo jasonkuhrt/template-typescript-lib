@@ -9,6 +9,9 @@ const tsconfig: {
 } = TypeScript.readConfigFile(`tsconfig.json`, (path) => Fs.readFileSync(path, { encoding: `utf-8` }))
 
 const config: Config.InitialOptions = {
+  snapshotFormat: {
+    printBasicPrototype: false,
+  },
   transform: {
     '^.+\\.ts$': `@swc/jest`,
   },
