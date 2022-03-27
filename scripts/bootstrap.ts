@@ -58,6 +58,10 @@ const main = async () => {
 
   const orgAndRepo = `${answers.repositoryOwnerName}/${answers.repositoryName}`
 
+  console.log()
+  log.info(`Now running the bootstraper based on the answers you gave...`)
+  console.log()
+
   log.info(`Replacing file fields with new values`)
 
   replaceInFile(`README.md`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
