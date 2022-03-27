@@ -36,14 +36,10 @@ Project template for TypeScript libraries
    yarn
    ```
 
-1. Run the bootstrap script:
+1. Run the bootstrap script. You will be prompted to answer some questions:
 
    ```
-   yarn ts-node scripts/bootstrap \
-      --orgAndRepo '<your org>/<your repo>' \
-      --developerName '<your full name>' \
-      --packageName '<your package name>' \
-      --createGithubRepo
+   yarn ts-node scripts/bootstrap
    ```
 
 1. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
