@@ -89,7 +89,9 @@ const main = async () => {
   Execa.sync(`git`, [`commit`, `--message="chore: initial commit"`])
 
   if (answers.createGithubRepo) {
-    log.info(`Creating repo on GitHub (you will need the gh CLI setup for this to work)`)
+    log.info(`Creating repo on GitHub (you will need the gh CLI setup for this to work)`, {
+      url: `https://github.com/${orgAndRepo}`,
+    })
     Execa.sync(`gh`, [`repo`, `create`, `--confirm`, `--enable-wiki=false`, `--public`, `${orgAndRepo}`])
 
     log.info(`Pushing main branch and commit to GitHub`)
