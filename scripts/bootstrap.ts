@@ -103,6 +103,11 @@ const main = async () => {
     Execa.sync(`git`, [`branch`, `-M`, `main`])
     Execa.sync(`git`, [`push`, `-u`, `origin`, `main`])
   }
+
+  log.info(`Now go setup a repository secret called NPM_TOKEN for publishing in CI`, {
+    aboutRepoSecerts: `https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets`,
+    aboutNpmTokens: `https://docs.npmjs.com/creating-and-viewing-authentication-tokens`,
+  })
 }
 
 const replaceInFile = (filePath: string, pattern: RegExp, replaceWith: string): void => {
