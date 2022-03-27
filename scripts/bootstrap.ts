@@ -110,4 +110,4 @@ const replaceInFile = (filePath: string, pattern: RegExp, replaceWith: string): 
   Fs.write(filePath, fileUpdated)
 }
 
-main()
+main().catch(console.error)
