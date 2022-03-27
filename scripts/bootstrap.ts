@@ -1,36 +1,75 @@
-import arg from 'arg'
 import * as Execa from 'execa'
 import { log } from 'floggy'
 import * as Fs from 'fs-jetpack'
+import I from 'inquirer'
 
-const main = () => {
-  const args = arg({
-    '--createGithubRepo': Boolean,
-    '--orgAndRepo': String,
-    '--developerName': String,
-    '--packageName': String,
-  })
-
-  if (!args[`--orgAndRepo`] || !args[`--developerName`] || !args[`--packageName`]) {
-    throw new Error(`Missing required flag.`)
+const main = async () => {
+  interface Answers {
+    packageName: string
+    developerName: string
+    repositoryName: string
+    repositoryOwnerName: string
+    createGithubRepo: boolean
   }
+  const answers = (await I.prompt([
+    {
+      type: `input`,
+      name: `packageName`,
+      message: `What is the name of your package?`,
+      validate: (input: string) => {
+        const pattern = /^(@[a-z0-9-~][a-z0-9-._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/
+        return pattern.test(input) ? true : `Package name must conform to this pattern: ${String(pattern)}`
+      },
+    },
+    {
+      type: `input`,
+      name: `developerName`,
+      message: `What is your name? This will be used in places needing a package author name.`,
+    },
+    {
+      type: `input`,
+      name: `repositoryName`,
+      message: `What is the name of your GitHub repository?`,
+      validate: (input: string) => {
+        const pattern = /[A-Za-z0-9_.-]{1,100}/
+        return pattern.test(input)
+          ? true
+          : `GitHub repository name must conform to this pattern: ${String(pattern)}`
+      },
+    },
+    {
+      type: `input`,
+      name: `repositoryOwnerName`,
+      message: `Who is the repository owner of your GitHub repository?`,
+      validate: (input: string) => {
+        const pattern = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i
+        return pattern.test(input)
+          ? true
+          : `GitHub repository owner must conform to this pattern: ${String(pattern)}`
+      },
+    },
+    {
+      message: `Should the GitHub repository be created now? (Note for this to work there must be an environment variable called 'GITHUB_TOKEN' set with sufficient permissions.)`,
+      type: `confirm`,
+      name: `createGithubRepo`,
+      default: true,
+    },
+  ])) as Answers
+
+  const orgAndRepo = `${answers.repositoryOwnerName}/${answers.repositoryName}`
 
   log.info(`Replacing file fields with new values`)
 
-  replaceInFile(`README.md`, /jasonkuhrt\/template-typescript-lib/g, args[`--orgAndRepo`])
-  replaceInFile(
-    `.github/ISSUE_TEMPLATE/config.yml`,
-    /jasonkuhrt\/template-typescript-lib/g,
-    args[`--orgAndRepo`]
-  )
+  replaceInFile(`README.md`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
+  replaceInFile(`.github/ISSUE_TEMPLATE/config.yml`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
   // Do this after the above, as package name is subset of repo name
-  replaceInFile(`package.json`, /jasonkuhrt\/template-typescript-lib/g, args[`--orgAndRepo`])
-  replaceInFile(`package.json`, /template-typescript-lib/g, args[`--packageName`])
-  replaceInFile(`README.md`, /template-typescript-lib/g, args[`--packageName`])
-  replaceInFile(`LICENSE`, /<YOUR NAME>/, args[`--developerName`])
+  replaceInFile(`package.json`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
+  replaceInFile(`package.json`, /template-typescript-lib/g, answers.packageName)
+  replaceInFile(`README.md`, /template-typescript-lib/g, answers.packageName)
+  replaceInFile(`LICENSE`, /<YOUR NAME>/, answers.developerName)
 
   log.info(`Uninstalling bootstrap deps`)
-  Execa.commandSync(`yarn remove execa arg fs-jetpack floggy`)
+  Execa.commandSync(`yarn remove execa fs-jetpack floggy inquirer`)
 
   log.info(`Removing bootstrap command`)
   replaceInFile(`package.json`, /\s+"bootstrap":.+\n/g, ``)
@@ -49,19 +88,12 @@ const main = () => {
   Execa.sync(`git`, [`add`, `--all`])
   Execa.sync(`git`, [`commit`, `--message="chore: initial commit"`])
 
-  if (args[`--createGithubRepo`]) {
+  if (answers.createGithubRepo) {
     log.info(`Creating repo on GitHub (you will need the gh CLI setup for this to work)`)
-    Execa.sync(`gh`, [
-      `repo`,
-      `create`,
-      `--confirm`,
-      `--enable-wiki=false`,
-      `--public`,
-      `${args[`--orgAndRepo`]}`,
-    ])
+    Execa.sync(`gh`, [`repo`, `create`, `--confirm`, `--enable-wiki=false`, `--public`, `${orgAndRepo}`])
 
     log.info(`Pushing main branch and commit to GitHub`)
-    Execa.sync(`git`, [`remote`, `add`, `origin`, `git@github.com:${args[`--orgAndRepo`]}.git`])
+    Execa.sync(`git`, [`remote`, `add`, `origin`, `git@github.com:${orgAndRepo}.git`])
     Execa.sync(`git`, [`branch`, `-M`, `main`])
     Execa.sync(`git`, [`push`, `-u`, `origin`, `main`])
   }
