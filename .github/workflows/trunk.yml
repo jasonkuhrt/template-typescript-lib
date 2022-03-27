@@ -33,13 +33,15 @@ jobs:
       - name: Check if NPM_TOKEN secret is set
         id: checkNpmTokenSet
         run: |
-          echo "isNpmTokenSet: ${{ secrets.NPM_TOKEN != '' }}"
-          echo "::set-output name=isNpmTokenSet::${{ secrets.NPM_TOKEN != '' }}"
+          echo "isNpmTokenSet: ${{secrets.NPM_TOKEN != ''}}"
+          echo "::set-output name=isNpmTokenSet::${{secrets.NPM_TOKEN != ''}}"
 
   release-canary:
-    needs: [test,checkNpmTokenSet]
+    needs: [test, checkNpmTokenSet]
     if: needs.checkNpmTokenSet.outputs.isNpmTokenSet == 'true'
-    uses: prisma-labs/dripip/.github/workflows/release.yml@master
-    secrets:
-      npmToken: ${{secrets.NPM_TOKEN}}
-      githubToken: ${{secrets.GITHUB_TOKEN}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: prisma-labs/dripip@master
+        with:
+          npmToken: ${{secrets.NPM_TOKEN}}
+          githubToken: ${{secrets.DRIPIP_GITHUB_TOKEN}}
