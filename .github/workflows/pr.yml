@@ -4,6 +4,16 @@ on:
   - pull_request
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      - uses: prisma/action-node-cache-dependencies@main
+
   prettier:
     runs-on: ubuntu-latest
     steps:
@@ -12,8 +22,7 @@ jobs:
         with:
           node-version: 16.x
           cache: yarn
-      - name: Install Dependencies
-        run: corepack enable && yarn install --immutable
+      - uses: prisma/action-node-cache-dependencies@main
       - run: yarn format:check:prettier
 
   eslint:
@@ -24,8 +33,7 @@ jobs:
         with:
           node-version: 16.x
           cache: yarn
-      - name: Install Dependencies
-        run: corepack enable && yarn install --immutable
+      - uses: prisma/action-node-cache-dependencies@main
       - run: yarn lint:check
 
   type-check:
@@ -37,7 +45,7 @@ jobs:
         with:
           node-version: 16.x
           cache: yarn
-      - run: corepack enable && yarn install --immutable
+      - uses: prisma/action-node-cache-dependencies@main
       - run: yarn type-check
 
   test:
@@ -53,6 +61,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
-      - run: corepack enable && yarn install --immutable
+      - uses: prisma/action-node-cache-dependencies@main
       - run: yarn build
       - run: yarn test
