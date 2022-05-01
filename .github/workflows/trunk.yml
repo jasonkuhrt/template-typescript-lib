@@ -1,14 +1,11 @@
 name: trunk
-
 on:
   push:
     branches: [main]
-
 jobs:
   test:
     needs: setup
     uses: ./.github/workflows/test.yml
-  
   # https://github.community/t/how-can-i-test-if-secrets-are-available-in-an-action/17911/10
   checkNpmTokenSet:
     name: Check if NPM_TOKEN secret is set
@@ -21,7 +18,6 @@ jobs:
         run: |
           echo "isNpmTokenSet: ${{secrets.NPM_TOKEN != ''}}"
           echo "::set-output name=isNpmTokenSet::${{secrets.NPM_TOKEN != ''}}"
-
   release-canary:
     needs: [test, checkNpmTokenSet]
     if: needs.checkNpmTokenSet.outputs.isNpmTokenSet == 'true'
