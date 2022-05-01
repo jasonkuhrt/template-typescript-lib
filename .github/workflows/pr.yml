@@ -1,66 +1,31 @@
 name: pr
-
 on:
   - pull_request
-
 jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'yarn'
-      - uses: prisma/action-node-cache-dependencies@main
-
-  prettier:
+      - uses: ./.github/actions/setup
+  format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: yarn
-      - uses: prisma/action-node-cache-dependencies@main
+      - uses: ./.github/actions/setup
       - run: yarn format:check:prettier
-
-  eslint:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: yarn
-      - uses: prisma/action-node-cache-dependencies@main
+      - uses: ./.github/actions/setup
       - run: yarn lint:check
 
   type-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: yarn
-      - uses: prisma/action-node-cache-dependencies@main
+      - uses: ./.github/actions/setup
       - run: yarn type-check
-
   test:
-    strategy:
-      matrix:
-        os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
-        node-version: [14.x, 16.x]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: yarn
-      - uses: prisma/action-node-cache-dependencies@main
-      - run: yarn build
-      - run: yarn test
+    needs: setup
+    uses: ./.github/workflows/test.yml
