@@ -10,11 +10,11 @@ const tsconfig: {
 
 const config: Config.InitialOptions = {
   snapshotFormat: {
+    // Drop this once using Jest 29, where it becomes the default.
+    // https://jestjs.io/blog/2022/04/25/jest-28#future
     printBasicPrototype: false,
   },
-  transform: {
-    '^.+\\.ts$': `@swc/jest`,
-  },
+  preset: `ts-jest`,
   moduleNameMapper: pathsToModuleNameMapper(tsconfig.config?.compilerOptions?.paths ?? {}, {
     prefix: `<rootDir>`,
   }),
