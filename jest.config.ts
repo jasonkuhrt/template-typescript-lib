@@ -9,12 +9,12 @@ const tsconfig: {
 } = TypeScript.readConfigFile(`tsconfig.json`, (path) => Fs.readFileSync(path, { encoding: `utf-8` }))
 
 const config: Config.InitialOptions = {
+  preset: `ts-jest`,
   snapshotFormat: {
     // Drop this once using Jest 29, where it becomes the default.
     // https://jestjs.io/blog/2022/04/25/jest-28#future
     printBasicPrototype: false,
   },
-  preset: `ts-jest`,
   moduleNameMapper: pathsToModuleNameMapper(tsconfig.config?.compilerOptions?.paths ?? {}, {
     prefix: `<rootDir>`,
   }),
