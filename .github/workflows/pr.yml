@@ -8,19 +8,21 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
   format:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
       - run: yarn format:check:prettier
   lint:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup
       - run: yarn lint:check
-
   type-check:
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
