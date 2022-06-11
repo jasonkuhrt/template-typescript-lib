@@ -15,6 +15,24 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{inputs.node-version}}
-        cache: 'yarn'
-    - uses: prisma/action-node-cache-dependencies@main
-      if: inputs.install-deps
+    - run: |
+        corepack enable
+        echo "PnPM version is $(pnpm --version)"
+      shell: bash
+    # - uses: pnpm/action-setup@master
+    # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
+    - name: Get pnpm store directory
+      id: pnpm-cache
+      shell: bash
+      run: |
+        echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+    - uses: actions/cache@v3
+      name: Setup pnpm cache
+      with:
+        path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
+    - name: Install dependencies
+      run: pnpm install
+      shell: bash

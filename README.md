@@ -15,7 +15,7 @@
   - [npm scripts for development lifecycle](#npm-scripts-for-development-lifecycle)
   - [CI with GitHub Actions](#ci-with-github-actions)
   - [Renovate](#renovate)
-  - [Yarn 2](#yarn-2)
+  - [PnPM](#pnpm)
   - [CJS+ESM Hybrid package build](#cjsesm-hybrid-package-build)
   - [VSCode Settings](#vscode-settings)
   - [Readme Table of Contents](#readme-table-of-contents)
@@ -34,8 +34,8 @@ Project template for TypeScript libraries
    ```
    ❯ gh repo clone jasonkuhrt/template-typescript-lib <directory> && \
        cd <directory> && \
-       yarn install && \
-       yarn ts-node scripts/bootstrap
+       pnpm install && \
+       pnpm ts-node scripts/bootstrap
    ```
 
 3. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
@@ -45,8 +45,8 @@ Example:
 ```
 ❯ gh repo clone jasonkuhrt/template-typescript-lib alge && \
     cd alge && \
-    yarn && \
-    yarn ts-node scripts/bootstrap
+    pnpm install && \
+    pnpm ts-node scripts/bootstrap
 ```
 
 ```
@@ -132,7 +132,7 @@ s 34 ● Now Running the bootstrapper based on the answers you gave...
 
 1.  TypeScript integration
 1.  TS type-checker powered eslint checks enabled
-1.  Prettier integration using just [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier). [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier) is _not_ used to avoid lint noise and slower run time. Prettier is expected to be run by your IDE and your CI and if really needed _you manually_ via `yarn format`.
+1.  Prettier integration using just [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier). [`eslint-plugin-prettier`](https://github.com/prettier/eslint-plugin-prettier) is _not_ used to avoid lint noise and slower run time. Prettier is expected to be run by your IDE and your CI and if really needed _you manually_ via `pnpm format`.
 1.  Setup as a CI check for PRs
 1.  Always display as warning to keep IDE error feedback for TypeScript (CI enforces warnings).
 1.  Auto-fixable import sorting
@@ -192,14 +192,9 @@ s 34 ● Now Running the bootstrapper based on the answers you gave...
 1.  Group all non-major dependency updates into single PR (with "deps" conventional commit type)
 1.  Each major dependency update in own PR (with "deps" conventional commit type)
 
-#### [Yarn 2](https://classic.yarnpkg.com/lang/en/) for package management
+#### [PnPM](https://pnpm.io/) for package management
 
-1.  Painless/familiar workflow via `node_modules` for `nodeLinker`
-1.  Using [Corepack](https://nodejs.org/api/corepack.html#enabling-the-feature). This means the Yarn specified in `package.json` will be used. And note this is a Yarn binary shipped with Node now. In a future version of Node you will not need to even opt-in into Corepack. Make sure you've done `corepack enable` at least once.
-1.  Plugins:
-    1.  [`plugin-outdated`](https://github.com/mskelton/yarn-plugin-outdated) Bring back `outdated` command from Yarn 1.
-    1.  [`plugin-typescript`](https://github.com/yarnpkg/berry/tree/master/packages/plugin-typescript) for painless `@types` consumptions (e.g. You probably forget how to pull down `@types` packages for already-scoped npm packages, doesn't matter now).
-    1.  [`plugin-interactive-tools`](https://github.com/yarnpkg/berry/tree/master/packages/plugin-interactive-tools) for some slick in-terminal project maintenance.
+1.  Using [Corepack](https://nodejs.org/api/corepack.html#enabling-the-feature). This means the PnPM specified in `package.json` will be used. And note this is a PnPM binary shipped with Node now. In a future version of Node you will not need to even opt-in into Corepack. Make sure you've done `corepack enable` at least once.
 
 #### CJS+ESM Hybrid package build
 
@@ -211,7 +206,7 @@ See [Dr. Axel's article about this](https://2ality.com/2019/10/hybrid-npm-packag
 
 #### VSCode Settings
 
-1.  Optimize project search by ignoring `dist-*/`, `.yarn/`, snapshots, lock files, and more.
+1.  Optimize project search by ignoring `dist-*/`, snapshots, lock files, and more.
 1.  On-Save actions for optimal editing experience (e.g. ESLint auto-fix to [organize imports automatically](https://github.com/lydell/eslint-plugin-simple-import-sort#can-i-use-this-without-autofix))
 1.  List of VSCode extensions that users who open the project will be prompted to install if they don't already.
 1.  Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.

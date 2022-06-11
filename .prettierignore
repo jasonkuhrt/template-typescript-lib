@@ -1,4 +1,3 @@
 dist-cjs
 dist-esm
-.yarn
-.yarnrc.yml
+pnpm-lock.yaml
