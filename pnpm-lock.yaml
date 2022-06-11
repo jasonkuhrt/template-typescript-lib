@@ -6,6 +6,7 @@ specifiers:
   '@swc/core': 1.2.197
   '@swc/helpers': 0.3.17
   '@swc/jest': 0.2.21
+  '@tsconfig/node14': ^1.0.1
   '@tsconfig/recommended': 1.0.1
   '@types/inquirer': 8.2.1
   '@types/jest': 28.1.1
@@ -49,6 +50,7 @@ devDependencies:
   '@swc/core': 1.2.197
   '@swc/helpers': 0.3.17
   '@swc/jest': 0.2.21_@swc+core@1.2.197
+  '@tsconfig/node14': 1.0.1
   '@tsconfig/recommended': 1.0.1
   '@types/inquirer': 8.2.1
   '@types/jest': 28.1.1
