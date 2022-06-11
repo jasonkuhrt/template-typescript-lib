@@ -16,6 +16,10 @@ runs:
       with:
         node-version: ${{inputs.node-version}}
         cache: 'pnpm'
+    - run: |
+        corepack enable
+        pnpm --version
+      shell: bash
     - uses: pnpm/action-setup@master
     # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
     - name: Get pnpm store directory
