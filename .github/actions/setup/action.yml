@@ -11,10 +11,10 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: pnpm/action-setup
     - name: Use Node.js ${{inputs.node-version}}
       uses: actions/setup-node@v3
       with:
         node-version: ${{inputs.node-version}}
-        cache: 'yarn'
-    - uses: prisma/action-node-cache-dependencies@main
-      if: inputs.install-deps
+        cache: 'pnpm'
+    - run: pnpm install
