@@ -17,7 +17,7 @@ runs:
         node-version: ${{inputs.node-version}}
     - run: |
         corepack enable
-        pnpm --version
+        echo "PnPM version is $(pnpm --version)"
       shell: bash
     # - uses: pnpm/action-setup@master
     # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
