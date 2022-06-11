@@ -1,23 +1,15 @@
 import { Config } from '@jest/types'
-import * as Fs from 'fs'
-import { pathsToModuleNameMapper } from 'ts-jest'
-import * as TypeScript from 'typescript'
-
-const tsconfig: {
-  config?: { compilerOptions?: { paths?: Record<string, string[]> } }
-  error?: TypeScript.Diagnostic
-} = TypeScript.readConfigFile(`tsconfig.json`, (path) => Fs.readFileSync(path, { encoding: `utf-8` }))
 
 const config: Config.InitialOptions = {
-  preset: `ts-jest`,
+  preset: `ts-jest/presets/default-esm`,
+  moduleNameMapper: {
+    '^(\\.{1,2}/.*)\\.js$': `$1`,
+  },
   snapshotFormat: {
     // Drop this once using Jest 29, where it becomes the default.
     // https://jestjs.io/blog/2022/04/25/jest-28#future
     printBasicPrototype: false,
   },
-  moduleNameMapper: pathsToModuleNameMapper(tsconfig.config?.compilerOptions?.paths ?? {}, {
-    prefix: `<rootDir>`,
-  }),
   watchPlugins: [
     `jest-watch-typeahead/filename`,
     `jest-watch-typeahead/testname`,
