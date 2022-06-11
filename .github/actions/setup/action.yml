@@ -17,7 +17,9 @@ runs:
         node-version: ${{inputs.node-version}}
         cache: 'pnpm'
     - uses: pnpm/action-setup@master
-      run_install: false
+      with:
+        run_install: false
+    # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
     - name: Get pnpm store directory
       id: pnpm-cache
       run: |
