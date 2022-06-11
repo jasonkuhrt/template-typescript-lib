@@ -109,11 +109,6 @@ s 34 ● Now Running the bootstrapper based on the answers you gave...
 
 1.  Base `tsconfig.json` shared across `tests`, `src`, and `ts-node`.
 
-1.  [`ts-patch`](https://github.com/nonara/ts-patch) setup for enhanced language features:
-
-    1. [`typescript-transform-paths`](https://github.com/LeDDGroup/typescript-transform-paths) for a **_working_** [tsconfig `paths` config](https://www.typescriptlang.org/tsconfig#paths)!
-    1. Intentional avoidance of [`ttypescript`](https://github.com/microsoft/TypeScript/issues/38365#issuecomment-921889655)
-
 1.  Optimal output setup for your users
 
     1. Target ES2020 which Node as low as version 14 has good support for ([Kangax compatibility table](https://node.green/#ES2019)).
@@ -121,7 +116,6 @@ s 34 ● Now Running the bootstrapper based on the answers you gave...
     1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
     1. `package.json` [`typeVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions) used to emit only **one** set of declaration files shared by both CJS and ESM builds.
     1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
-    1. [`importHelpers`](https://www.typescriptlang.org/tsconfig#importHelpers) enabled to minimize build size.
     1. Publish `src` with dist files so that jump-to-definition tools work optimally for users.
 
 1.  `ts-node` for running TypeScript scripts/modules.
@@ -139,7 +133,6 @@ s 34 ● Now Running the bootstrapper based on the answers you gave...
 
 #### [Jest](https://jestjs.io/) for Testing
 
-1. Transpile TypeScript tests with [`@swc/jest`](https://github.com/swc-project/jest)
 1. Useful watch mode plugins
    1. [`jest-watch-typeahead`](https://github.com/jest-community/jest-watch-typeahead)
    1. [`jest-watch-suspend`](https://github.com/unional/jest-watch-suspend)
@@ -148,6 +141,7 @@ s 34 ● Now Running the bootstrapper based on the answers you gave...
 1. [`typescript-snapshots-plugin`](https://github.com/asvetliakov/typescript-snapshots-plugin) for viewing snapshots on hover of `.toMatchSnapshot` method.
 1. [`konn`](https://github.com/prisma-labs/konn) for type safe test context creation.
 1. Strongly typed Jest configuration via use of `@jest/types`
+1. Setup to consume ESM codebase
 
 #### [Dripip](https://github.com/prisma-labs/dripip) for Releasing
 
@@ -179,6 +173,7 @@ s 34 ● Now Running the bootstrapper based on the answers you gave...
 1.  On PR:
     1.  Prettier Check
     1.  Lint Check
+    1.  Type Check
     1.  Tests across matrix of mac/linux/windows for Node 14/16
 1.  On trunk:
     1. Tests across matrix of mac/linux/windows for Node 14/16
@@ -198,11 +193,14 @@ s 34 ● Now Running the bootstrapper based on the answers you gave...
 
 #### CJS+ESM Hybrid package build
 
-See [Dr. Axel's article about this](https://2ality.com/2019/10/hybrid-npm-packages.html))
+1.  Use `exports` field to give support to both modern `import` and legacy `require` consumers using Node 14.x and up. For details about the `exports` field refer to the [Official Node.js Docs](https://nodejs.org/api/packages.html#packages_package_entry_points) about it.
 
-1.  Use `exports` field to give support to both modern `import` and legacy `require` consumers using Node 12.x and up. For details about the `exports` field refer to the [Official Node.js Docs](https://nodejs.org/api/packages.html#packages_package_entry_points) about it.
-1.  Use `main` field for legacy versions of Node (before `12.x`) requiring the CJS build.
-1.  Use `module` field for legacy bundlers importing the ESM build.
+References:
+
+- https://nodejs.org/api/packages.html#packages_package_json_and_file_extensions
+- https://devblogs.microsoft.com/typescript/announcing-typescript-4-7
+- https://kulshekhar.github.io/ts-jest/docs/guides/esm-support / https://jestjs.io/docs/ecmascript-modules
+- https://typestrong.org/ts-node/docs/imports
 
 #### VSCode Settings
 
