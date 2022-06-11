@@ -73,7 +73,7 @@ const main = async () => {
   replaceInFile(`LICENSE`, /<YOUR NAME>/, answers.developerName)
 
   log.info(`Uninstalling bootstrap deps`)
-  Execa.commandSync(`yarn remove execa fs-jetpack floggy inquirer`)
+  Execa.commandSync(`pnpm remove execa fs-jetpack floggy inquirer`)
 
   log.info(`Removing bootstrap command`)
   replaceInFile(`package.json`, /\s+"bootstrap":.+\n/g, ``)
@@ -82,7 +82,7 @@ const main = async () => {
   Fs.remove(`scripts`)
 
   log.info(`Running formatter`)
-  Execa.commandSync(`yarn format`)
+  Execa.commandSync(`pnpm format`)
 
   log.info(`Creating a new git project`)
   Fs.remove(`.git`)

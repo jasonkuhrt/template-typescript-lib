@@ -3,8 +3,7 @@
     "**/dist-cjs": true,
     "**/dist-esm": true,
     "**/__snapshots__": true,
-    "**/.yarn": true,
-    "yarn.lock": true
+    "pnpm-lock.yaml": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
