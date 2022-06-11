@@ -15,7 +15,6 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{inputs.node-version}}
-        cache: 'pnpm'
     - run: |
         corepack enable
         pnpm --version
