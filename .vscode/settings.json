@@ -1,7 +1,6 @@
 {
   "search.exclude": {
-    "**/dist-cjs": true,
-    "**/dist-esm": true,
+    "**/dist": true,
     "**/__snapshots__": true,
     "pnpm-lock.yaml": true
   },
