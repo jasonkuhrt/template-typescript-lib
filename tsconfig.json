@@ -5,6 +5,10 @@
     "swc": true
   },
   "compilerOptions": {
+    // Use ESM
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+
     // Make the compiler stricter, catch more errors
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
