@@ -1,13 +1,14 @@
 name: Setup
+description: Boilerplate steps needed by most jobs.
 inputs:
   node-version:
-    type: string
-    require: false
-    default: 18.x
+    description: Version of Node to use.
+    required: false
+    default: 16.x
   install-deps:
-    type: boolean
-    require: false
-    default: true
+    description: Should deps be installed?
+    required: false
+    default: 'true'
 runs:
   using: composite
   steps:
@@ -15,11 +16,11 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{inputs.node-version}}
-    - run: |
+    - name: Enable Corepack
+      run: |
         corepack enable
         echo "PnPM version is $(pnpm --version)"
       shell: bash
-    # - uses: pnpm/action-setup@master
     # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
     - name: Get pnpm store directory
       id: pnpm-cache
@@ -36,3 +37,4 @@ runs:
     - name: Install dependencies
       run: pnpm install
       shell: bash
+      if: ${{inputs.install-deps}} == 'true'
