@@ -2,6 +2,6 @@ closes #...
 
 #### TASKS
 
-- [ ] docs external
-- [ ] docs jsdoc
-- [ ] tests
+- [ ] Out of band docs (website, README, ...)
+- [ ] In of band docs (jsdoc)
+- [ ] Tests
