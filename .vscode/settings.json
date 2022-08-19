@@ -2,7 +2,8 @@
   "search.exclude": {
     "**/dist": true,
     "**/__snapshots__": true,
-    "pnpm-lock.yaml": true
+    "**/pnpm-lock.yaml": true,
+    "**/*.tsbuildinfo": true
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
