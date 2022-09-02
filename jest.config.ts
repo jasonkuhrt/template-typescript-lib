@@ -5,11 +5,6 @@ const config: Config.InitialOptions = {
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': `$1`,
   },
-  snapshotFormat: {
-    // Drop this once using Jest 29, where it becomes the default.
-    // https://jestjs.io/blog/2022/04/25/jest-28#future
-    printBasicPrototype: false,
-  },
   watchPlugins: [
     `jest-watch-typeahead/filename`,
     `jest-watch-typeahead/testname`,
