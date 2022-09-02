@@ -3,7 +3,6 @@
   "version": "0.0.0-dripip",
   "repository": "git@github.com:jasonkuhrt/template-typescript-lib.git",
   "author": "Jason Kuhrt",
-  "type": "module",
   "packageManager": "pnpm@7.9.5",
   "license": "MIT",
   "files": [
@@ -35,7 +34,7 @@
     "dev": "pnpm clean && tsc --build --watch tsconfig.cjs.json tsconfig.esm.json",
     "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
     "build:cjs": "tsc --project tsconfig.cjs.json",
-    "build:esm": "tsc --project tsconfig.esm.json",
+    "build:esm": "jq '.type = \"module\"' < package.json > package.json2 && mv package.json2 package.json && tsc --project tsconfig.esm.json && jq 'del(.type)' < package.json > package.json2 && mv package.json2 package.json",
     "test": "jest",
     "clean": "rm -rf dist node_modules/.cache",
     "release:pr": "dripip pr",
