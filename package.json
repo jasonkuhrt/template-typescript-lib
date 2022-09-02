@@ -46,8 +46,6 @@
     "@jest/types": "29.0.1",
     "@prisma-labs/prettier-config": "0.1.0",
     "@swc/core": "1.2.246",
-    "@swc/helpers": "0.4.11",
-    "@swc/jest": "0.2.22",
     "@tsconfig/node14": "1.0.3",
     "@tsconfig/recommended": "1.0.1",
     "@types/inquirer": "9.0.1",
