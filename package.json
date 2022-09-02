@@ -24,10 +24,8 @@
   "scripts": {
     "ts-node": "ts-node-esm",
     "reflect:toc": "markdown-toc README.md -i --maxdepth 4 && prettier --write README.md",
-    "format": "pnpm format:prettier",
-    "format:prettier": "prettier --write .",
-    "format:check": "pnpm format:check:prettier",
-    "format:check:prettier": "prettier --check .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "eslint . --ext .ts,.tsx --fix",
     "lint:check": "eslint . --ext .ts,.tsx --max-warnings 0",
     "type-check": "pnpm tsc --noEmit",
