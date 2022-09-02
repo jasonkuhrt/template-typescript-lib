@@ -35,7 +35,7 @@ Project template for TypeScript libraries
    ❯ gh repo clone jasonkuhrt/template-typescript-lib <directory> && \
        cd <directory> && \
        pnpm install && \
-       pnpm ts-node scripts/bootstrap
+       pnpm ts-node scripts/bootstrap.mts
    ```
 
 3. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
