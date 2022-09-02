@@ -65,7 +65,7 @@ const main = async () => {
   log.info(`Replacing file fields with new values`)
 
   replaceInFile(`README.md`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
-  replaceInFile(`.github/ISSUE_TEMPLATE/config.yml`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
+  replaceInFile(`.github/ISSUE_TEMPLATE/config.yaml`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
   // Do this after the above, as package name is subset of repo name
   replaceInFile(`package.json`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
   replaceInFile(`package.json`, /template-typescript-lib/g, answers.packageName)
