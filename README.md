@@ -35,59 +35,10 @@ Project template for TypeScript libraries
    ❯ gh repo clone jasonkuhrt/template-typescript-lib <directory> && \
        cd <directory> && \
        pnpm install && \
-       pnpm ts-node scripts/bootstrap.mts
+       pnpm ts-node scripts/bootstrap.ts
    ```
 
 3. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
-
-Example:
-
-```
-❯ gh repo clone jasonkuhrt/template-typescript-lib alge && \
-    cd alge && \
-    pnpm install && \
-    pnpm ts-node scripts/bootstrap
-```
-
-```
-Cloning into 'alge'...
-remote: Enumerating objects: 954, done.
-remote: Counting objects: 100% (613/613), done.
-remote: Compressing objects: 100% (353/353), done.
-remote: Total 954 (delta 391), reused 419 (delta 219), pack-reused 341
-Receiving objects: 100% (954/954), 1.80 MiB | 3.41 MiB/s, done.
-Resolving deltas: 100% (577/577), done.
-➤ YN0000: ┌ Resolution step
-➤ YN0000: └ Completed in 0s 205ms
-➤ YN0000: ┌ Fetch step
-➤ YN0013: │ yargs-parser@npm:20.2.9 can't be found in the cache and will be fetched from the remote registry
-➤ YN0013: │ yargs@npm:16.2.0 can't be found in the cache and will be fetched from the remote registry
-➤ YN0013: │ yauzl@npm:2.10.0 can't be found in the cache and will be fetched from the remote registry
-➤ YN0013: │ yazl@npm:2.5.1 can't be found in the cache and will be fetched from the remote registry
-➤ YN0013: │ yn@npm:3.1.1 can't be found in the cache and will be fetched from the remote registry
-➤ YN0000: └ Completed in 26s 82ms
-➤ YN0000: ┌ Link step
-➤ YN0007: │ playwright@npm:1.19.1 must be built because it never has been before or the last one failed
-➤ YN0000: └ Completed in 6s 767ms
-➤ YN0000: Done in 33s 170ms
-? What is the name of your package? alge
-? What is your name? This will be used in places needing a package author name. Jason Kuhrt
-? What is the name of your GitHub repository? alge
-? Who is the repository owner of your GitHub repository? jasonkuhrt
-? Should the GitHub repository be created now? (Note for this to work there must be an environment variable called 'GITHUB_TOKEN' set with sufficient permissions.) Yes
-
-s 34 ● Now Running the bootstrapper based on the answers you gave...
-
-   1 ● Replacing file fields with new values
-   4 ● Uninstalling bootstrap deps
-2040 ● Removing bootstrap command
-   1 ● Removing bootstrap script
-   2 ● Running formatter
-2432 ● Creating a new git project
-  23 ● Creating initial commit
-  75 ● Creating repo on GitHub (you will need the gh CLI setup for this to work)  --  url: 'https://github.com/jasonkuhrt/alge'
-1826 ● Pushing main branch and commit to GitHub
-```
 
 ### Features
 
@@ -185,14 +136,7 @@ Just Works :)
 
 #### CJS+ESM Hybrid package build
 
-1.  Use `exports` field to give support to both modern `import` and legacy `require` consumers using Node 14.x and up. For details about the `exports` field refer to the [Official Node.js Docs](https://nodejs.org/api/packages.html#packages_package_entry_points) about it.
-
-References:
-
-- https://nodejs.org/api/packages.html#packages_package_json_and_file_extensions
-- https://devblogs.microsoft.com/typescript/announcing-typescript-4-7
-- https://kulshekhar.github.io/ts-jest/docs/guides/esm-support / https://jestjs.io/docs/ecmascript-modules
-- https://typestrong.org/ts-node/docs/imports
+An [actually working](https://kuhrt.me/logs/hybrid-esm-cjs-node-packages-using-typescript) hybrid CJS/ESM build.
 
 #### VSCode Settings
 

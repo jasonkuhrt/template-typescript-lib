@@ -8,5 +8,5 @@
     "declarationMap": true
   },
   "include": ["src"],
-  "exclude": ["**/*.spec.mts"]
+  "exclude": ["**/*.spec.*"]
 }

@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node14/tsconfig.json",
+  "extends": "@tsconfig/node16/tsconfig.json",
   "ts-node": {
     "experimentalResolver": true,
     "swc": true,
@@ -26,10 +26,5 @@
   },
   "include": ["src", "tests", "scripts"],
   // Prevent unwanted things like auto-import from built modules
-  "exclude": ["dist"],
-  "plugins": [
-    {
-      "name": "typescript-snapshots-plugin"
-    }
-  ]
+  "exclude": ["dist"]
 }

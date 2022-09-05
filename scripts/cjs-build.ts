@@ -1,10 +1,11 @@
-import { execaCommandSync } from 'execa'
+import { execaCommand, execaCommandSync } from 'execa'
 import Glob from 'fast-glob'
 import Fs from 'fs-jetpack'
 import * as Path from 'node:path'
 
-// eslint-disable-next-line
-const mode = process.argv[2]!.slice(2) as Mode
+const mode: Mode = `cjs`
+
+const modeDefault: Mode = `esm`
 
 type Mode = 'cjs' | 'esm'
 
@@ -13,33 +14,40 @@ const oppositeMode = {
   cjs: `esm`,
 } as const
 
-const extensions = {
+const typeScriptExtensions = {
   cjs: { node: `cjs`, ts: `cts` },
   esm: { node: `mjs`, ts: `mts` },
+  default: { node: `js`, ts: `ts` },
 } as const
 
-if (mode === `esm`) {
-  execaCommandSync(`pnpm tsc --project tsconfig.${mode}.json`, { stdio: `inherit` })
-  process.exit(0)
+const getOppositeExtension = (mode: Mode) => {
+  const thisOppositeMode = oppositeMode[mode]
+  if (thisOppositeMode === modeDefault) return typeScriptExtensions[`default`]
+  return typeScriptExtensions[thisOppositeMode]
+}
+
+const getExtension = (mode: Mode) => {
+  if (mode === modeDefault) return typeScriptExtensions[`default`]
+  return typeScriptExtensions[mode]
 }
 
 const changeImportFilePathMode = (mode: Mode, string: string) => {
   return string.replace(
-    new RegExp(`\\.${extensions[oppositeMode[mode]].node}'$`, `gm`),
-    `.${extensions[mode].node}'`
+    new RegExp(`\\.${getOppositeExtension(mode).node}'$`, `gm`),
+    `.${getExtension(mode).node}'`
   )
 }
 
 const changeFilePathMode = (mode: Mode, string: string) => {
   return string.replace(
-    new RegExp(`\\.${extensions[oppositeMode[mode]].ts}$`, `g`),
-    `.${extensions[mode].ts}`
+    new RegExp(`\\.${getOppositeExtension(mode).ts}$`, `g`),
+    `.${typeScriptExtensions[mode].ts}`
   )
 }
 
 execaCommandSync(`pnpm tsc --project tsconfig.esm.json`, { stdio: `inherit` })
 
-const files = Glob.sync(`src/**/*.${extensions[oppositeMode[mode]].ts}`)
+const files = await Glob(`src/**/*.${getOppositeExtension(mode).ts}`)
 
 if (files.length === 0) {
   console.log(`No files found.`)
@@ -56,7 +64,7 @@ files.forEach((oldFilePath) => {
   Fs.write(newFilePath, newFileContents)
 })
 
-execaCommandSync(`pnpm tsc --project tsconfig.${mode}.json`, { stdio: `inherit` })
+await execaCommand(`pnpm tsc --project tsconfig.${mode}.json`, { stdio: `inherit` })
 
 files.forEach((oldFilePath) => {
   const newFilePath = changeFilePathMode(mode, oldFilePath)
