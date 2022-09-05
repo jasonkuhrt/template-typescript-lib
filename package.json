@@ -35,9 +35,6 @@
     "build:esm": "ts-node scripts/ts-build.mts --esm",
     "test": "vitest",
     "clean": "rm -rf dist node_modules/.cache",
-    "release:pr": "dripip pr",
-    "release:canary": "dripip preview",
-    "release:stable": "dripip stable",
     "prepack": "pnpm build"
   },
   "devDependencies": {
