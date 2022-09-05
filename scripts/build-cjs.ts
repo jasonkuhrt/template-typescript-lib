@@ -1,4 +1,4 @@
-import { execaCommand, execaCommandSync } from 'execa'
+import { execaCommand } from 'execa'
 import Glob from 'fast-glob'
 import Fs from 'fs-jetpack'
 import * as Path from 'node:path'
@@ -45,7 +45,7 @@ const changeFilePathMode = (mode: Mode, string: string) => {
   )
 }
 
-execaCommandSync(`pnpm tsc --project tsconfig.esm.json`, { stdio: `inherit` })
+await execaCommand(`pnpm tsc --project tsconfig.esm.json`, { stdio: `inherit` })
 
 const files = await Glob(`src/**/*.${getOppositeExtension(mode).ts}`)
 
@@ -54,24 +54,28 @@ if (files.length === 0) {
   process.exit(1)
 }
 
-files.forEach((oldFilePath) => {
-  const newFilePath = changeFilePathMode(mode, oldFilePath)
-  Fs.rename(oldFilePath, Path.basename(newFilePath))
-  // filePath comes from glob so we know it exists
-  // eslint-disable-next-line
-  const oldFileContents = Fs.read(newFilePath)!
-  const newFileContents = changeImportFilePathMode(mode, oldFileContents)
-  Fs.write(newFilePath, newFileContents)
-})
+await Promise.all(
+  files.map(async (oldFilePath) => {
+    const newFilePath = changeFilePathMode(mode, oldFilePath)
+    await Fs.renameAsync(oldFilePath, Path.basename(newFilePath))
+    // filePath comes from glob so we know it exists
+    // eslint-disable-next-line
+    const oldFileContents = Fs.read(newFilePath)!
+    const newFileContents = changeImportFilePathMode(mode, oldFileContents)
+    await Fs.writeAsync(newFilePath, newFileContents)
+  })
+)
 
 await execaCommand(`pnpm tsc --project tsconfig.${mode}.json`, { stdio: `inherit` })
 
-files.forEach((oldFilePath) => {
-  const newFilePath = changeFilePathMode(mode, oldFilePath)
-  Fs.rename(newFilePath, Path.basename(oldFilePath))
-  // filePath comes from glob so we know it exists
-  // eslint-disable-next-line
-  const newFileContents = Fs.read(oldFilePath)!
-  const oldFileContents = changeImportFilePathMode(oppositeMode[mode], newFileContents)
-  Fs.write(oldFilePath, oldFileContents)
-})
+await Promise.all(
+  files.map(async (oldFilePath) => {
+    const newFilePath = changeFilePathMode(mode, oldFilePath)
+    await Fs.renameAsync(newFilePath, Path.basename(oldFilePath))
+    // filePath comes from glob so we know it exists
+    // eslint-disable-next-line
+    const newFileContents = Fs.read(oldFilePath)!
+    const oldFileContents = changeImportFilePathMode(oppositeMode[mode], newFileContents)
+    await Fs.writeAsync(oldFilePath, oldFileContents)
+  })
+)
