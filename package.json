@@ -23,7 +23,7 @@
   },
   "scripts": {
     "ts-node": "ts-node-esm",
-    "reflect:toc": "markdown-toc README.md -i --maxdepth 4 && prettier --write README.md",
+    "build:toc": "markdown-toc README.md -i --maxdepth 4 && prettier --write README.md",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --ext .ts,.tsx --fix",
@@ -33,7 +33,7 @@
     "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
     "build:cjs": "tsc --project tsconfig.cjs.json",
     "build:esm": "ts-node scripts/build-esm.mts",
-    "test": "jest",
+    "test": "vitest",
     "clean": "rm -rf dist node_modules/.cache",
     "release:pr": "dripip pr",
     "release:canary": "dripip preview",
@@ -41,13 +41,11 @@
     "prepack": "pnpm build"
   },
   "devDependencies": {
-    "@jest/types": "29.0.1",
     "@prisma-labs/prettier-config": "0.1.0",
     "@swc/core": "1.2.246",
     "@tsconfig/node14": "1.0.3",
     "@tsconfig/recommended": "1.0.1",
     "@types/inquirer": "9.0.1",
-    "@types/jest": "29.0.0",
     "@types/node": "18.7.14",
     "@typescript-eslint/eslint-plugin": "5.36.1",
     "@typescript-eslint/parser": "5.36.1",
@@ -63,16 +61,11 @@
     "floggy": "0.3.3",
     "fs-jetpack": "4.3.1",
     "inquirer": "9.1.1",
-    "jest": "29.0.1",
-    "jest-watch-select-projects": "2.0.0",
-    "jest-watch-suspend": "1.1.2",
-    "jest-watch-typeahead": "2.1.1",
-    "konn": "0.7.0",
     "markdown-toc": "1.2.0",
     "prettier": "2.7.1",
-    "ts-jest": "28.0.8",
     "ts-node": "10.9.1",
     "typescript": "4.8.2",
-    "typescript-snapshots-plugin": "1.7.0"
+    "typescript-snapshots-plugin": "1.7.0",
+    "vitest": "^0.23.0"
   }
 }

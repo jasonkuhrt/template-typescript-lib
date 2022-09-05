@@ -8,7 +8,7 @@
 - [Features](#features)
   - [TypeScript](#typescript)
   - [ESLint](#eslint)
-  - [Jest](#jest)
+  - [Vitest](#vitest)
   - [Dripip](#dripip)
   - [Simple succinct friendly low-barrier issue templates](#simple-succinct-friendly-low-barrier-issue-templates)
   - [Prettier](#prettier)
@@ -131,17 +131,9 @@ s 34 ● Now Running the bootstrapper based on the answers you gave...
 1.  Always display as warning to keep IDE error feedback for TypeScript (CI enforces warnings).
 1.  Auto-fixable import sorting
 
-#### [Jest](https://jestjs.io/) for Testing
+#### [Vitest](https://vitest.dev) for Testing
 
-1. Useful watch mode plugins
-   1. [`jest-watch-typeahead`](https://github.com/jest-community/jest-watch-typeahead)
-   1. [`jest-watch-suspend`](https://github.com/unional/jest-watch-suspend)
-   1. [`jest-watch-select-projects`](https://github.com/jest-community/jest-watch-select-projects)
-1. `jest.config.ts` (TypeScript file) for type safe & intellisense configuration.
-1. [`typescript-snapshots-plugin`](https://github.com/asvetliakov/typescript-snapshots-plugin) for viewing snapshots on hover of `.toMatchSnapshot` method.
-1. [`konn`](https://github.com/prisma-labs/konn) for type safe test context creation.
-1. Strongly typed Jest configuration via use of `@jest/types`
-1. Setup to consume ESM codebase
+Just Works :)
 
 #### [Dripip](https://github.com/prisma-labs/dripip) for Releasing
 
