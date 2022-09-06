@@ -28,27 +28,26 @@ How to bootstrap:
 
 2. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
 
+## Details
+
 <!-- toc -->
 
-- [Details](#details)
-  - [TypeScript](#typescript)
-  - [ESLint](#eslint)
-  - [Vitest](#vitest)
-  - [Dripip](#dripip)
-  - [Simple succinct friendly low-barrier issue templates](#simple-succinct-friendly-low-barrier-issue-templates)
-  - [Prettier](#prettier)
-  - [npm scripts for development lifecycle](#npm-scripts-for-development-lifecycle)
-  - [CI with GitHub Actions](#ci-with-github-actions)
-  - [Renovate](#renovate)
-  - [PnPM](#pnpm)
-  - [CJS+ESM Hybrid package build](#cjsesm-hybrid-package-build)
-  - [VSCode Settings](#vscode-settings)
-  - [Readme Table of Contents](#readme-table-of-contents)
-  - [Useful TypeScript Libraries](#useful-typescript-libraries)
+- [TypeScript](#typescript)
+- [ESLint](#eslint)
+- [Vitest](#vitest)
+- [Dripip](#dripip)
+- [Simple succinct friendly low-barrier issue templates](#simple-succinct-friendly-low-barrier-issue-templates)
+- [Prettier](#prettier)
+- [npm scripts for development lifecycle](#npm-scripts-for-development-lifecycle)
+- [CI with GitHub Actions](#ci-with-github-actions)
+- [Renovate](#renovate)
+- [PnPM](#pnpm)
+- [CJS+ESM Hybrid package build](#cjsesm-hybrid-package-build)
+- [VSCode Settings](#vscode-settings)
+- [Readme Table of Contents](#readme-table-of-contents)
+- [Useful TypeScript Libraries](#useful-typescript-libraries)
 
 <!-- tocstop -->
-
-### Details
 
 #### [TypeScript](https://www.typescriptlang.org/) for Type Safety & Productivity
 

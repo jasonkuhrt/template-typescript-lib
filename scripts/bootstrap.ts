@@ -1,6 +1,6 @@
 import { execa, execaCommand } from 'execa'
 import { log } from 'floggy'
-import * as Fs from 'fs-jetpack'
+import Fs from 'fs-jetpack'
 import I from 'inquirer'
 
 const replaceInFile = (filePath: string, pattern: RegExp, replaceWith: string): void => {
