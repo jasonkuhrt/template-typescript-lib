@@ -81,13 +81,13 @@ replaceInFile(`README.md`, /template-typescript-lib/g, answers.packageName)
 replaceInFile(`LICENSE`, /<YOUR NAME>/, answers.developerName)
 
 log.info(`Uninstalling bootstrap deps`)
-await execaCommand(`pnpm remove execa fs-jetpack floggy inquirer`)
+await execaCommand(`pnpm remove floggy inquirer`)
 
 log.info(`Removing bootstrap command`)
 replaceInFile(`package.json`, /\s+"bootstrap":.+\n/g, ``)
 
 log.info(`Removing bootstrap script`)
-Fs.remove(`scripts`)
+Fs.remove(`scripts/bootstrap.ts`)
 
 log.info(`Running formatter`)
 await execaCommand(`pnpm format`)
