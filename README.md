@@ -2,10 +2,35 @@
 
 [![trunk](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yaml/badge.svg)](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yaml)
 
+Project template for Node libraries:
+
+- Hybrid ESM/CJS
+- Types: TypeScript
+- Tests: Vitest
+- Linting: ESLint
+- Formatting: Prettier
+- Publishing: Dripip
+- CI ready to go
+- Issue Templates
+- Renovate
+
+How to bootstrap:
+
+1. Run:
+
+   ```
+   corepack enable && \
+   gh repo clone jasonkuhrt/template-typescript-lib <directory> && \
+   cd <directory> && \
+   pnpm install && \
+   pnpm ts-node scripts/bootstrap.ts
+   ```
+
+2. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
+
 <!-- toc -->
 
-- [Quick Start](#quick-start)
-- [Features](#features)
+- [Details](#details)
   - [TypeScript](#typescript)
   - [ESLint](#eslint)
   - [Vitest](#vitest)
@@ -23,24 +48,7 @@
 
 <!-- tocstop -->
 
-Project template for TypeScript libraries
-
-### Quick Start
-
-1. Enable [Corepack](https://nodejs.org/api/corepack.html#enabling-the-feature)
-
-2. Run these commands:
-
-   ```
-   ❯ gh repo clone jasonkuhrt/template-typescript-lib <directory> && \
-       cd <directory> && \
-       pnpm install && \
-       pnpm ts-node scripts/bootstrap.ts
-   ```
-
-3. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
-
-### Features
+### Details
 
 #### [TypeScript](https://www.typescriptlang.org/) for Type Safety & Productivity
 
