@@ -74,7 +74,7 @@ How to bootstrap:
     1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
     1. `package.json` [`typeVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions) used to emit only **one** set of declaration files shared by both CJS and ESM builds.
     1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
-    1. Publish `src` with dist files so that jump-to-definition tools work optimally for users.
+    1. Publish `src` with build files so that jump-to-definition tools work optimally for users.
 
 1.  `ts-node` for running TypeScript scripts/modules.
 
@@ -110,7 +110,7 @@ Just Works :)
 
 #### npm scripts for development lifecycle
 
-1.  `clean` to remove cache and dist files
+1.  `clean` to remove cache and build files
 1.  `build` that runs `clean` beforehand
 1.  `prepublishOnly` that runs `build` beforehand
 1.  `format` to quickly run `prettier` over whole codebase
@@ -147,7 +147,7 @@ An [actually working](https://kuhrt.me/logs/hybrid-esm-cjs-node-packages-using-t
 
 #### VSCode Settings
 
-1.  Optimize project search by recursively (ready for monorepo) ignoring `dist-*/`, snapshots, lock files, and more.
+1.  Optimize project search by recursively (ready for monorepo) ignoring `build/*`, snapshots, lock files, and more.
 1.  On-Save actions for optimal editing experience (e.g. ESLint auto-fix to [organize imports automatically](https://github.com/lydell/eslint-plugin-simple-import-sort#can-i-use-this-without-autofix))
 1.  List of VSCode extensions that users who open the project will be prompted to install if they don't already.
 1.  Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.

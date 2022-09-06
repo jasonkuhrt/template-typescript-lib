@@ -8,17 +8,17 @@
   "type": "module",
   "files": [
     "src",
-    "dist"
+    "build"
   ],
   "exports": {
     ".": {
       "require": {
-        "types": "./dist/cjs/index.d.cts",
-        "default": "./dist/cjs/index.cjs"
+        "types": "./build/cjs/index.d.cts",
+        "default": "./build/cjs/index.cjs"
       },
       "import": {
-        "types": "./dist/esm/index.d.ts",
-        "default": "./dist/esm/index.js"
+        "types": "./build/esm/index.d.ts",
+        "default": "./build/esm/index.js"
       }
     }
   },
@@ -35,7 +35,7 @@
     "build:cjs": "ts-node scripts/build-cjs.ts",
     "build:esm": "pnpm tsc --project tsconfig.esm.json",
     "test": "vitest",
-    "clean": "rm -rf dist node_modules/.cache",
+    "clean": "rm -rf build node_modules/.cache",
     "prepack": "pnpm build"
   },
   "devDependencies": {
