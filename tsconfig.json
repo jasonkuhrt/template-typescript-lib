@@ -15,6 +15,7 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
     // We handle these with ESLint:
     // "noUnusedLocals": false,
     // "noUnusedParameters": false,
