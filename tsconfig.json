@@ -21,6 +21,9 @@
     // "noUnusedParameters": false,
 
     // DX
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
     "noErrorTruncation": true
