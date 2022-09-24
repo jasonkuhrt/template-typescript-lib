@@ -29,6 +29,5 @@
     "noErrorTruncation": true
   },
   "include": ["src", "tests", "scripts"],
-  // Prevent unwanted things like auto-import from built modules
   "exclude": ["build"]
 }
