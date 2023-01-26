@@ -26,17 +26,17 @@
   "scripts": {
     "build:toc": "markdown-toc README.md -i --maxdepth 4 && prettier --write README.md",
     "format": "prettier --write .",
-    "format:check": "prettier --check .",
     "lint": "eslint . --ext .ts,.tsx --fix",
-    "lint:check": "eslint . --ext .ts,.tsx --max-warnings 0",
-    "types:check": "pnpm tsc --noEmit",
     "dev": "pnpm clean && tsc --build --watch tsconfig.cjs.json tsconfig.esm.json",
     "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
     "build:cjs": "ts-node scripts/build-cjs.ts",
     "build:esm": "pnpm tsc --project tsconfig.esm.json",
     "test": "vitest",
     "clean": "rm -rf build node_modules/.cache",
-    "prepack": "pnpm build"
+    "prepack": "pnpm build",
+    "check:format": "prettier --check .",
+    "check:lint": "eslint . --ext .ts,.tsx --max-warnings 0",
+    "check:types": "pnpm tsc --noEmit"
   },
   "devDependencies": {
     "@prisma-labs/prettier-config": "0.1.0",
