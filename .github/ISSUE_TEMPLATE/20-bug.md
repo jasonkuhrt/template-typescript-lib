@@ -6,13 +6,8 @@ labels: type/bug
 assignees: ''
 ---
 
-<!--    Instructions                                -->
-<!--                                                -->
-<!-- 1. Remove sections/details you do not complete -->
-<!-- 2. Add sections/details useful to you          -->
-
 #### Screenshot
 
-#### Description <!-- If screenshot not obvious enough -->
+#### Description
 
-#### Repro Steps/Link <!-- If known/available & screenshot not obvious enough -->
+#### Reproduction Steps/Repo Link
