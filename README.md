@@ -143,7 +143,7 @@ Just Works :)
 
 #### CJS+ESM Hybrid package build
 
-An [actually working](https://kuhrt.me/logs/hybrid-esm-cjs-node-packages-using-typescript) hybrid CJS/ESM build.
+An [actually working](https://kuhrt.me/logs/hybrid-esm-cjs-node-packages-using-typescript-take-2) hybrid CJS/ESM build.
 
 #### VSCode Settings
 

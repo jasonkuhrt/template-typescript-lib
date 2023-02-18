@@ -14,8 +14,8 @@
   "exports": {
     ".": {
       "require": {
-        "types": "./build/cjs/index.d.cts",
-        "default": "./build/cjs/index.cjs"
+        "types": "./build/cjs/index.d.ts",
+        "default": "./build/cjs/index.js"
       },
       "import": {
         "types": "./build/esm/index.d.ts",
@@ -29,7 +29,7 @@
     "lint": "eslint . --ext .ts,.tsx --fix",
     "dev": "pnpm clean && tsc --build --watch tsconfig.cjs.json tsconfig.esm.json",
     "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
-    "build:cjs": "ts-node scripts/build-cjs.ts",
+    "build:cjs": "pnpm tsc --project tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > build/cjs/package.json",
     "build:esm": "pnpm tsc --project tsconfig.esm.json",
     "test": "vitest",
     "clean": "rm -rf build node_modules/.cache",
