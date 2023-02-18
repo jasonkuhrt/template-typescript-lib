@@ -2,7 +2,7 @@
 
 [![trunk](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yaml/badge.svg)](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yaml)
 
-Project template for Node libraries:
+Project template for Node libraries. Features:
 
 - Hybrid ESM/CJS
 - Types: TypeScript
@@ -10,11 +10,13 @@ Project template for Node libraries:
 - Linting: ESLint
 - Formatting: Prettier
 - Publishing: Dripip
-- CI ready to go
-- Issue Templates
-- Renovate
+- CI: GitHub Actions
+- Dependency Management: Renovate
+- Community: Issue Templates
 
-How to bootstrap:
+## Quick Start
+
+The following will get you a ready to go new repository on GitHub based on this one.
 
 1. Run:
 
@@ -51,25 +53,11 @@ How to bootstrap:
 
 #### [TypeScript](https://www.typescriptlang.org/) for Type Safety & Productivity
 
-1.  Optimal settings for the safety of your implementation
-
-    1. [`strict`](https://www.typescriptlang.org/tsconfig#strict) mode enabled.
-    1. All lint flags enabled:
-       - [`noImplicitReturns`](https://www.typescriptlang.org/tsconfig#noImplicitReturns)
-       - [`noFallthroughCasesInSwitch`](https://www.typescriptlang.org/tsconfig#noFallthroughCasesInSwitch)
-       - [`noUncheckedIndexedAccess`](https://www.typescriptlang.org/tsconfig#noUncheckedIndexedAccess)
-       - [`noPropertyAccessFromIndexSignature`](https://www.typescriptlang.org/tsconfig#noPropertyAccessFromIndexSignature)
-       - [`noImplicitOverride`](https://www.typescriptlang.org/tsconfig#noImplicitOverride)
-
+1.  Optimal settings for the safety of your implementation using `@tsconfig/node16-strictest`
 1.  `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
-
-1.  Inherit settings from [`@tsconfig/recommended` (Node 14 flavour)](https://github.com/tsconfig/bases#node-16-tsconfigjson)
-
 1.  Base `tsconfig.json` shared across `tests`, `src`, and `ts-node`.
-
 1.  Optimal output setup for your users
 
-    1. Target ES2020 which Node as low as version 14 has good support for ([Kangax compatibility table](https://node.green/#ES2019)).
     1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
     1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
     1. `package.json` [`typeVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions) used to emit only **one** set of declaration files shared by both CJS and ESM builds.
