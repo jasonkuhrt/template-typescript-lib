@@ -3,7 +3,6 @@ lockfileVersion: 5.4
 specifiers:
   '@prisma-labs/prettier-config': 0.1.0
   '@swc/core': 1.3.29
-  '@tsconfig/node14': 1.0.3
   '@tsconfig/node16': ^1.0.3
   '@tsconfig/recommended': 1.0.2
   '@types/inquirer': 9.0.3
@@ -32,7 +31,6 @@ specifiers:
 devDependencies:
   '@prisma-labs/prettier-config': 0.1.0
   '@swc/core': 1.3.29
-  '@tsconfig/node14': 1.0.3
   '@tsconfig/node16': 1.0.3
   '@tsconfig/recommended': 1.0.2
   '@types/inquirer': 9.0.3
