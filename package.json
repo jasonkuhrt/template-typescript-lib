@@ -29,14 +29,14 @@
     "lint": "eslint . --ext .ts,.tsx --fix",
     "dev": "pnpm clean && tsc --build --watch tsconfig.cjs.json tsconfig.esm.json",
     "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
-    "build:cjs": "pnpm tsc --project tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > build/cjs/package.json",
-    "build:esm": "pnpm tsc --project tsconfig.esm.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > build/cjs/package.json",
+    "build:esm": "tsc --project tsconfig.esm.json",
     "clean": "tsc --build --clean && rm -rf build",
     "test": "vitest",
     "prepack": "pnpm build",
     "check:format": "prettier --check .",
     "check:lint": "eslint . --ext .ts,.tsx --max-warnings 0",
-    "check:types": "pnpm tsc --noEmit"
+    "check:types": "tsc --noEmit"
   },
   "devDependencies": {
     "@prisma-labs/prettier-config": "0.1.0",
