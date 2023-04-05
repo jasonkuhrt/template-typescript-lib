@@ -6,6 +6,6 @@ labels: type/feat
 assignees: ''
 ---
 
-#### Perceived Problem
+### Perceived Problem
 
-#### Ideas / Proposed Solution(s)
+### Ideas / Proposed Solution(s)

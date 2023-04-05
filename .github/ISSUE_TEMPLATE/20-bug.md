@@ -6,8 +6,8 @@ labels: type/bug
 assignees: ''
 ---
 
-#### Screenshot
+### Screenshot
 
-#### Description
+### Description
 
-#### Reproduction Steps/Repo Link
+### Reproduction Steps/Repo Link
