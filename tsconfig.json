@@ -1,10 +1,5 @@
 {
   "extends": ["@tsconfig/strictest/tsconfig.json", "@tsconfig/node16/tsconfig.json"],
-  "ts-node": {
-    "experimentalResolver": true,
-    "swc": true,
-    "esm": true
-  },
   "compilerOptions": {
     // Use ESM
     "module": "NodeNext",

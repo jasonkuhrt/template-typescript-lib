@@ -55,7 +55,7 @@ The following will get you a ready to go new repository on GitHub based on this 
 
 1.  Optimal settings for the safety of your implementation using `@tsconfig/node16-strictest`
 1.  `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
-1.  Base `tsconfig.json` shared across `tests`, `src`, and `ts-node`.
+1.  Base `tsconfig.json` shared across `tests` and `src`.
 1.  Optimal output setup for your users
 
     1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
@@ -64,9 +64,7 @@ The following will get you a ready to go new repository on GitHub based on this 
     1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
     1. Publish `src` with build files so that jump-to-definition tools work optimally for users.
 
-1.  `ts-node` for running TypeScript scripts/modules.
-
-    1. [Setup to use SWC](https://typestrong.org/ts-node/docs/transpilers/#swc) for maximum speed.
+1.  `tsx` for running TypeScript scripts/modules.
 
 #### [ESLint](https://eslint.org/) For Linting
 
