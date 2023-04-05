@@ -34,6 +34,7 @@
     "clean": "tsc --build --clean && rm -rf build",
     "test": "vitest",
     "prepack": "pnpm build",
+    "check": "pnpm check:format && pnpm check:lint && pnpm check:types",
     "check:format": "prettier --check .",
     "check:lint": "eslint . --ext .ts,.tsx --max-warnings 0",
     "check:types": "tsc --noEmit"
@@ -50,6 +51,7 @@
     "dripip": "0.10.0",
     "eslint": "8.34.0",
     "eslint-config-prettier": "8.6.0",
+    "eslint-config-prisma": "^0.1.0",
     "eslint-plugin-deprecation": "1.3.3",
     "eslint-plugin-only-warn": "1.1.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
