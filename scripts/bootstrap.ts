@@ -126,11 +126,11 @@ if (!gitInfo) {
   log.info(`Creating a new git project`)
   Fs.remove(`.git`)
   await execaCommand(`git init`)
-
-  log.info(`Creating initial commit`)
-  await execa(`git`, [`add`, `--all`])
-  await execa(`git`, [`commit`, `--message="chore: initial commit"`])
 }
+
+log.info(`Creating initial commit`)
+await execa(`git`, [`add`, `--all`])
+await execa(`git`, [`commit`, `--message="chore: bootstrap"`])
 
 if (answers.createGithubRepo) {
   log.info(`Creating repo on GitHub (you will need the gh CLI setup for this to work)`, {
