@@ -32,7 +32,7 @@ The following will get you a ready to go new repository on GitHub based on this 
    gh repo create foobar --template jasonkuhrt/template-typescript-lib --clone --public && \
    cd foobar && \
    pnpm install && \
-   pnpm ts-node scripts/bootstrap.ts
+   pnpm tsx scripts/bootstrap
    ```
 
 2. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
@@ -47,7 +47,7 @@ The following will get you a ready to go new repository on GitHub based on this 
    gh repo clone jasonkuhrt/template-typescript-lib <directory> && \
    cd <directory> && \
    pnpm install && \
-   pnpm ts-node scripts/bootstrap.ts
+   pnpm tsx scripts/bootstrap
    ```
 
 2. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
