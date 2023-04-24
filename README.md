@@ -16,12 +16,34 @@ Project template for Node libraries. Features:
 
 ## Quick Start
 
+Make sure you have `corepack` enabled:
+
+```
+$ corepack enable
+```
+
+### Used as a GitHub Template Repo
+
 The following will get you a ready to go new repository on GitHub based on this one.
 
 1. Run:
 
    ```
-   corepack enable && \
+   gh repo create foobar --template jasonkuhrt/template-typescript-lib --clone --public && \
+   cd foobar && \
+   pnpm install && \
+   pnpm ts-node scripts/bootstrap.ts
+   ```
+
+2. [Setup a repo secret ](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
+
+### Used With Manual Git Setup
+
+The following will get you a ready to go new repository on GitHub based on this one.
+
+1. Run:
+
+   ```
    gh repo clone jasonkuhrt/template-typescript-lib <directory> && \
    cd <directory> && \
    pnpm install && \

@@ -1,6 +1,7 @@
-import { execa, execaCommand } from 'execa'
+import { execa, execaCommand, execaCommandSync } from 'execa'
 import { log } from 'floggy'
 import Fs from 'fs-jetpack'
+import type { QuestionCollection } from 'inquirer'
 import I from 'inquirer'
 
 const replaceInFile = (filePath: string, pattern: RegExp, replaceWith: string): void => {
@@ -15,15 +16,34 @@ const replaceInFile = (filePath: string, pattern: RegExp, replaceWith: string): 
 interface Answers {
   packageName: string
   developerName: string
-  repositoryName: string
-  repositoryOwnerName: string
-  createGithubRepo: boolean
+  repositoryName?: string
+  repositoryOwnerName?: string
+  createGithubRepo?: boolean
 }
-const answers = (await I.prompt([
+
+const getGitInfo = () => {
+  const hasGitSetup = Fs.exists(`.git`)
+  if (!hasGitSetup) return null
+  const result = execaCommandSync(`git config --get remote.origin.url`).stdout.match(
+    /git@github.com:([^/]+)\/([^/]+).git/
+  )
+  if (!result) throw new Error(`Could not get GitHub repository info from git config`)
+  const userName = execaCommandSync(`git config --get user.name`).stdout
+  return {
+    userName,
+    repositoryOwnerName: result[1],
+    repositoryName: result[2],
+  }
+}
+
+const gitInfo = getGitInfo()
+const prompts: QuestionCollection<any>[] = []
+prompts.push(
   {
     type: `input`,
     name: `packageName`,
     message: `What is the name of your package?`,
+    default: gitInfo?.repositoryName,
     validate: (input: string) => {
       const pattern = /^(@[a-z0-9-~][a-z0-9-._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/
       return pattern.test(input) ? true : `Package name must conform to this pattern: ${String(pattern)}`
@@ -32,39 +52,49 @@ const answers = (await I.prompt([
   {
     type: `input`,
     name: `developerName`,
+    default: gitInfo?.userName,
     message: `What is your name? This will be used in places needing a package author name.`,
-  },
-  {
-    type: `input`,
-    name: `repositoryName`,
-    message: `What is the name of your GitHub repository?`,
-    validate: (input: string) => {
-      const pattern = /[A-Za-z0-9_.-]{1,100}/
-      return pattern.test(input)
-        ? true
-        : `GitHub repository name must conform to this pattern: ${String(pattern)}`
-    },
-  },
-  {
-    type: `input`,
-    name: `repositoryOwnerName`,
-    message: `Who is the repository owner of your GitHub repository?`,
-    validate: (input: string) => {
-      const pattern = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i
-      return pattern.test(input)
-        ? true
-        : `GitHub repository owner must conform to this pattern: ${String(pattern)}`
-    },
-  },
-  {
-    message: `Should the GitHub repository be created now? (Note for this to work there must be an environment variable called 'GITHUB_TOKEN' set with sufficient permissions.)`,
-    type: `confirm`,
-    name: `createGithubRepo`,
-    default: true,
-  },
-])) as Answers
+  }
+)
 
-const orgAndRepo = `${answers.repositoryOwnerName}/${answers.repositoryName}`
+if (!gitInfo) {
+  prompts.push(
+    {
+      type: `input`,
+      name: `repositoryName`,
+      message: `What is the name of your GitHub repository?`,
+      validate: (input: string) => {
+        const pattern = /[A-Za-z0-9_.-]{1,100}/
+        return pattern.test(input)
+          ? true
+          : `GitHub repository name must conform to this pattern: ${String(pattern)}`
+      },
+    },
+    {
+      type: `input`,
+      name: `repositoryOwnerName`,
+      message: `Who is the repository owner of your GitHub repository?`,
+      validate: (input: string) => {
+        const pattern = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i
+        return pattern.test(input)
+          ? true
+          : `GitHub repository owner must conform to this pattern: ${String(pattern)}`
+      },
+    },
+    {
+      message: `Should the GitHub repository be created now? (Note for this to work there must be an environment variable called 'GITHUB_TOKEN' set with sufficient permissions.)`,
+      type: `confirm`,
+      name: `createGithubRepo`,
+      default: true,
+    }
+  )
+}
+
+const answers = (await I.prompt(prompts)) as Answers
+
+const orgAndRepo = `${answers.repositoryOwnerName ?? gitInfo?.repositoryOwnerName ?? ``}/${
+  answers.repositoryName ?? gitInfo?.repositoryName ?? ``
+}`
 
 console.log()
 log.info(`Now running the bootstraper based on the answers you gave...`)
@@ -92,13 +122,15 @@ Fs.remove(`scripts/bootstrap.ts`)
 log.info(`Running formatter`)
 await execaCommand(`pnpm format`)
 
-log.info(`Creating a new git project`)
-Fs.remove(`.git`)
-await execaCommand(`git init`)
+if (!gitInfo) {
+  log.info(`Creating a new git project`)
+  Fs.remove(`.git`)
+  await execaCommand(`git init`)
 
-log.info(`Creating initial commit`)
-await execa(`git`, [`add`, `--all`])
-await execa(`git`, [`commit`, `--message="chore: initial commit"`])
+  log.info(`Creating initial commit`)
+  await execa(`git`, [`add`, `--all`])
+  await execa(`git`, [`commit`, `--message="chore: initial commit"`])
+}
 
 if (answers.createGithubRepo) {
   log.info(`Creating repo on GitHub (you will need the gh CLI setup for this to work)`, {
