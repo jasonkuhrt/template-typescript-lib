@@ -24,6 +24,7 @@
     }
   },
   "scripts": {
+    "bootstrap": "tsx scripts/bootstrap.ts",
     "build:toc": "markdown-toc README.md -i --maxdepth 4 && prettier --write README.md",
     "format": "prettier --write .",
     "lint": "eslint . --ext .ts,.tsx --fix",
