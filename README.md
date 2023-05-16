@@ -75,7 +75,7 @@ The following will get you a ready to go new repository on GitHub based on this 
 
 #### [TypeScript](https://www.typescriptlang.org/) for Type Safety & Productivity
 
-1.  Optimal settings for the safety of your implementation using `@tsconfig/node16-strictest`
+1.  Optimal settings for type safety via `@tsconfig/node18` and `@tsconfig/strictest`
 1.  `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
 1.  Base `tsconfig.json` shared across `tests` and `src`.
 1.  Optimal output setup for your users

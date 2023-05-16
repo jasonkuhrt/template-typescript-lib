@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@prisma-labs/prettier-config": "0.1.0",
-    "@tsconfig/node16": "^1.0.4",
+    "@tsconfig/node18": "^2.0.1",
     "@tsconfig/recommended": "1.0.2",
     "@tsconfig/strictest": "^2.0.1",
     "@types/inquirer": "9.0.3",

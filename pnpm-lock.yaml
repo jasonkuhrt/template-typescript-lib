@@ -4,9 +4,9 @@ devDependencies:
   '@prisma-labs/prettier-config':
     specifier: 0.1.0
     version: 0.1.0
-  '@tsconfig/node16':
-    specifier: ^1.0.4
-    version: 1.0.4
+  '@tsconfig/node18':
+    specifier: ^2.0.1
+    version: 2.0.1
   '@tsconfig/recommended':
     specifier: 1.0.2
     version: 1.0.2
@@ -668,8 +668,8 @@ packages:
     resolution: {integrity: sha512-P0h2y+gnIxFP2HdsTYSYHWmabGBlxyVjnUepsrRe8gAF36mxOonGsbsQmKt/Q9H9CMjrSkFoDe5F5HLi2iW5/Q==}
     dev: true
 
-  /@tsconfig/node16@1.0.4:
-    resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
+  /@tsconfig/node18@2.0.1:
+    resolution: {integrity: sha512-UqdfvuJK0SArA2CxhKWwwAWfnVSXiYe63bVpMutc27vpngCntGUZQETO24pEJ46zU6XM+7SpqYoMgcO3bM11Ew==}
     dev: true
 
   /@tsconfig/recommended@1.0.2:
