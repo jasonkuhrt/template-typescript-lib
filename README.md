@@ -4,13 +4,13 @@
 
 Project template for Node libraries. Features:
 
-- Hybrid ESM/CJS
+- Modules: Hybrid ESM/CJS
 - Types: TypeScript
 - Tests: Vitest
 - Linting: ESLint
 - Formatting: Prettier
 - Publishing: Dripip
-- CI: GitHub Actions
+- Continuous Integration: GitHub Actions
 - Dependency Management: Renovate
 - Community: Issue Templates
 
