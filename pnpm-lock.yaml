@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
-  '@prisma-labs/prettier-config':
-    specifier: 0.1.0
-    version: 0.1.0
   '@tsconfig/node18':
     specifier: 2.0.1
     version: 2.0.1
@@ -35,9 +32,6 @@ devDependencies:
   eslint:
     specifier: 8.43.0
     version: 8.43.0
-  eslint-config-prettier:
-    specifier: 8.8.0
-    version: 8.8.0(eslint@8.43.0)
   eslint-config-prisma:
     specifier: 0.1.0
     version: 0.1.0(@typescript-eslint/eslint-plugin@5.60.1)(@typescript-eslint/parser@5.60.1)(eslint-plugin-deprecation@1.4.1)(eslint-plugin-only-warn@1.1.0)(eslint-plugin-prefer-arrow@1.2.3)(eslint-plugin-simple-import-sort@10.0.0)(eslint-plugin-tsdoc@0.2.17)(eslint@8.43.0)
@@ -74,9 +68,6 @@ devDependencies:
   markdown-toc:
     specifier: 1.2.0
     version: 1.2.0
-  prettier:
-    specifier: 2.8.8
-    version: 2.8.8
   tsx:
     specifier: 3.12.7
     version: 3.12.7
@@ -652,10 +643,6 @@ packages:
     resolution: {integrity: sha512-eJ2jbzjdijiL3B4PrSQaSjuF2sPEQPVCPzBvTHJD9Nz+9dw2SGH4K4xeQJ77YfTq5bRQ+bD8wT11JbeDPmxmGg==}
     dependencies:
       '@octokit/openapi-types': 12.11.0
-    dev: true
-
-  /@prisma-labs/prettier-config@0.1.0:
-    resolution: {integrity: sha512-P0h2y+gnIxFP2HdsTYSYHWmabGBlxyVjnUepsrRe8gAF36mxOonGsbsQmKt/Q9H9CMjrSkFoDe5F5HLi2iW5/Q==}
     dev: true
 
   /@tsconfig/node18@2.0.1:
@@ -2669,12 +2656,6 @@ packages:
   /prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
-    dev: true
-
-  /prettier@2.8.8:
-    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
-    engines: {node: '>=10.13.0'}
-    hasBin: true
     dev: true
 
   /pretty-format@27.5.1:
