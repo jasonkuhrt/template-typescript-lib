@@ -10,6 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+      - run: pnpm add dprint
       - run: pnpm check:format
   lint:
     runs-on: ubuntu-latest
