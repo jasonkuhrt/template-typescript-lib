@@ -11,5 +11,5 @@
  * ```
  */
 export const todo = (task?: string): string => {
-  return task ?? `nothing`;
-};
+  return task ?? `nothing`
+}
