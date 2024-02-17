@@ -2,5 +2,8 @@
   "root": true,
   "extends": ["prisma"],
   "overrides": [],
-  "rules": {}
+  "rules": {
+    // Conflicts with dprint
+    "simple-import-sort/imports": "off"
+  }
 }
