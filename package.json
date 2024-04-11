@@ -1,7 +1,10 @@
 {
   "name": "template-typescript-lib",
   "version": "0.0.0-dripip",
-  "repository": "git@github.com:jasonkuhrt/template-typescript-lib.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jasonkuhrt/template-typescript-lib.git"
+  },
   "author": "Jason Kuhrt",
   "packageManager": "pnpm@8.10.4",
   "license": "MIT",
