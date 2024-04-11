@@ -137,7 +137,7 @@ if (answers.createGithubRepo) {
   log.info(`Creating repo on GitHub (you will need the gh CLI setup for this to work)`, {
     url: `https://github.com/${orgAndRepo}`,
   })
-  await execa(`gh`, [`repo`, `create`, `--confirm`, `--enable-wiki=false`, `--public`, `${orgAndRepo}`])
+  await execa(`gh`, [`repo`, `create`, `--confirm`, `--enable-wiki=false`, `--public`, orgAndRepo])
 
   log.info(`Pushing main branch and commit to GitHub`)
   await execa(`git`, [`remote`, `add`, `origin`, `git@github.com:${orgAndRepo}.git`])

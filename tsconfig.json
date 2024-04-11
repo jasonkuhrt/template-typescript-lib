@@ -1,5 +1,8 @@
 {
-  "extends": ["@tsconfig/strictest/tsconfig.json", "@tsconfig/node18/tsconfig.json"],
+  "extends": [
+    "@tsconfig/strictest/tsconfig.json",
+    "@tsconfig/node18/tsconfig.json"
+  ],
   "compilerOptions": {
     // Use ESM
     "module": "NodeNext",
@@ -15,7 +18,8 @@
     "declarationMap": true,
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "skipLibCheck": true
   },
   "include": ["src", "tests", "scripts"],
   "exclude": ["build"]
