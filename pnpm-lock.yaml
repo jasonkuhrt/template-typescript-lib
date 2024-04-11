@@ -33,8 +33,8 @@ devDependencies:
     specifier: 9.0.0
     version: 9.0.0
   eslint-config-prisma:
-    specifier: 0.5.2
-    version: 0.5.2(@typescript-eslint/eslint-plugin@7.6.0)(@typescript-eslint/parser@7.6.0)(eslint-plugin-deprecation@2.0.0)(eslint-plugin-only-warn@1.1.0)(eslint-plugin-prefer-arrow@1.2.3)(eslint-plugin-tsdoc@0.2.17)(eslint@9.0.0)(typescript@5.4.5)
+    specifier: 0.6.0
+    version: 0.6.0(@typescript-eslint/eslint-plugin@7.6.0)(@typescript-eslint/parser@7.6.0)(eslint-plugin-deprecation@2.0.0)(eslint-plugin-only-warn@1.1.0)(eslint-plugin-prefer-arrow@1.2.3)(eslint-plugin-tsdoc@0.2.17)(eslint@9.0.0)(typescript@5.4.5)
   eslint-plugin-deprecation:
     specifier: 2.0.0
     version: 2.0.0(eslint@9.0.0)(typescript@5.4.5)
@@ -1021,6 +1021,23 @@ packages:
       '@types/ms': 0.7.34
     dev: true
 
+  /@types/eslint-config-prettier@6.11.3:
+    resolution: {integrity: sha512-3wXCiM8croUnhg9LdtZUJQwNcQYGWxxdOWDjPe1ykCqJFPVpzAKfs/2dgSoCtAvdPeaponcWPI7mPcGGp9dkKQ==}
+    dev: true
+
+  /@types/eslint@8.56.7:
+    resolution: {integrity: sha512-SjDvI/x3zsZnOkYZ3lCt9lOZWZLB2jIlNKz+LBgCtDurK0JZcwucxYHn1w2BJkD34dgX9Tjnak0txtq4WTggEA==}
+    dependencies:
+      '@types/estree': 1.0.5
+      '@types/json-schema': 7.0.15
+    dev: true
+
+  /@types/eslint__js@8.42.3:
+    resolution: {integrity: sha512-alfG737uhmPdnvkrLdZLcEKJ/B8s9Y4hrZ+YAdzUeoArBlSUERA2E87ROfOaS4jd/C45fzOoZzidLc1IPwLqOw==}
+    dependencies:
+      '@types/eslint': 8.56.7
+    dev: true
+
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
@@ -1851,8 +1868,8 @@ packages:
       eslint: 9.0.0
     dev: true
 
-  /eslint-config-prisma@0.5.2(@typescript-eslint/eslint-plugin@7.6.0)(@typescript-eslint/parser@7.6.0)(eslint-plugin-deprecation@2.0.0)(eslint-plugin-only-warn@1.1.0)(eslint-plugin-prefer-arrow@1.2.3)(eslint-plugin-tsdoc@0.2.17)(eslint@9.0.0)(typescript@5.4.5):
-    resolution: {integrity: sha512-i+VkdwdkCLo+tT0c6sOntP1gNuuR37v5kEHIFvG0aamAig3NPZhTaXDV6noIKpnAKAiQU7hBsfl7Vyc0oem6/w==}
+  /eslint-config-prisma@0.6.0(@typescript-eslint/eslint-plugin@7.6.0)(@typescript-eslint/parser@7.6.0)(eslint-plugin-deprecation@2.0.0)(eslint-plugin-only-warn@1.1.0)(eslint-plugin-prefer-arrow@1.2.3)(eslint-plugin-tsdoc@0.2.17)(eslint@9.0.0)(typescript@5.4.5):
+    resolution: {integrity: sha512-tdvowJR0lb7fa299crTJbDNreSkMTev1CDTHNn0q8xuGXRXzHLnsTbVDKTV95iPo20X22ZQQ6wBFJU1o7lGCjg==}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^6
       '@typescript-eslint/parser': ^6
@@ -1863,6 +1880,8 @@ packages:
       eslint-plugin-tsdoc: ^0.2
     dependencies:
       '@eslint/js': 9.0.0
+      '@types/eslint-config-prettier': 6.11.3
+      '@types/eslint__js': 8.42.3
       '@typescript-eslint/eslint-plugin': 7.6.0(@typescript-eslint/parser@7.6.0)(eslint@9.0.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 7.6.0(eslint@9.0.0)(typescript@5.4.5)
       '@typescript-eslint/utils': 7.6.0(eslint@9.0.0)(typescript@5.4.5)
