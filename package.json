@@ -38,10 +38,11 @@
     "clean": "tsc --build --clean && rm -rf build",
     "test": "vitest",
     "prepack": "pnpm build",
-    "check": "pnpm check:format && pnpm check:lint && pnpm check:types",
+    "check": "pnpm check:format && pnpm check:lint && pnpm check:types && pnpm check:publint",
     "check:format": "dprint check",
     "check:lint": "eslint . --max-warnings 0",
-    "check:types": "tsc --noEmit"
+    "check:types": "tsc --noEmit",
+    "check:publint": "publint run --strict"
   },
   "devDependencies": {
     "@tsconfig/node18": "18.2.4",
@@ -64,6 +65,7 @@
     "fs-jetpack": "5.1.0",
     "inquirer": "9.2.19",
     "markdown-toc": "1.2.0",
+    "publint": "^0.2.7",
     "tsx": "4.7.2",
     "typescript": "5.4.5",
     "vitest": "1.5.0"
