@@ -65,7 +65,7 @@
     "fs-jetpack": "5.1.0",
     "inquirer": "9.2.21",
     "markdown-toc": "1.2.0",
-    "publint": "^0.2.7",
+    "publint": "0.2.7",
     "tsx": "4.10.2",
     "typescript": "5.4.5",
     "vitest": "1.6.0"
