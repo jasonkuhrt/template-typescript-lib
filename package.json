@@ -6,7 +6,7 @@
     "url": "git+ssh://git@github.com/jasonkuhrt/template-typescript-lib.git"
   },
   "author": "Jason Kuhrt",
-  "packageManager": "pnpm@8.10.4",
+  "packageManager": "pnpm@8.15.9",
   "license": "MIT",
   "type": "module",
   "files": [
