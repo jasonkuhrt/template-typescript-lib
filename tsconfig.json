@@ -19,7 +19,8 @@
     "incremental": true,
     "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
     "noErrorTruncation": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true
   },
   "include": ["src", "tests", "scripts"],
   "exclude": ["build"]
