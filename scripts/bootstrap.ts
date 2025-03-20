@@ -1,8 +1,8 @@
 import { execa, execaCommand, execaCommandSync } from 'execa'
 import { log } from 'floggy'
 import Fs from 'fs-jetpack'
-import type { QuestionCollection } from 'inquirer'
-import I from 'inquirer'
+import type * as Inquirer from 'inquirer'
+import inquirer from 'inquirer'
 
 const replaceInFile = (filePath: string, pattern: RegExp, replaceWith: string): void => {
   const file = Fs.read(filePath)
@@ -37,22 +37,22 @@ const getGitInfo = () => {
 }
 
 const gitInfo = getGitInfo()
-const prompts: QuestionCollection<any>[] = []
+const prompts: Inquirer.DistinctQuestion[] = []
 prompts.push(
   {
     type: `input`,
     name: `packageName`,
     message: `What is the name of your package?`,
-    default: gitInfo?.repositoryName,
     validate: (input: string) => {
       const pattern = /^(@[a-z0-9-~][a-z0-9-._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/
       return pattern.test(input) ? true : `Package name must conform to this pattern: ${String(pattern)}`
     },
+    ...(gitInfo?.repositoryName ? { default: gitInfo.repositoryName } : {}),
   },
   {
     type: `input`,
     name: `developerName`,
-    default: gitInfo?.userName,
+    ...(gitInfo?.userName ? { default: gitInfo.userName } : {}),
     message: `What is your name? This will be used in places needing a package author name.`,
   },
 )
@@ -91,7 +91,7 @@ if (!gitInfo) {
   )
 }
 
-const answers = (await I.prompt(prompts)) as Answers
+const answers = (await inquirer.prompt(prompts)) as Answers
 
 const orgAndRepo = `${answers.repositoryOwnerName ?? gitInfo?.repositoryOwnerName ?? ``}/${
   answers.repositoryName ?? gitInfo?.repositoryName ?? ``
