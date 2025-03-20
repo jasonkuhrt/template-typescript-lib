@@ -24,8 +24,8 @@ interface Answers {
 const getGitInfo = () => {
   const hasGitSetup = Fs.exists(`.git`)
   if (!hasGitSetup) return null
-  const result = execaCommandSync(`git config --get remote.origin.url`).stdout.match(
-    /git@github.com:([^/]+)\/([^/]+).git/,
+  const result = /git@github.com:([^/]+)\/([^/]+).git/.exec(
+    execaCommandSync(`git config --get remote.origin.url`).stdout,
   )
   if (!result) throw new Error(`Could not get GitHub repository info from git config`)
   const userName = execaCommandSync(`git config --get user.name`).stdout

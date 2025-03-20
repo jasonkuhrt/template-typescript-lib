@@ -45,6 +45,7 @@
     "check:publint": "publint run --strict"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^4.2.0",
     "@tsconfig/node22": "^22.0.0",
     "@tsconfig/recommended": "1.0.8",
     "@tsconfig/strictest": "2.0.5",
@@ -53,10 +54,7 @@
     "@typescript-eslint/parser": "8.27.0",
     "dripip": "0.10.0",
     "eslint": "9.22.0",
-    "eslint-config-prisma": "0.6.0",
-    "eslint-plugin-deprecation": "3.0.0",
     "eslint-plugin-only-warn": "1.1.0",
-    "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-tsdoc": "0.4.0",
     "execa": "9.5.2",
     "fast-glob": "3.3.3",
@@ -67,6 +65,7 @@
     "publint": "^0.3.9",
     "tsx": "4.19.3",
     "typescript": "5.8.2",
+    "typescript-eslint": "^8.27.0",
     "vitest": "3.0.9"
   }
 }
