@@ -38,11 +38,11 @@
     "clean": "tsc --build --clean && rm -rf build",
     "test": "vitest",
     "prepack": "pnpm build",
-    "check": "pnpm check:format && pnpm check:lint && pnpm check:types && pnpm check:publint",
+    "check": "pnpm check:format && pnpm check:lint && pnpm check:types && pnpm check:package",
     "check:format": "dprint check",
     "check:lint": "eslint . --max-warnings 0",
     "check:types": "tsc --noEmit",
-    "check:publint": "publint run --strict"
+    "check:package": "publint run --strict"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^4.2.0",

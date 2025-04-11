@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm check:publint
+      - run: pnpm check:package
   types:
     runs-on: ubuntu-latest
     steps:
