@@ -5,13 +5,25 @@
     "type": "git",
     "url": "git+ssh://git@github.com/jasonkuhrt/template-typescript-lib.git"
   },
-  "author": "Jason Kuhrt",
-  "packageManager": "pnpm@8.10.4",
+  "author": {
+    "name": "Jason Kuhrt",
+    "url": "https://kuhrt.me"
+  },
+  "keywords": [
+    "foo",
+    "bar",
+    "qux"
+  ],
+  "bugs": {
+    "url": "https://github.com/jasonkuhrt/template-typescript-lib/issues"
+  },
+  "packageManager": "pnpm@10.8.0",
   "license": "MIT",
   "type": "module",
   "files": [
     "src",
-    "build"
+    "build",
+    "README.md"
   ],
   "types": "./build/esm/index.d.ts",
   "exports": {
