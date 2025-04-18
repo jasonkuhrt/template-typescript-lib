@@ -25,16 +25,10 @@
     "build",
     "README.md"
   ],
-  "types": "./build/esm/index.d.ts",
   "exports": {
     ".": {
-      "require": {
-        "types": "./build/cjs/index.d.ts",
-        "default": "./build/cjs/index.js"
-      },
       "import": {
-        "types": "./build/esm/index.d.ts",
-        "default": "./build/esm/index.js"
+        "default": "./build/index.js"
       }
     }
   },
@@ -43,11 +37,11 @@
     "build:toc": "markdown-toc README.md -i --maxdepth 4 && dprint fmt README.md",
     "format": "dprint fmt",
     "lint": "eslint . --fix",
-    "dev": "pnpm clean && tsc --build --watch tsconfig.cjs.json tsconfig.esm.json",
-    "build": "pnpm clean && pnpm build:cjs && pnpm build:esm",
-    "build:cjs": "tsc --project tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > build/cjs/package.json",
-    "build:esm": "tsc --project tsconfig.esm.json",
-    "clean": "tsc --build --clean && rm -rf build",
+    "build:watch:emit": "pnpm build --noCheck --watch",
+    "build:watch": "pnpm build --watch",
+    "build:emit": "pnpm build --noEmit",
+    "build": "pnpm build:clean && && tsc --project tsconfig.build.json",
+    "build:clean": "tsc --build --clean && rm -rf build",
     "test": "vitest",
     "prepack": "pnpm build",
     "check": "pnpm check:format && pnpm check:lint && pnpm check:types && pnpm check:package",

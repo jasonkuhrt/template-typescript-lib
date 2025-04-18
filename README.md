@@ -4,7 +4,7 @@
 
 Project template for Node libraries. Features:
 
-- Modules: Hybrid ESM/CJS
+- ESM Module
 - Types: TypeScript
 - Tests: Vitest
 - Linting: ESLint
@@ -66,7 +66,6 @@ The following will get you a ready to go new repository on GitHub based on this 
 - [CI with GitHub Actions](#ci-with-github-actions)
 - [Renovate](#renovate)
 - [PnPM](#pnpm)
-- [CJS+ESM Hybrid package build](#cjsesm-hybrid-package-build)
 - [VSCode Settings](#vscode-settings)
 - [Readme Table of Contents](#readme-table-of-contents)
 - [Useful TypeScript Libraries](#useful-typescript-libraries)
@@ -82,7 +81,6 @@ The following will get you a ready to go new repository on GitHub based on this 
 
    1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
    1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
-   1. `package.json` [`typeVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions) used to emit only **one** set of declaration files shared by both CJS and ESM builds.
    1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
    1. Publish `src` with build files so that jump-to-definition tools work optimally for users.
 
@@ -146,10 +144,6 @@ Just Works :)
 #### [PnPM](https://pnpm.io/) for package management
 
 1. Using [Corepack](https://nodejs.org/api/corepack.html#enabling-the-feature). This means the PnPM specified in `package.json` will be used. And note this is a PnPM binary shipped with Node now. In a future version of Node you will not need to even opt-in into Corepack. Make sure you've done `corepack enable` at least once.
-
-#### CJS+ESM Hybrid package build
-
-An [actually working](https://kuhrt.me/logs/hybrid-esm-cjs-node-packages-using-typescript-take-2) hybrid CJS/ESM build.
 
 #### VSCode Settings
 
