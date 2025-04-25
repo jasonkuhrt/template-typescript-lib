@@ -33,6 +33,7 @@ export default tsEslint.config(
       '@stylistic': stylistic,
     },
     rules: {
+      '@stylistic/member-delimiter-style': 'off',
       '@stylistic/no-multi-spaces': 'off',
       '@stylistic/comma-spacing': 'off',
       '@stylistic/quotes': ['warn', 'backtick'],
