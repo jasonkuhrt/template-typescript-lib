@@ -42,6 +42,7 @@
     "build:clean": "tsc --build --clean && rm -rf build",
     "test": "vitest",
     "prepack": "pnpm build",
+    "fix": "pnpm fix:format && pnpm fix:lint",
     "fix:format": "dprint fmt",
     "fix:lint": "eslint . --fix",
     "check": "pnpm check:format && pnpm check:lint && pnpm check:types && pnpm check:package",
@@ -51,6 +52,7 @@
     "check:package": "publint run --strict"
   },
   "devDependencies": {
+    "@eslint/js": "^9.25.1",
     "@stylistic/eslint-plugin": "^4.2.0",
     "@tsconfig/node22": "^22.0.1",
     "@tsconfig/recommended": "1.0.8",

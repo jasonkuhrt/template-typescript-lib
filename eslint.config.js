@@ -33,6 +33,7 @@ export default tsEslint.config(
       '@stylistic': stylistic,
     },
     rules: {
+      'eslint@stylistic/brace-style': ['warn', '1tbs'],
       '@stylistic/quotes': ['warn', 'backtick'],
       '@typescript-eslint/consistent-type-imports': 'warn',
       'tsdoc/syntax': 'warn',
