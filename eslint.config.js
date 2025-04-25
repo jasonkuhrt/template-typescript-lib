@@ -33,10 +33,6 @@ export default tsEslint.config(
       '@stylistic': stylistic,
     },
     rules: {
-      '@stylistic/member-delimiter-style': 'off',
-      '@stylistic/no-multi-spaces': 'off',
-      '@stylistic/comma-spacing': 'off',
-      '@stylistic/quotes': ['warn', 'backtick'],
       '@typescript-eslint/consistent-type-imports': 'warn',
       'tsdoc/syntax': 'warn',
       // TypeScript makes these safe & effective
@@ -53,6 +49,11 @@ export default tsEslint.config(
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/ban-ts-comment': ['warn', { 'ts-expect-error': false }],
+      // Disable dprint conflicts:
+      '@stylistic/member-delimiter-style': 'off',
+      '@stylistic/no-multi-spaces': 'off',
+      '@stylistic/comma-spacing': 'off',
+      '@stylistic/quotes': ['warn', 'backtick'],
     },
   },
 )
