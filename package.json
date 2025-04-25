@@ -40,7 +40,7 @@
     "build:emit": "pnpm build --noEmit",
     "build": "tsc --project tsconfig.build.json",
     "build:clean": "tsc --build --clean && rm -rf build",
-    "pre:build": "pnpm pnpm build:clean",
+    "prebuild": "pnpm pnpm build:clean",
     "test": "vitest",
     "prepack": "pnpm build",
     "fix": "pnpm fix:format && pnpm fix:lint",
