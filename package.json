@@ -35,8 +35,6 @@
   "scripts": {
     "bootstrap": "tsx scripts/bootstrap.ts",
     "build:toc": "markdown-toc README.md -i --maxdepth 4 && dprint fmt README.md",
-    "format": "dprint fmt",
-    "lint": "eslint . --fix",
     "build:watch:emit": "pnpm build --noCheck --watch",
     "build:watch": "pnpm build --watch",
     "build:emit": "pnpm build --noEmit",
@@ -44,6 +42,8 @@
     "build:clean": "tsc --build --clean && rm -rf build",
     "test": "vitest",
     "prepack": "pnpm build",
+    "fix:format": "dprint fmt",
+    "fix:lint": "eslint . --fix",
     "check": "pnpm check:format && pnpm check:lint && pnpm check:types && pnpm check:package",
     "check:format": "dprint check",
     "check:lint": "eslint . --max-warnings 0",
