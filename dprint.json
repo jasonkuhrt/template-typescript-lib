@@ -3,12 +3,11 @@
     "quoteStyle": "preferSingle",
     "semiColons": "asi"
   },
-  "json": {
-  },
-  "markdown": {
-  },
+  "json": {},
+  "markdown": {},
   "excludes": [
     "**/node_modules",
+    "**/__snapshots__",
     "**/*-lock.json",
     "**/*-lock.yaml"
   ],

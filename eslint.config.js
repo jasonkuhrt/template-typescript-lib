@@ -12,7 +12,7 @@ export default tsEslint.config(
   tsEslint.configs.eslintRecommended,
   tsEslint.configs.stylisticTypeChecked,
   {
-    ignores: ['build', 'eslint.config.js'],
+    ignores: ['build', 'eslint.config.js', '**/__snapshots__/**/*'],
   },
   {
     languageOptions: {
