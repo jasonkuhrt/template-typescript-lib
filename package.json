@@ -26,11 +26,7 @@
     "README.md"
   ],
   "exports": {
-    ".": {
-      "import": {
-        "default": "./build/index.js"
-      }
-    }
+    ".": "./build/exports/index.js"
   },
   "scripts": {
     "bootstrap": "tsx scripts/bootstrap.ts",
