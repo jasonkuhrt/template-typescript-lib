@@ -50,9 +50,9 @@
     "check:package": "publint run --strict"
   },
   "devDependencies": {
-    "@eslint/js": "^9.25.1",
-    "@stylistic/eslint-plugin": "^4.2.0",
-    "@tsconfig/node22": "^22.0.1",
+    "@eslint/js": "9.25.1",
+    "@stylistic/eslint-plugin": "4.2.0",
+    "@tsconfig/node22": "22.0.1",
     "@tsconfig/recommended": "1.0.8",
     "@tsconfig/strictest": "2.0.5",
     "@types/node": "22.15.2",
@@ -68,10 +68,10 @@
     "fs-jetpack": "5.1.0",
     "inquirer": "12.6.0",
     "markdown-toc": "1.2.0",
-    "publint": "^0.3.12",
+    "publint": "0.3.12",
     "tsx": "4.19.3",
     "typescript": "5.8.3",
-    "typescript-eslint": "^8.31.0",
+    "typescript-eslint": "8.31.0",
     "vitest": "3.1.2"
   }
 }
