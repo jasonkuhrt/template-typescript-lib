@@ -39,8 +39,6 @@ export default tsEslint.config(
       'no-case-declarations': 'off',
       // Same approach used by TypeScript noUnusedLocals
       '@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: '^_', argsIgnorePattern: '^_' }],
-      // Needed when working with .mts/.cts where a lone e.g. <T> is not allowed
-      '@typescript-eslint/no-unnecessary-type-constraint': 'off',
       // Useful for organizing Types
       '@typescript-eslint/no-namespace': 'off',
       // Turn training wheels off. When we want these we want these.
