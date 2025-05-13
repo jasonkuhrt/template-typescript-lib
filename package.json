@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/jasonkuhrt/template-typescript-lib/issues"
   },
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.11.0",
   "license": "MIT",
   "type": "module",
   "files": [
