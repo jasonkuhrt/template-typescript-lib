@@ -4,23 +4,27 @@
     "@tsconfig/node22/tsconfig.json"
   ],
   "compilerOptions": {
-    // Use ESM
+    // Package
     "module": "NodeNext",
     "moduleResolution": "nodenext",
 
-    // We handle these with ESLint:
+    // DX
+    "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
+    "noErrorTruncation": true,
+    "incremental": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+
+    // Handled by ESLint:
     "noUnusedLocals": false,
     "noUnusedParameters": false,
 
-    // DX
+    // Downstream DX
+    "isolatedModules": true, // performance
     "sourceMap": true,
     "declaration": true,
-    "declarationMap": true,
-    "incremental": true,
-    "tsBuildInfoFile": "node_modules/.cache/.tsbuildinfo",
-    "noErrorTruncation": true,
-    "skipLibCheck": true,
-    "verbatimModuleSyntax": true
+    "declarationMap": true
   },
   "include": ["src", "tests", "scripts"],
   "exclude": ["build"]

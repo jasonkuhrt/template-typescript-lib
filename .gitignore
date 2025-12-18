@@ -1,6 +1,10 @@
 # macOS
 .DS_Store
 
+# Tools
+.dprint/
+tsconfig.build.tsbuildinfo
+
 # Dependencies
 node_modules/
 

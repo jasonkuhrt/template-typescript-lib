@@ -67,6 +67,7 @@ The following will get you a ready to go new repository on GitHub based on this 
 - [Renovate](#renovate)
 - [PnPM](#pnpm)
 - [VSCode Settings](#vscode-settings)
+- [Zed Settings](#zed-settings)
 - [Readme Table of Contents](#readme-table-of-contents)
 - [Useful TypeScript Libraries](#useful-typescript-libraries)
 
@@ -151,6 +152,23 @@ Just Works :)
 1. On-Save actions for optimal editing experience (e.g. ESLint auto-fix to [organize imports automatically](https://github.com/lydell/eslint-plugin-simple-import-sort#can-i-use-this-without-autofix))
 1. List of VSCode extensions that users who open the project will be prompted to install if they don't already.
 1. Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.
+
+#### Zed Settings
+
+This template does not include a `.zed` directory. Instead, it assumes you configure [tsgo](https://zed.dev/extensions/tsgo) (the native Go-based TypeScript language server) in your global Zed settings (`~/.config/zed/settings.json`):
+
+```json
+{
+  "languages": {
+    "TypeScript": {
+      "language_servers": ["tsgo", "!vtsls", "oxc"]
+    },
+    "TSX": {
+      "language_servers": ["tsgo", "!vtsls", "oxc"]
+    }
+  }
+}
+```
 
 #### Readme Table of Contents
 
