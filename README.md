@@ -66,7 +66,6 @@ The following will get you a ready to go new repository on GitHub based on this 
 - [CI with GitHub Actions](#ci-with-github-actions)
 - [Renovate](#renovate)
 - [PnPM](#pnpm)
-- [VSCode Settings](#vscode-settings)
 - [Zed Settings](#zed-settings)
 - [Readme Table of Contents](#readme-table-of-contents)
 - [Useful TypeScript Libraries](#useful-typescript-libraries)
@@ -108,7 +107,6 @@ Just Works :)
 #### [dprint](https://dprint.dev/) for code formatting
 
 1. Setup as a CI check for PRs
-1. [VSCode extension](https://marketplace.visualstudio.com/items?itemName=dprint.dprint) in recommended extensions list so that when collaborators open the project they'll get prompted to install it if they haven't already.
 1. npm script
 
 #### npm scripts for development lifecycle
@@ -143,13 +141,6 @@ Just Works :)
 #### [PnPM](https://pnpm.io/) for package management
 
 1. Using [Corepack](https://nodejs.org/api/corepack.html#enabling-the-feature). This means the PnPM specified in `package.json` will be used. And note this is a PnPM binary shipped with Node now. In a future version of Node you will not need to even opt-in into Corepack. Make sure you've done `corepack enable` at least once.
-
-#### VSCode Settings
-
-1. Optimize project search by recursively (ready for monorepo) ignoring `build/*`, snapshots, lock files, and more.
-1. On-Save actions for optimal editing experience
-1. List of VSCode extensions that users who open the project will be prompted to install if they don't already.
-1. Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.
 
 #### Zed Settings
 

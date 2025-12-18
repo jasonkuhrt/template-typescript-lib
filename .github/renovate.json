@@ -17,14 +17,14 @@
     },
     {
       "groupName": "dependencies (non-major)",
-      "depTypeList": ["dependencies"],
+      "matchDepTypes": ["dependencies"],
       "updateTypes": ["patch", "minor"],
       "labels": ["type/deps"],
       "semanticCommitType": "deps"
     },
     {
       "groupName": "devDependencies (major)",
-      "depTypeList": ["devDependencies"],
+      "matchDepTypes": ["devDependencies"],
       "updateTypes": ["major"],
       "labels": ["type/chore"],
       "semanticCommitType": "chore",
@@ -32,7 +32,7 @@
     },
     {
       "groupName": "devDependencies (non-major)",
-      "depTypeList": ["devDependencies"],
+      "matchDepTypes": ["devDependencies"],
       "updateTypes": ["patch", "minor"],
       "labels": ["type/chore"],
       "semanticCommitType": "chore",
