@@ -54,6 +54,7 @@
     "@tsconfig/strictest": "2.0.8",
     "@types/node": "25.0.3",
     "@typescript/native-preview": "^7.0.0-dev.20251215.4",
+    "dprint": "^0.49.1",
     "dripip": "0.10.0",
     "execa": "9.6.1",
     "fast-glob": "3.3.3",

@@ -7,7 +7,7 @@ Project template for Node libraries. Features:
 - ESM Module
 - Types: TypeScript
 - Tests: Vitest
-- Linting: ESLint
+- Linting: oxlint
 - Formatting: dprint
 - Publishing: Dripip
 - Continuous Integration: GitHub Actions
@@ -57,7 +57,7 @@ The following will get you a ready to go new repository on GitHub based on this 
 <!-- toc -->
 
 - [TypeScript](#typescript)
-- [ESLint](#eslint)
+- [oxlint](#oxlint)
 - [Vitest](#vitest)
 - [Dripip](#dripip)
 - [Simple succinct friendly low-barrier issue templates](#simple-succinct-friendly-low-barrier-issue-templates)
@@ -75,7 +75,7 @@ The following will get you a ready to go new repository on GitHub based on this 
 
 #### [TypeScript](https://www.typescriptlang.org/) for Type Safety & Productivity
 
-1. Optimal settings for type safety via `@tsconfig/node18` and `@tsconfig/strictest`
+1. Optimal settings for type safety via `@tsconfig/node22` and `@tsconfig/strictest`
 1. `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
 1. Base `tsconfig.json` shared across `tests` and `src`.
 1. Optimal output setup for your users
@@ -87,13 +87,11 @@ The following will get you a ready to go new repository on GitHub based on this 
 
 1. `tsx` for running TypeScript scripts/modules.
 
-#### [ESLint](https://eslint.org/) For Linting
+#### [oxlint](https://oxc.rs/docs/guide/usage/linter) For Linting
 
-1. TypeScript integration
-1. TS type-checker powered eslint checks enabled
+1. Rust-based, extremely fast (~100x faster than ESLint)
+1. Zero config needed
 1. Setup as a CI check for PRs
-1. Always display as warning to keep IDE error feedback for TypeScript (CI enforces warnings).
-1. Auto-fixable import sorting
 
 #### [Vitest](https://vitest.dev) for Testing
 
@@ -119,7 +117,7 @@ Just Works :)
 1. `build` that runs `clean` beforehand
 1. `prepublishOnly` that runs `build` beforehand
 1. `format` to run `dprint` over whole codebase
-1. `lint` to run `eslint` over whole codebase
+1. `lint` to run `oxlint` over whole codebase
 
 #### CI with GitHub Actions
 
@@ -129,9 +127,9 @@ Just Works :)
    1. Formatting Check
    1. Lint Check
    1. Type Check
-   1. Tests across matrix of mac/linux/windows for Node 14/16
+   1. Tests across matrix of mac/linux/windows for Node 22
 1. On trunk:
-   1. Tests across matrix of mac/linux/windows for Node 14/16
+   1. Tests across matrix of mac/linux/windows for Node 22
    1. Automated canary release
 
 #### [Renovate](https://github.com/renovatebot/renovate) configuration
@@ -149,7 +147,7 @@ Just Works :)
 #### VSCode Settings
 
 1. Optimize project search by recursively (ready for monorepo) ignoring `build/*`, snapshots, lock files, and more.
-1. On-Save actions for optimal editing experience (e.g. ESLint auto-fix to [organize imports automatically](https://github.com/lydell/eslint-plugin-simple-import-sort#can-i-use-this-without-autofix))
+1. On-Save actions for optimal editing experience
 1. List of VSCode extensions that users who open the project will be prompted to install if they don't already.
 1. Enable `typescript.enablePromptUseWorkspaceTsdk` so that oneself and collaborators will get prompted to use the workspace version of TypeScript instead of the one in the editor.
 
