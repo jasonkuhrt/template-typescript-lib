@@ -2,171 +2,202 @@
 
 [![trunk](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yaml/badge.svg)](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yaml)
 
-Project template for Node libraries. Features:
+Project template for TypeScript libraries optimized for tree-shaking.
 
-- ESM Module
-- Types: TypeScript
-- Tests: Vitest
-- Linting: oxlint
-- Formatting: dprint
-- Publishing: Dripip
-- Continuous Integration: GitHub Actions
-- Dependency Management: Renovate
-- Community: Issue Templates
+## Features
+
+- ESM-only with proper [`exports`](https://nodejs.org/api/packages.html#exports) configuration
+- Tree-shaking optimized (see [Tree Shaking](#tree-shaking))
+- Types: TypeScript via [tsgo](https://github.com/nicolo-ribaudo/tsgo)
+- Tests: [Vitest](https://vitest.dev)
+- Linting: [oxlint](https://oxc.rs/docs/guide/usage/linter) + [actionlint](https://github.com/rhysd/actionlint)
+- Formatting: [dprint](https://dprint.dev)
+- Package validation: [publint](https://publint.dev) + [attw](https://github.com/arethetypeswrong/arethetypeswrong.github.io)
+- Publishing: [Dripip](https://github.com/prisma-labs/dripip)
+- CI: GitHub Actions
 
 ## Quick Start
 
-Make sure you have `corepack` enabled:
-
-```
-$ corepack enable
+```sh
+corepack enable
 ```
 
-### Used as a GitHub Template Repo
+### GitHub Template
 
-The following will get you a ready to go new repository on GitHub based on this one.
+```sh
+gh repo create mylib --template jasonkuhrt/template-typescript-lib --clone --public && \
+cd mylib && \
+pnpm install && \
+pnpm bootstrap
+```
 
-1. Run:
+Then [setup a repo secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets) called `NPM_TOKEN` for CI publishing.
 
-   ```
-   gh repo create foobar --template jasonkuhrt/template-typescript-lib --clone --public && \
-   cd foobar && \
-   pnpm install && \
-   pnpm bootstrap
-   ```
+### Manual Clone
 
-2. [Setup a repo secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
+```sh
+gh repo clone jasonkuhrt/template-typescript-lib mylib && \
+cd mylib && \
+pnpm install && \
+pnpm bootstrap
+```
 
-### Used With Manual Git Setup
+## Tree Shaking
 
-The following will get you a ready to go new repository on GitHub based on this one.
+This template is configured for aggressive tree-shaking. Bundlers (webpack, esbuild, rollup, vite) can eliminate unused code when consumers import from your library.
 
-1. Run:
+### Configuration
 
-   ```
-   gh repo clone jasonkuhrt/template-typescript-lib <directory> && \
-   cd <directory> && \
-   pnpm install && \
-   pnpm bootstrap
-   ```
+| Field                                                                                          | Value                 | Purpose                                |
+| ---------------------------------------------------------------------------------------------- | --------------------- | -------------------------------------- |
+| [`type`](https://nodejs.org/api/packages.html#type)                                            | `"module"`            | ESM output (required for tree-shaking) |
+| [`sideEffects`](https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free) | `false`               | Tells bundlers all modules are pure    |
+| [`exports`](https://nodejs.org/api/packages.html#exports)                                      | Explicit entry points | Black-boxes package internals          |
 
-2. [Setup a repo secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) called `NPM_TOKEN` containing an [npm token](https://docs.npmjs.com/creating-and-viewing-authentication-tokens) for CI package publishing.
+### TypeScript Settings
+
+| Option                                                                                 | Purpose                                                 |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| [`verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax) | Preserves ES module syntax for bundlers                 |
+| [`isolatedModules`](https://www.typescriptlang.org/tsconfig#isolatedModules)           | Ensures code is compatible with single-file transpilers |
+
+### Validation
+
+Two tools validate your package works correctly for consumers:
+
+- **[publint](https://publint.dev)** - Checks packaging for compatibility across environments
+- **[attw](https://arethetypeswrong.github.io)** - Checks TypeScript types resolve correctly across module resolution modes
+
+Run both with `pnpm check`.
+
+### Code Patterns
+
+#### Prefer named exports
+
+Named exports tree-shake more reliably than default exports. Default exports can cause issues with [CommonJS interop](https://github.com/arethetypeswrong/arethetypeswrong.github.io/blob/main/docs/problems/FalseExportDefault.md).
+
+```ts
+// Preferred
+export const foo = () => {}
+export const bar = () => {}
+
+// Avoid
+export default { foo, bar }
+```
+
+#### Pure annotations
+
+For module-level function calls (HOCs, factories), the [`/*#__PURE__*/`](https://webpack.js.org/guides/tree-shaking/#mark-a-function-call-as-side-effect-free) annotation tells bundlers the call is side-effect free. See [Terser](https://github.com/terser/terser#annotations) and [UglifyJS](https://github.com/nicolo-ribaudo/uglify-js#annotations) docs.
+
+### sideEffects
+
+Bundlers cannot always statically determine if code has side effects. The `sideEffects` field [hints to bundlers](https://webpack.js.org/guides/tree-shaking/#mark-the-file-as-side-effect-free) that your modules are "pure" and safe to prune if unused.
+
+**Important**: If you add modules with side effects (e.g., CSS imports, polyfills, or code that runs on import), update `sideEffects` to an array:
+
+```json
+{
+  "sideEffects": ["./src/polyfill.js", "**/*.css"]
+}
+```
+
+### Barrel Files
+
+[Barrel files](https://basarat.gitbook.io/typescript/main-1/barrel) (index.ts files that re-export from other modules) can [inhibit tree-shaking](https://github.com/vercel/next.js/issues/12557) in some bundlers. This template uses a single entry point which is acceptable for small libraries.
+
+For larger libraries, consider:
+
+- Multiple entry points via `exports` field
+- Avoiding deep re-export chains
+- Testing your bundle size with [bundlephobia](https://bundlephobia.com) or [pkg-size](https://pkg-size.dev)
+
+### References
+
+- [Webpack Tree Shaking Guide](https://webpack.js.org/guides/tree-shaking/)
+- [Tree-Shaking: A Reference Guide (Smashing Magazine)](https://www.smashingmagazine.com/2021/05/tree-shaking-reference-guide/)
+- [package.json exports field (Node.js)](https://nodejs.org/api/packages.html#exports)
+- [Building TypeScript Libraries (Arrange Act Assert)](https://arrangeactassert.com/posts/building-typescript-libraries/)
+- [Are The Types Wrong?](https://arethetypeswrong.github.io)
 
 ## Details
 
 <!-- toc -->
 
 - [TypeScript](#typescript)
-- [oxlint](#oxlint)
-- [Vitest](#vitest)
-- [Dripip](#dripip)
-- [Simple succinct friendly low-barrier issue templates](#simple-succinct-friendly-low-barrier-issue-templates)
-- [dprint](#dprint)
-- [npm scripts for development lifecycle](#npm-scripts-for-development-lifecycle)
-- [CI with GitHub Actions](#ci-with-github-actions)
-- [Renovate](#renovate)
-- [PnPM](#pnpm)
+- [Linting](#linting)
+- [Testing](#testing)
+- [Formatting](#formatting)
+- [npm Scripts](#npm-scripts)
+- [CI](#ci)
 - [Zed Settings](#zed-settings)
-- [Readme Table of Contents](#readme-table-of-contents)
-- [Useful TypeScript Libraries](#useful-typescript-libraries)
 
 <!-- tocstop -->
 
-#### [TypeScript](https://www.typescriptlang.org/) for Type Safety & Productivity
+### TypeScript
 
-1. Optimal settings for type safety via `@tsconfig/node22` and `@tsconfig/strictest`
-1. `.tsbuildinfo` cache setup, output discretely into `node_modules/.cache`
-1. Base `tsconfig.json` shared across `tests` and `src`.
-1. Optimal output setup for your users
+- Strict settings via [`@tsconfig/strictest`](https://github.com/tsconfig/bases)
+- Node 22 target via [`@tsconfig/node22`](https://github.com/tsconfig/bases)
+- Build cache in `node_modules/.cache`
+- Output includes `declaration`, `declarationMap`, `sourceMap` for optimal consumer DX
+- Source published for go-to-definition support
 
-   1. [`declaration`](https://www.typescriptlang.org/tsconfig#declaration) so your users can power their intellisense with your packages typings.
-   1. [`declarationMap`](https://www.typescriptlang.org/tsconfig#declarationMap) enabled to make your published source code be navigated to when your users use "go to definition".
-   1. [`sourceMap`](https://www.typescriptlang.org/tsconfig#sourceMap) enabled to allow your users' tools to base off the source for e.g. stack traces instead of the less informative derived built JS.
-   1. Publish `src` with build files so that jump-to-definition tools work optimally for users.
+### Linting
 
-1. `tsx` for running TypeScript scripts/modules.
+- [oxlint](https://oxc.rs/docs/guide/usage/linter): Rust-based, ~100x faster than ESLint
+- [actionlint](https://github.com/rhysd/actionlint): GitHub Actions workflow validation
 
-#### [oxlint](https://oxc.rs/docs/guide/usage/linter) For Linting
+### Testing
 
-1. Rust-based, extremely fast (~100x faster than ESLint)
-1. Zero config needed
-1. Setup as a CI check for PRs
+[Vitest](https://vitest.dev) - fast, ESM-native test runner.
 
-#### [Vitest](https://vitest.dev) for Testing
+### Formatting
 
-Just Works :)
+[dprint](https://dprint.dev) - fast Rust-based formatter.
 
-#### [Dripip](https://github.com/prisma-labs/dripip) for Releasing
+### npm Scripts
 
-#### Simple succinct friendly low-barrier issue templates
+Parallel execution via pnpm pattern matching:
 
-1. Emojis ✈️
-1. Feature / bug / docs / something-else
-1. Config to display discussions link right in new issue type listing UI
+| Script          | Description                              |
+| --------------- | ---------------------------------------- |
+| `check`         | Run all checks in parallel               |
+| `check:format`  | Verify formatting                        |
+| `check:lint`    | Run oxlint                               |
+| `check:types`   | Type check with tsgo                     |
+| `check:package` | Validate package with publint            |
+| `check:exports` | Validate exports with attw               |
+| `check:ci`      | Lint GitHub Actions workflows            |
+| `fix`           | Run all fixes in parallel                |
+| `fix:format`    | Fix formatting                           |
+| `fix:lint`      | Auto-fix lint issues                     |
+| `build`         | Build with tsgo                          |
+| `test`          | Run tests                                |
 
-#### [dprint](https://dprint.dev/) for code formatting
+### CI
 
-1. Setup as a CI check for PRs
-1. npm script
+**PR workflow:**
 
-#### npm scripts for development lifecycle
+- actionlint, format, lint, types, publint checks
+- Tests on ubuntu/macos/windows, Node 22
 
-1. `clean` to remove cache and build files
-1. `build` that runs `clean` beforehand
-1. `prepublishOnly` that runs `build` beforehand
-1. `format` to run `dprint` over whole codebase
-1. `lint` to run `oxlint` over whole codebase
+**Trunk workflow:**
 
-#### CI with GitHub Actions
+- Automated canary release via [Dripip](https://github.com/prisma-labs/dripip)
 
-1. Separate trunk and pull-request (PR) workflows.
-1. [Dependency install cache](https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#caching-packages-dependencies) enabled.
-1. On PR:
-   1. Formatting Check
-   1. Lint Check
-   1. Type Check
-   1. Tests across matrix of mac/linux/windows for Node 22
-1. On trunk:
-   1. Tests across matrix of mac/linux/windows for Node 22
-   1. Automated canary release
+### Zed Settings
 
-#### [Renovate](https://github.com/renovatebot/renovate) configuration
-
-1. JSON Schema setup for optimal intellisense
-1. Group all non-major devDependency updates into single PR (which "chore" conventional commit type)
-1. Group all major devDependency updates into single PR (with "chore" conventional commit type)
-1. Group all non-major dependency updates into single PR (with "deps" conventional commit type)
-1. Each major dependency update in own PR (with "deps" conventional commit type)
-
-#### [PnPM](https://pnpm.io/) for package management
-
-1. Using [Corepack](https://nodejs.org/api/corepack.html#enabling-the-feature). This means the PnPM specified in `package.json` will be used. And note this is a PnPM binary shipped with Node now. In a future version of Node you will not need to even opt-in into Corepack. Make sure you've done `corepack enable` at least once.
-
-#### Zed Settings
-
-This template does not include a `.zed` directory. Instead, it assumes you configure [tsgo](https://zed.dev/extensions/tsgo) (the native Go-based TypeScript language server) in your global Zed settings (`~/.config/zed/settings.json`):
+Configure [tsgo](https://zed.dev/extensions/tsgo) globally in `~/.config/zed/settings.json`:
 
 ```json
 {
   "languages": {
     "TypeScript": {
       "language_servers": ["tsgo", "!vtsls", "oxc"]
-    },
-    "TSX": {
-      "language_servers": ["tsgo", "!vtsls", "oxc"]
     }
   }
 }
 ```
 
-#### Readme Table of Contents
+---
 
-1. Using [`markdown-toc`](https://github.com/jonschlinkert/markdown-toc)
-
-#### Useful TypeScript Libraries
-
-Here are some TypeScript libraries you might want to use for your new project:
-
-https://github.com/stars/jasonkuhrt/lists/typescript
-
-![Alt](https://repobeats.axiom.co/api/embed/3c932f1cb76da4ad21328bfdd0ad1c6fbbe76a0b.svg 'Repobeats analytics image')
+![Repobeats](https://repobeats.axiom.co/api/embed/3c932f1cb76da4ad21328bfdd0ad1c6fbbe76a0b.svg)

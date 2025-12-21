@@ -5,6 +5,11 @@ concurrency:
 on:
   - pull_request
 jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: rhysd/actionlint-action@v1
   format:
     runs-on: ubuntu-latest
     steps:
