@@ -1,40 +1,36 @@
 {
   "name": "template-typescript-lib",
   "version": "0.0.0-dripip",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/jasonkuhrt/template-typescript-lib.git"
-  },
-  "author": {
-    "name": "Jason Kuhrt",
-    "url": "https://kuhrt.me"
-  },
   "keywords": [
-    "foo",
     "bar",
+    "foo",
     "qux"
   ],
   "bugs": {
     "url": "https://github.com/jasonkuhrt/template-typescript-lib/issues"
   },
-  "packageManager": "pnpm@10.11.0",
   "license": "MIT",
-  "engines": {
-    "node": ">=22"
+  "author": {
+    "name": "Jason Kuhrt",
+    "url": "https://kuhrt.me"
   },
-  "sideEffects": false,
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jasonkuhrt/template-typescript-lib.git"
+  },
   "files": [
-    "src",
     "build",
-    "README.md"
+    "README.md",
+    "src"
   ],
+  "type": "module",
+  "sideEffects": false,
   "exports": {
     ".": "./build/exports/index.js"
   },
   "scripts": {
     "bootstrap": "tsx scripts/bootstrap.ts",
-    "build:toc": "markdown-toc README.md -i --maxdepth 4 && dprint fmt README.md",
+    "build:toc": "markdown-toc README.md -i --maxdepth 4 && oxfmt --write README.md",
     "build:watch:emit": "pnpm build --noCheck --watch",
     "build:watch": "pnpm build --watch",
     "build:emit": "pnpm build --noEmit",
@@ -45,10 +41,10 @@
     "test:unit": "vitest --root src",
     "prepack": "pnpm build",
     "fix": "pnpm run '/fix:.*/'",
-    "fix:format": "dprint fmt",
+    "fix:format": "oxfmt --write",
     "fix:lint": "oxlint --fix src",
     "check": "pnpm run '/check:.*/'",
-    "check:format": "dprint check",
+    "check:format": "oxfmt --check",
     "check:lint": "oxlint src",
     "check:types": "tsgo",
     "check:package": "publint run --strict",
@@ -57,22 +53,26 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",
-    "@tsconfig/node22": "^22.0.5",
+    "@tsconfig/node24": "^24.0.4",
     "@tsconfig/strictest": "2.0.8",
-    "@types/node": "25.0.3",
-    "@typescript/native-preview": "7.0.0-dev.20251219.1",
-    "dprint": "^0.50.2",
+    "@types/node": "25.0.10",
+    "@typescript/native-preview": "7.0.0-dev.20260124.1",
     "dripip": "0.10.0",
     "execa": "9.6.1",
     "fast-glob": "3.3.3",
     "floggy": "0.3.5",
     "fs-jetpack": "5.1.0",
-    "inquirer": "13.1.0",
+    "inquirer": "13.2.1",
     "markdown-toc": "1.2.0",
-    "oxlint": "^1.34.0",
-    "publint": "^0.3.16",
+    "oxfmt": "^0.26.0",
+    "oxlint": "^1.41.0",
+    "publint": "^0.3.17",
     "tsx": "4.21.0",
     "typescript": "5.9.3",
-    "vitest": "4.0.16"
-  }
+    "vitest": "4.0.18"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@10.11.0"
 }

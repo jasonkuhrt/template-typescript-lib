@@ -158,20 +158,20 @@ For larger libraries, consider:
 
 Parallel execution via pnpm pattern matching:
 
-| Script          | Description                              |
-| --------------- | ---------------------------------------- |
-| `check`         | Run all checks in parallel               |
-| `check:format`  | Verify formatting                        |
-| `check:lint`    | Run oxlint                               |
-| `check:types`   | Type check with tsgo                     |
-| `check:package` | Validate package with publint            |
-| `check:exports` | Validate exports with attw               |
-| `check:ci`      | Lint GitHub Actions workflows            |
-| `fix`           | Run all fixes in parallel                |
-| `fix:format`    | Fix formatting                           |
-| `fix:lint`      | Auto-fix lint issues                     |
-| `build`         | Build with tsgo                          |
-| `test`          | Run tests                                |
+| Script          | Description                   |
+| --------------- | ----------------------------- |
+| `check`         | Run all checks in parallel    |
+| `check:format`  | Verify formatting             |
+| `check:lint`    | Run oxlint                    |
+| `check:types`   | Type check with tsgo          |
+| `check:package` | Validate package with publint |
+| `check:exports` | Validate exports with attw    |
+| `check:ci`      | Lint GitHub Actions workflows |
+| `fix`           | Run all fixes in parallel     |
+| `fix:format`    | Fix formatting                |
+| `fix:lint`      | Auto-fix lint issues          |
+| `build`         | Build with tsgo               |
+| `test`          | Run tests                     |
 
 ### CI
 

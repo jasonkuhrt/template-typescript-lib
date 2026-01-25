@@ -45,7 +45,9 @@ prompts.push(
     message: `What is the name of your package?`,
     validate: (input: string) => {
       const pattern = /^(@[a-z0-9-~][a-z0-9-._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/
-      return pattern.test(input) ? true : `Package name must conform to this pattern: ${String(pattern)}`
+      return pattern.test(input)
+        ? true
+        : `Package name must conform to this pattern: ${String(pattern)}`
     },
     ...(gitInfo?.repositoryName ? { default: gitInfo.repositoryName } : {}),
   },
@@ -82,8 +84,7 @@ if (!gitInfo) {
       },
     },
     {
-      message:
-        `Should the GitHub repository be created now? (Note for this to work there must be an environment variable called 'GITHUB_TOKEN' set with sufficient permissions.)`,
+      message: `Should the GitHub repository be created now? (Note for this to work there must be an environment variable called 'GITHUB_TOKEN' set with sufficient permissions.)`,
       type: `confirm`,
       name: `createGithubRepo`,
       default: true,
@@ -104,7 +105,11 @@ console.log()
 log.info(`Replacing file fields with new values`)
 
 replaceInFile(`README.md`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
-replaceInFile(`.github/ISSUE_TEMPLATE/config.yaml`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
+replaceInFile(
+  `.github/ISSUE_TEMPLATE/config.yaml`,
+  /jasonkuhrt\/template-typescript-lib/g,
+  orgAndRepo,
+)
 // Do this after the above, as package name is subset of repo name
 replaceInFile(`package.json`, /jasonkuhrt\/template-typescript-lib/g, orgAndRepo)
 replaceInFile(`package.json`, /template-typescript-lib/g, answers.packageName)
@@ -150,7 +155,6 @@ Fs.remove(`scripts`)
 replaceInFile(`package.json`, /"bootstrap": "tsx scripts\/bootstrap.ts",/, ``)
 
 log.info(`Now go setup a repository secret called NPM_TOKEN for publishing in CI`, {
-  aboutRepoSecerts:
-    `https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets`,
+  aboutRepoSecerts: `https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets`,
   aboutNpmTokens: `https://docs.npmjs.com/creating-and-viewing-authentication-tokens`,
 })
