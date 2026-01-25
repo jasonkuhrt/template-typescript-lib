@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/refs/heads/main/npm/oxlint/configuration_schema.json",
-  "plugins": ["import", "vitest"],
+  "plugins": ["import", "vitest", "typescript"],
   "categories": {
     "correctness": "error",
     "suspicious": "warn",
@@ -13,7 +13,27 @@
     "eslint-plugin-jest/no-standalone-expect": "off",
     "eslint-plugin-jest/no-conditional-expect": "off",
     "eslint-plugin-jest/valid-title": "off",
-    "eslint-plugin-import/no-unassigned-import": "off"
+    "eslint-plugin-import/no-unassigned-import": "off",
+
+    "typescript/no-floating-promises": "error",
+    "typescript/no-misused-promises": "error",
+    "typescript/await-thenable": "error",
+    "typescript/no-unsafe-argument": "error",
+    "typescript/no-unsafe-assignment": "error",
+    "typescript/no-unsafe-call": "error",
+    "typescript/no-unsafe-member-access": "error",
+    "typescript/no-unsafe-return": "error",
+    "typescript/no-for-in-array": "error",
+    "typescript/no-array-delete": "error",
+    "typescript/no-implied-eval": "error",
+    "typescript/no-deprecated": "warn",
+    "typescript/no-base-to-string": "warn",
+    "typescript/no-confusing-void-expression": "warn",
+    "typescript/prefer-includes": "warn",
+    "typescript/prefer-nullish-coalescing": "warn",
+    "typescript/prefer-optional-chain": "warn",
+    "typescript/restrict-plus-operands": "warn",
+    "typescript/unbound-method": "warn"
   },
   "ignorePatterns": ["**/build/**", "**/node_modules/**", "**/*.d.ts"]
 }
