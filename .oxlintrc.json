@@ -9,10 +9,17 @@
   "rules": {
     "eslint/no-unused-vars": "off",
     "eslint/no-unused-expressions": "off",
+    "eslint/eqeqeq": "error",
+    "eslint/no-var": "error",
+    "eslint/array-callback-return": "error",
+    "eslint/no-throw-literal": "error",
     "eslint-plugin-import/no-unassigned-import": "off",
     "eslint-plugin-promise/no-new-statics": "warn",
     "eslint-plugin-promise/no-callback-in-promise": "warn",
     "eslint-plugin-promise/prefer-await-to-then": "warn",
+    "unicorn/prefer-node-protocol": "error",
+    "unicorn/error-message": "error",
+    "oxc/no-accumulating-spread": "warn",
 
     "typescript/no-explicit-any": "warn",
     "typescript/no-unsafe-type-assertion": "warn",
@@ -35,7 +42,15 @@
     "typescript/prefer-nullish-coalescing": "warn",
     "typescript/prefer-optional-chain": "warn",
     "typescript/restrict-plus-operands": "warn",
-    "typescript/unbound-method": "warn"
+    "typescript/unbound-method": "warn",
+    "typescript/switch-exhaustiveness-check": "error",
+    "typescript/consistent-type-imports": "error",
+    "typescript/return-await": "warn",
+    "typescript/only-throw-error": "error",
+    "typescript/no-non-null-assertion": "warn",
+    "typescript/no-import-type-side-effects": "warn",
+    "typescript/no-unnecessary-condition": "warn",
+    "typescript/ban-ts-comment": "warn"
   },
   "ignorePatterns": ["**/build/**", "**/node_modules/**", "**/*.d.ts"]
 }
