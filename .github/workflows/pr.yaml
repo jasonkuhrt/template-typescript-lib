@@ -15,35 +15,44 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm check:format
+      - run: bun run check:format
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm check:lint
+      - run: bun run check:lint
   publint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm check:package
+      - run: bun run check:package
   types:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: pnpm check:types
+      - run: bun run check:types
   test:
     strategy:
       matrix:
         os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
-        node-version: [24.x]
     runs-on: ${{matrix.os}}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-        with:
-          node-version: ${{matrix.node-version}}
-      - run: pnpm build
-      - run: pnpm test
+      - run: bun run build
+      - run: bun run test
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: bun run check:cov
+  exports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: bun run check:exports
