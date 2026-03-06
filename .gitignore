@@ -10,3 +10,10 @@ node_modules/
 
 # Build
 build
+
+# Coverage
+src/coverage
+
+# Dolt database files (added by bd init)
+.dolt/
+*.db
