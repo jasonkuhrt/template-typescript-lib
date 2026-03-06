@@ -47,7 +47,7 @@
     "postpack": "bun scripts/prepack-imports.ts --restore",
     "fix": "bun run fix:format && bun run fix:lint",
     "fix:format": "oxfmt --write",
-    "fix:lint": "oxlint --type-aware --fix --deny-warnings",
+    "fix:lint": "oxlint --type-aware --fix-dangerously --deny-warnings",
     "check": "bun run check:format && bun run check:lint && bun run check:types && bun run test && bun run check:cov && bun run check:package && bun run check:exports && bun run check:ci",
     "check:format": "oxfmt --check",
     "check:lint": "oxlint --type-aware --deny-warnings",
