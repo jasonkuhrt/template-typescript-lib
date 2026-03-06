@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/refs/heads/main/npm/oxlint/configuration_schema.json",
-  "plugins": ["import", "vitest", "typescript"],
+  "plugins": ["import", "promise", "typescript"],
   "categories": {
     "correctness": "error",
     "suspicious": "warn",
@@ -9,12 +9,14 @@
   "rules": {
     "eslint/no-unused-vars": "off",
     "eslint/no-unused-expressions": "off",
-    "eslint-plugin-jest/expect-expect": "off",
-    "eslint-plugin-jest/no-standalone-expect": "off",
-    "eslint-plugin-jest/no-conditional-expect": "off",
-    "eslint-plugin-jest/valid-title": "off",
     "eslint-plugin-import/no-unassigned-import": "off",
+    "eslint-plugin-promise/no-new-statics": "warn",
+    "eslint-plugin-promise/no-callback-in-promise": "warn",
+    "eslint-plugin-promise/prefer-await-to-then": "warn",
 
+    "typescript/no-explicit-any": "warn",
+    "typescript/no-unsafe-type-assertion": "warn",
+    "typescript/no-unnecessary-type-assertion": "warn",
     "typescript/no-floating-promises": "error",
     "typescript/no-misused-promises": "error",
     "typescript/await-thenable": "error",
