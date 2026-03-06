@@ -16,14 +16,14 @@ STAGED_TS=$(echo "$STAGED" | grep '\.ts$' || true)
 
 # Lint — staged .ts files only
 if [ -n "$STAGED_TS" ]; then
-  echo "$STAGED_TS" | xargs oxlint --type-aware --deny-warnings
+  echo "$STAGED_TS" | xargs bunx oxlint --type-aware --deny-warnings
 fi
 
 # Format — all staged files (oxfmt handles non-ts too)
-echo "$STAGED" | xargs oxfmt --check
+echo "$STAGED" | xargs bunx oxfmt --check
 
 # Types — global (a change anywhere can break types anywhere)
-tsgo
+bunx tsgo
 
 # Tests + coverage — only if source changed
 STAGED_SRC=$(echo "$STAGED_TS" | grep '^src/' || true)
