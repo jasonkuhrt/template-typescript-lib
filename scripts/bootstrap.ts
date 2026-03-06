@@ -92,6 +92,7 @@ if (!gitInfo) {
   )
 }
 
+// oxlint-disable-next-line no-unsafe-type-assertion -- inquirer.prompt doesn't support narrowing to custom interfaces
 const answers = (await inquirer.prompt(prompts)) as Answers
 
 const orgAndRepo = `${answers.repositoryOwnerName ?? gitInfo?.repositoryOwnerName ?? ``}/${

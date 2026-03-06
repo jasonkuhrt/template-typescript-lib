@@ -12,6 +12,7 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
     "noEmit": true,
+    "allowImportingTsExtensions": true,
 
     // Downstream DX
     "isolatedModules": true, // performance
