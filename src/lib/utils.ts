@@ -1,15 +1,17 @@
+import { Effect } from 'effect'
+
 /**
- * Does the todo thing.
+ * Greet someone with an effectful computation.
  *
  * @example
  *
  * ```ts
- *   const a = todo({
- *     a: 1,
- *     b: 2,
- *   })
+ *   import { Effect } from 'effect'
+ *   import { greet } from 'template-typescript-lib'
+ *
+ *   const program = greet('World')
+ *   const result = Effect.runSync(program)
+ *   console.log(result) // "Hello, World!"
  * ```
  */
-export const todo = (task?: string): string => {
-  return task ?? `nothing`
-}
+export const greet = (name: string): Effect.Effect<string> => Effect.succeed(`Hello, ${name}!`)

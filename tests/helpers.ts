@@ -1,1 +1,1 @@
-export const foo = `nothing`
+export const testName = `World`

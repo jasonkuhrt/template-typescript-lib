@@ -18,7 +18,10 @@
     "isolatedModules": true, // performance
     "sourceMap": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+
+    // Effect LSP
+    "plugins": [{ "name": "@effect/language-service" }]
   },
   "include": ["src", "tests", "scripts"],
   "exclude": ["build"]

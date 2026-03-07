@@ -2,45 +2,52 @@
 
 [![trunk](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yaml/badge.svg)](https://github.com/jasonkuhrt/template-typescript-lib/actions/workflows/trunk.yaml)
 
-Project template for TypeScript libraries optimized for tree-shaking.
+Project template for TypeScript libraries built with [Effect](https://effect.website), optimized for tree-shaking and agentic engineering.
 
 ## Features
 
 - ESM-only with proper [`exports`](https://nodejs.org/api/packages.html#exports) configuration
 - Tree-shaking optimized (see [Tree Shaking](#tree-shaking))
-- Types: TypeScript via [tsgo](https://github.com/nicolo-ribaudo/tsgo)
-- Tests: [Vitest](https://vitest.dev)
-- Linting: [oxlint](https://oxc.rs/docs/guide/usage/linter) + [actionlint](https://github.com/rhysd/actionlint)
-- Formatting: [dprint](https://dprint.dev)
+- [Effect](https://effect.website) as peer dependency with [LSP integration](#effect)
+- Types: [tsgo](https://github.com/nicolo-ribaudo/tsgo) (Go-based TypeScript compiler)
+- Tests: [bun test](https://bun.sh/docs/cli/test) with 90% coverage gating
+- Linting: [oxlint](https://oxc.rs/docs/guide/usage/linter) (type-aware) + [actionlint](https://github.com/rhysd/actionlint)
+- Formatting: [oxfmt](https://oxc.rs/docs/guide/usage/formatter)
 - Package validation: [publint](https://publint.dev) + [attw](https://github.com/arethetypeswrong/arethetypeswrong.github.io)
 - Publishing: [Dripip](https://github.com/prisma-labs/dripip)
 - CI: GitHub Actions
+- AI: [Effect MCP](#claude-code) for docs, [hookify rule](#claude-code) blocking `tsc`
 
 ## Quick Start
 
 ```sh
-corepack enable
-```
-
-### GitHub Template
-
-```sh
 gh repo create mylib --template jasonkuhrt/template-typescript-lib --clone --public && \
 cd mylib && \
-pnpm install && \
-pnpm bootstrap
+bun install && \
+bun run bootstrap
 ```
 
 Then [setup a repo secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets) called `NPM_TOKEN` for CI publishing.
 
-### Manual Clone
+## Effect
 
-```sh
-gh repo clone jasonkuhrt/template-typescript-lib mylib && \
-cd mylib && \
-pnpm install && \
-pnpm bootstrap
-```
+This template uses [Effect](https://effect.website) as a peer dependency. Consumers of your library must install Effect themselves.
+
+> **Building an app instead of a library?** Move `effect` from `peerDependencies` to `dependencies` in `package.json`.
+
+### Effect LSP
+
+The [Effect Language Service](https://github.com/Effect-TS/language-service) is configured in `tsconfig.json` and provides:
+
+- Real-time diagnostics (floating effects, layer issues, unnecessary code)
+- Intelligent hover info for Effect types and generators
+- Smart completions and refactors (async→Effect, pipe conversion, layer composition)
+
+Build-time diagnostics are enabled via the `prepare` script (`effect-language-service patch`).
+
+### Effect MCP
+
+The project includes an `.mcp.json` configuring the [Effect docs MCP server](https://www.npmjs.com/package/@niklaserik/effect-mcp) for Claude Code, giving AI agents access to Effect documentation.
 
 ## Tree Shaking
 
@@ -68,7 +75,7 @@ Two tools validate your package works correctly for consumers:
 - **[publint](https://publint.dev)** - Checks packaging for compatibility across environments
 - **[attw](https://arethetypeswrong.github.io)** - Checks TypeScript types resolve correctly across module resolution modes
 
-Run both with `pnpm check`.
+Run both with `bun run check`.
 
 ### Code Patterns
 
@@ -129,6 +136,7 @@ For larger libraries, consider:
 - [Formatting](#formatting)
 - [npm Scripts](#npm-scripts)
 - [CI](#ci)
+- [Claude Code](#claude-code)
 - [Zed Settings](#zed-settings)
 
 <!-- tocstop -->
@@ -136,53 +144,64 @@ For larger libraries, consider:
 ### TypeScript
 
 - Strict settings via [`@tsconfig/strictest`](https://github.com/tsconfig/bases)
-- Node 22 target via [`@tsconfig/node22`](https://github.com/tsconfig/bases)
+- Node 24 target via [`@tsconfig/node24`](https://github.com/tsconfig/bases)
 - Build cache in `node_modules/.cache`
 - Output includes `declaration`, `declarationMap`, `sourceMap` for optimal consumer DX
 - Source published for go-to-definition support
+- `.ts` import specifiers with `rewriteRelativeImportExtensions` at build time
+- [Subpath imports](https://nodejs.org/api/packages.html#subpath-imports) (`#lib/*`) for clean internal paths
 
 ### Linting
 
-- [oxlint](https://oxc.rs/docs/guide/usage/linter): Rust-based, ~100x faster than ESLint
+- [oxlint](https://oxc.rs/docs/guide/usage/linter): Rust-based, type-aware with `--deny-warnings`
+- [oxlint-tsgolint](https://github.com/nicolo-ribaudo/oxlint-tsgolint): Enables type-aware rules via tsgo
 - [actionlint](https://github.com/rhysd/actionlint): GitHub Actions workflow validation
+- `--fix-dangerously` enabled for auto-fix (safe with strict types + high coverage)
 
 ### Testing
 
-[Vitest](https://vitest.dev) - fast, ESM-native test runner.
+[bun test](https://bun.sh/docs/cli/test) with coverage gating at 90% lines / 90% functions.
 
 ### Formatting
 
-[dprint](https://dprint.dev) - fast Rust-based formatter.
+[oxfmt](https://oxc.rs/docs/guide/usage/formatter) - Rust-based formatter from the oxc project.
 
 ### npm Scripts
 
-Parallel execution via pnpm pattern matching:
-
-| Script          | Description                   |
-| --------------- | ----------------------------- |
-| `check`         | Run all checks in parallel    |
-| `check:format`  | Verify formatting             |
-| `check:lint`    | Run oxlint                    |
-| `check:types`   | Type check with tsgo          |
-| `check:package` | Validate package with publint |
-| `check:exports` | Validate exports with attw    |
-| `check:ci`      | Lint GitHub Actions workflows |
-| `fix`           | Run all fixes in parallel     |
-| `fix:format`    | Fix formatting                |
-| `fix:lint`      | Auto-fix lint issues          |
-| `build`         | Build with tsgo               |
-| `test`          | Run tests                     |
+| Script          | Description                              |
+| --------------- | ---------------------------------------- |
+| `check`         | Run all checks sequentially              |
+| `check:format`  | Verify formatting                        |
+| `check:lint`    | Run oxlint (type-aware)                  |
+| `check:types`   | Type check with tsgo                     |
+| `check:cov`     | Run tests + enforce coverage thresholds  |
+| `check:package` | Validate package with publint            |
+| `check:exports` | Validate exports with attw               |
+| `check:ci`      | Lint GitHub Actions workflows            |
+| `fix`           | Auto-fix format + lint                   |
+| `fix:format`    | Fix formatting                           |
+| `fix:lint`      | Auto-fix lint issues (--fix-dangerously) |
+| `build`         | Build with tsgo                          |
+| `test`          | Run tests                                |
 
 ### CI
 
 **PR workflow:**
 
-- actionlint, format, lint, types, publint checks
-- Tests on ubuntu/macos/windows, Node 22
+- actionlint, format, lint, types, publint, exports checks
+- Tests on ubuntu/macos/windows
+- Coverage gating
 
 **Trunk workflow:**
 
 - Automated canary release via [Dripip](https://github.com/prisma-labs/dripip)
+
+### Claude Code
+
+This template includes AI tooling for [Claude Code](https://docs.anthropic.com/en/docs/claude-code):
+
+- **Effect MCP** (`.mcp.json`): Provides Effect documentation access to Claude Code agents
+- **Hookify rule** (`.claude/hookify.use-tsgo.md`): Blocks `tsc` usage, directs agents to use `tsgo` instead
 
 ### Zed Settings
 

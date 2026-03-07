@@ -19,8 +19,11 @@ if [ -n "$STAGED_TS" ]; then
   echo "$STAGED_TS" | xargs bunx oxlint --type-aware --deny-warnings
 fi
 
-# Format — all staged files (oxfmt handles non-ts too)
-echo "$STAGED" | xargs bunx oxfmt --check
+# Format — staged files (filter to types oxfmt handles)
+STAGED_FMT=$(echo "$STAGED" | grep -E '\.(ts|js|tsx|jsx|json|jsonc)$' || true)
+if [ -n "$STAGED_FMT" ]; then
+  echo "$STAGED_FMT" | xargs bunx oxfmt --check
+fi
 
 # Types — global (a change anywhere can break types anywhere)
 bunx tsgo
