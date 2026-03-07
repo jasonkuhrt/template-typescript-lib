@@ -29,6 +29,14 @@ bun run bootstrap
 
 Then [setup a repo secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets) called `NPM_TOKEN` for CI publishing.
 
+To enable the local Git hooks in your clone:
+
+```sh
+git config core.hooksPath .beads/hooks
+```
+
+The pre-commit hook formats the staged JS/TS/JSON changeset with `oxfmt` before lint, types, and tests.
+
 ## Effect
 
 This template uses [Effect](https://effect.website) as a peer dependency. Consumers of your library must install Effect themselves.

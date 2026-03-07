@@ -8,28 +8,64 @@ if command -v bd >/dev/null 2>&1; then
 fi
 # --- END BEADS INTEGRATION v0.59.0 ---
 
-# Staged files (excluding deleted)
 STAGED=$(git diff --cached --name-only --diff-filter=d)
 if [ -z "$STAGED" ]; then exit 0; fi
 
 STAGED_TS=$(git diff --cached --name-only --diff-filter=d -- '*.ts')
 STAGED_FMT=$(git diff --cached --name-only --diff-filter=d -- '*.ts' '*.js' '*.tsx' '*.jsx' '*.json' '*.jsonc')
 
-# Format staged files in place and re-stage the result before other checks run.
+format_staged_file() {
+  FILE_PATH=$1
+  INDEX_ENTRY=$(git ls-files --stage -- "$FILE_PATH" | awk 'NR==1 { print $1 " " $2 }')
+  if [ -z "$INDEX_ENTRY" ]; then
+    return 0
+  fi
+
+  FILE_MODE=$(printf '%s\n' "$INDEX_ENTRY" | awk '{ print $1 }')
+  WORKTREE_CLEAN=1
+  git diff --quiet -- "$FILE_PATH" || WORKTREE_CLEAN=0
+
+  ORIGINAL_FILE=$(mktemp)
+  FORMATTED_FILE=$(mktemp)
+
+  if ! git show ":$FILE_PATH" > "$ORIGINAL_FILE"; then
+    rm -f "$ORIGINAL_FILE" "$FORMATTED_FILE"
+    return 1
+  fi
+
+  if ! bunx oxfmt --stdin-filepath "$FILE_PATH" < "$ORIGINAL_FILE" > "$FORMATTED_FILE"; then
+    rm -f "$ORIGINAL_FILE" "$FORMATTED_FILE"
+    return 1
+  fi
+
+  if cmp -s "$ORIGINAL_FILE" "$FORMATTED_FILE"; then
+    rm -f "$ORIGINAL_FILE" "$FORMATTED_FILE"
+    return 0
+  fi
+
+  FORMATTED_BLOB=$(git hash-object -w --stdin < "$FORMATTED_FILE")
+  git update-index --cacheinfo "$FILE_MODE,$FORMATTED_BLOB,$FILE_PATH"
+
+  if [ "$WORKTREE_CLEAN" -eq 1 ]; then
+    cp -f "$FORMATTED_FILE" "$FILE_PATH"
+  fi
+
+  rm -f "$ORIGINAL_FILE" "$FORMATTED_FILE"
+}
+
 if [ -n "$STAGED_FMT" ]; then
-  git diff --cached --name-only --diff-filter=d -z -- '*.ts' '*.js' '*.tsx' '*.jsx' '*.json' '*.jsonc' | xargs -0 bunx oxfmt --write
-  git diff --cached --name-only --diff-filter=d -z -- '*.ts' '*.js' '*.tsx' '*.jsx' '*.json' '*.jsonc' | xargs -0 git add --
+  git diff --cached --name-only --diff-filter=d -- '*.ts' '*.js' '*.tsx' '*.jsx' '*.json' '*.jsonc' | while IFS= read -r FILE_PATH; do
+    [ -n "$FILE_PATH" ] || continue
+    format_staged_file "$FILE_PATH" || exit 1
+  done
 fi
 
-# Lint — staged .ts files only
 if [ -n "$STAGED_TS" ]; then
   git diff --cached --name-only --diff-filter=d -z -- '*.ts' | xargs -0 bunx oxlint --type-aware --deny-warnings
 fi
 
-# Types — global (a change anywhere can break types anywhere)
 bunx tsgo
 
-# Tests + coverage — only if source changed
 STAGED_SRC=$(echo "$STAGED_TS" | grep '^src/' || true)
 STAGED_TESTS=$(echo "$STAGED_TS" | grep '\.test\.ts$' || true)
 if [ -n "$STAGED_SRC" ] || [ -n "$STAGED_TESTS" ]; then
