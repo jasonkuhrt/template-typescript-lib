@@ -8,7 +8,7 @@ Project template for TypeScript libraries built with [Effect](https://effect.web
 
 - ESM-only with proper [`exports`](https://nodejs.org/api/packages.html#exports) configuration
 - Tree-shaking optimized (see [Tree Shaking](#tree-shaking))
-- [Effect](https://effect.website) as peer dependency with [LSP integration](#effect)
+- [Effect](https://effect.website) as peer dependency
 - Types: [tsgo](https://github.com/nicolo-ribaudo/tsgo) (Go-based TypeScript compiler)
 - Tests: [bun test](https://bun.sh/docs/cli/test) with 90% coverage gating
 - Linting: [oxlint](https://oxc.rs/docs/guide/usage/linter) (type-aware) + [actionlint](https://github.com/rhysd/actionlint)
@@ -34,18 +34,6 @@ Then [setup a repo secret](https://docs.github.com/en/actions/security-guides/en
 This template uses [Effect](https://effect.website) as a peer dependency. Consumers of your library must install Effect themselves.
 
 > **Building an app instead of a library?** Move `effect` from `peerDependencies` to `dependencies` in `package.json`.
-
-### Effect LSP
-
-The [Effect Language Service](https://github.com/Effect-TS/language-service) is configured in `tsconfig.json` and provides:
-
-- Real-time diagnostics (floating effects, layer issues, unnecessary code)
-- Intelligent hover info for Effect types and generators
-- Smart completions and refactors (async→Effect, pipe conversion, layer composition)
-
-Build-time diagnostics are enabled via the `prepare` script (`effect-language-service patch`).
-
-### Effect MCP
 
 The project includes an `.mcp.json` configuring the [Effect MCP server](https://www.npmjs.com/package/effect-mcp) by tim-smart for Claude Code, giving AI agents access to Effect documentation.
 
