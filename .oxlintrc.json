@@ -52,5 +52,67 @@
     "typescript/no-unnecessary-condition": "warn",
     "typescript/ban-ts-comment": "warn"
   },
+  "overrides": [
+    {
+      "files": ["src/**/*.ts", "src/**/*.tsx", "scripts/**/*.ts", "scripts/**/*.tsx"],
+      "rules": {
+        "import/no-nodejs-modules": "error",
+        "eslint/no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "execa"
+              },
+              {
+                "name": "fs-jetpack"
+              },
+              {
+                "name": "lodash"
+              },
+              {
+                "name": "lodash-es"
+              },
+              {
+                "name": "ramda"
+              },
+              {
+                "name": "axios"
+              },
+              {
+                "name": "got"
+              },
+              {
+                "name": "node-fetch"
+              },
+              {
+                "name": "cross-fetch"
+              },
+              {
+                "name": "ky"
+              },
+              {
+                "name": "p-map"
+              },
+              {
+                "name": "p-limit"
+              },
+              {
+                "name": "p-queue"
+              }
+            ],
+            "patterns": ["lodash/*", "lodash-es/*"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/**/*.test.ts", "src/**/*.spec.ts", "src/**/*.test.tsx", "src/**/*.spec.tsx"],
+      "rules": {
+        "import/no-nodejs-modules": "off",
+        "eslint/no-restricted-imports": "off"
+      }
+    }
+  ],
   "ignorePatterns": ["**/build/**", "**/node_modules/**", "**/*.d.ts"]
 }

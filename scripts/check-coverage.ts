@@ -1,5 +1,16 @@
 #!/usr/bin/env tsx
 
+import { FileSystem } from '@effect/platform'
+import { NodeContext } from '@effect/platform-node'
+import { Effect } from 'effect'
+
+type CoverageRecord = {
+  linesFound: number
+  linesHit: number
+  functionsFound: number
+  functionsHit: number
+}
+
 const [lcovPath, minLinesInput = '85', minFunctionsInput = '55'] = process.argv.slice(2)
 
 if (!lcovPath) {
@@ -15,16 +26,13 @@ if (!Number.isFinite(minLines) || !Number.isFinite(minFunctions)) {
   process.exit(1)
 }
 
-type CoverageRecord = {
-  linesFound: number
-  linesHit: number
-  functionsFound: number
-  functionsHit: number
-}
+const text = await Effect.runPromise(
+  Effect.gen(function* () {
+    const fs = yield* FileSystem.FileSystem
+    return yield* fs.readFileString(lcovPath)
+  }).pipe(Effect.provide(NodeContext.layer)),
+)
 
-import { readFileSync } from 'node:fs'
-
-const text = readFileSync(lcovPath, 'utf-8')
 const records: CoverageRecord[] = []
 let current: CoverageRecord = { linesFound: 0, linesHit: 0, functionsFound: 0, functionsHit: 0 }
 
