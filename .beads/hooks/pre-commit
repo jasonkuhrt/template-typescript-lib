@@ -12,17 +12,17 @@ fi
 STAGED=$(git diff --cached --name-only --diff-filter=d)
 if [ -z "$STAGED" ]; then exit 0; fi
 
-STAGED_TS=$(echo "$STAGED" | grep '\.ts$' || true)
+STAGED_TS=$(git diff --cached --name-only --diff-filter=d -- '*.ts')
 
 # Lint — staged .ts files only
 if [ -n "$STAGED_TS" ]; then
-  echo "$STAGED_TS" | xargs bunx oxlint --type-aware --deny-warnings
+  git diff --cached --name-only --diff-filter=d -z -- '*.ts' | xargs -0 bunx oxlint --type-aware --deny-warnings
 fi
 
 # Format — staged files (filter to types oxfmt handles)
-STAGED_FMT=$(echo "$STAGED" | grep -E '\.(ts|js|tsx|jsx|json|jsonc)$' || true)
+STAGED_FMT=$(git diff --cached --name-only --diff-filter=d -- '*.ts' '*.js' '*.tsx' '*.jsx' '*.json' '*.jsonc')
 if [ -n "$STAGED_FMT" ]; then
-  echo "$STAGED_FMT" | xargs bunx oxfmt --check
+  git diff --cached --name-only --diff-filter=d -z -- '*.ts' '*.js' '*.tsx' '*.jsx' '*.json' '*.jsonc' | xargs -0 bunx oxfmt --check
 fi
 
 # Types — global (a change anywhere can break types anywhere)
