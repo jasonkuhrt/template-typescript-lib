@@ -47,7 +47,7 @@ Build-time diagnostics are enabled via the `prepare` script (`effect-language-se
 
 ### Effect MCP
 
-The project includes an `.mcp.json` configuring the [Effect docs MCP server](https://www.npmjs.com/package/@niklaserik/effect-mcp) for Claude Code, giving AI agents access to Effect documentation.
+The project includes an `.mcp.json` configuring the [Effect MCP server](https://www.npmjs.com/package/effect-mcp) by tim-smart for Claude Code, giving AI agents access to Effect documentation.
 
 ## Tree Shaking
 
