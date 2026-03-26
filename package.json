@@ -55,9 +55,7 @@
     "check:cov": "bun run test:coverage && bun scripts/check-coverage.ts coverage/lcov.info 95",
     "check:package": "publint run --strict",
     "check:exports": "attw --pack . --profile esm-only",
-    "check:ci": "actionlint",
-    "hooks:install": "git-hooks install",
-    "pre-commit": "lint-staged --relative"
+    "check:ci": "actionlint"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.2",

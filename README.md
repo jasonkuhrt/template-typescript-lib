@@ -10,7 +10,7 @@ Project template for TypeScript libraries built with [Effect](https://effect.web
 - Tree-shaking optimized (see [Tree Shaking](#tree-shaking))
 - [Effect](https://effect.website) as peer dependency
 - Types: [tsgo](https://github.com/nicolo-ribaudo/tsgo) (Go-based TypeScript compiler)
-- Tests: [bun test](https://bun.sh/docs/cli/test) with 90% coverage gating
+- Tests: [bun test](https://bun.sh/docs/cli/test) with 95% coverage gating
 - Linting: [oxlint](https://oxc.rs/docs/guide/usage/linter) (type-aware) + [actionlint](https://github.com/rhysd/actionlint)
 - Formatting: [oxfmt](https://oxc.rs/docs/guide/usage/formatter)
 - Package validation: [publint](https://publint.dev) + [attw](https://github.com/arethetypeswrong/arethetypeswrong.github.io)
@@ -28,6 +28,14 @@ bun run bootstrap
 ```
 
 Then [setup a repo secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets) called `NPM_TOKEN` for CI publishing.
+
+If you use [`git-hooks`](https://github.com/jasonkuhrt/git-hooks), run this one-time local setup after bootstrap:
+
+```sh
+git-hooks install
+```
+
+This template tracks its pre-commit behavior in `.git-hooks/pre-commit.d/`, so installation is explicit and local while hook intent stays in the repo.
 
 ## Effect
 
@@ -145,10 +153,11 @@ For larger libraries, consider:
 - [oxlint-tsgolint](https://github.com/nicolo-ribaudo/oxlint-tsgolint): Enables type-aware rules via tsgo
 - [actionlint](https://github.com/rhysd/actionlint): GitHub Actions workflow validation
 - `--fix-dangerously` enabled for auto-fix (safe with strict types + high coverage)
+- Staged-file pre-commit checks are tracked in `.git-hooks/pre-commit.d/10-lint-staged.sh` and run `lint-staged`, which applies `oxfmt` and `oxlint` only to staged files when `git-hooks` is installed
 
 ### Testing
 
-[bun test](https://bun.sh/docs/cli/test) with coverage gating at 90% lines / 90% functions.
+[bun test](https://bun.sh/docs/cli/test) with coverage gating at 95% lines / 95% functions.
 
 ### Formatting
 
