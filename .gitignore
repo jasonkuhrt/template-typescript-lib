@@ -12,7 +12,7 @@ node_modules/
 build
 
 # Coverage
-src/coverage
+coverage
 
 # Dolt database files (added by bd init)
 .dolt/
